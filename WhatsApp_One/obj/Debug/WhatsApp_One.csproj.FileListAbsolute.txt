@@ -1,0 +1,10 @@
+C:\Users\salvatore.romano\source\repos\WhatsApp_One\WhatsApp_One\bin\Debug\WhatsApp_One.exe.config
+C:\Users\salvatore.romano\source\repos\WhatsApp_One\WhatsApp_One\bin\Debug\WhatsApp_One.exe
+C:\Users\salvatore.romano\source\repos\WhatsApp_One\WhatsApp_One\bin\Debug\WhatsApp_One.pdb
+C:\Users\salvatore.romano\source\repos\WhatsApp_One\WhatsApp_One\obj\Debug\WhatsApp_One.csprojAssemblyReference.cache
+C:\Users\salvatore.romano\source\repos\WhatsApp_One\WhatsApp_One\obj\Debug\WhatsApp_One.Properties.Resources.resources
+C:\Users\salvatore.romano\source\repos\WhatsApp_One\WhatsApp_One\obj\Debug\WhatsApp_One.csproj.GenerateResource.cache
+C:\Users\salvatore.romano\source\repos\WhatsApp_One\WhatsApp_One\obj\Debug\WhatsApp_One.csproj.CoreCompileInputs.cache
+C:\Users\salvatore.romano\source\repos\WhatsApp_One\WhatsApp_One\obj\Debug\WhatsApp_One.exe
+C:\Users\salvatore.romano\source\repos\WhatsApp_One\WhatsApp_One\obj\Debug\WhatsApp_One.pdb
+C:\Users\salvatore.romano\source\repos\WhatsApp_One\WhatsApp_One\obj\Debug\WhatsApp_One.frmMain.resources
