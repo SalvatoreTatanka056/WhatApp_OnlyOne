@@ -58,38 +58,30 @@ namespace WhatsApp_One
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
+
             try
             {
+                // binding Socket
+                epLocal = new IPEndPoint(IPAddress.Parse(txtLocalIp.Text), Convert.ToInt32(txtLocalPort.Text));
+                sck.Bind(epLocal);
 
-                try
-                {
-                    // binding Socket
-                    epLocal = new IPEndPoint(IPAddress.Parse(txtLocalIp.Text), Convert.ToInt32(txtLocalPort.Text));
-                    sck.Bind(epLocal);
+                // Connectinf to remote IP
+                epRemote = new IPEndPoint(IPAddress.Parse(txtRemoteIp.Text), Convert.ToInt32(txtRemotePort.Text));
+                sck.Connect(epRemote);
 
-                    // Connectinf to remote IP
-                    epRemote = new IPEndPoint(IPAddress.Parse(txtRemoteIp.Text), Convert.ToInt32(txtRemotePort.Text));
-                    sck.Connect(epRemote);
+                // Listening the special port
+                buffer = new byte[1500];
+                sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
 
-                    // Listening the special port
-                    buffer = new byte[1500];
-                    sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
-
-
-                }
-                catch (System.FormatException ex1)
-                {
-
-                    MessageBox.Show(ex1.Message);
-                }
 
             }
-            catch (System.Net.Sockets.SocketException ex)
+            catch (System.FormatException ex1)
             {
 
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex1.Message);
             }
 
+    
         }
 
         private void MessageCallBack(IAsyncResult ar)
@@ -132,6 +124,22 @@ namespace WhatsApp_One
 
         private void btnSendMessage_Click(object sender, EventArgs e)
         {
+       
+
+        }
+
+        private void conversationCtrl1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmMain_Shown(object sender, EventArgs e)
+        {
+                conversationCtrl1.Rebind();
+        }
+
+        private void btnSendMessage_Click_1(object sender, EventArgs e)
+        {
             ASCIIEncoding aEncoding = new ASCIIEncoding();
             byte[] sendingMessage = new byte[1500];
             sendingMessage = aEncoding.GetBytes(txtSendMessage.Text);
@@ -149,21 +157,7 @@ namespace WhatsApp_One
                 MessageBox.Show(ex.Message);
 
             }
-           
-            //conversationCtrl1.MeText
-            //Adding this Message into listbox
-           // lstMain.Items.Add("Me: " + txtSendMessage.Text);
 
-        }
-
-        private void conversationCtrl1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void frmMain_Shown(object sender, EventArgs e)
-        {
-                conversationCtrl1.Rebind();
         }
 
         private string GerLocalIP()
