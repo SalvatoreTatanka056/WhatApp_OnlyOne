@@ -23,7 +23,6 @@ namespace WhatsApp_One
         Socket sck;
         EndPoint epLocal, epRemote;
         byte[] buffer;
-
         public frmMain()
         {
             InitializeComponent();
