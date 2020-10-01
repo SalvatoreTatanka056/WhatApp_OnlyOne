@@ -143,7 +143,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(22, 261);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(389, 141);
+            this.groupBox2.Size = new System.Drawing.Size(389, 107);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = " (Friend) MIO IP ";
@@ -187,9 +187,9 @@
             this.groupBox1.Controls.Add(this.txtLocalPort);
             this.groupBox1.Controls.Add(this.txtLocalIp);
             this.groupBox1.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(22, 114);
+            this.groupBox1.Location = new System.Drawing.Point(22, 126);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(389, 141);
+            this.groupBox1.Size = new System.Drawing.Size(389, 105);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "  (Me)  IP AMICO  ";
