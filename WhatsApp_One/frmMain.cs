@@ -143,7 +143,6 @@ namespace WhatsApp_One
                 buffer = new byte[1500];
                 sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
 
-
             }
             catch(Exception ex)
             {
@@ -193,9 +192,6 @@ namespace WhatsApp_One
                 conversationCtrl1.IsIncomingColumnName = table.incomingColumn.ColumnName;
 
                 conversationCtrl1.Rebind();
-
-               
-
             }
             catch (System.Net.Sockets.SocketException ex)
             {
