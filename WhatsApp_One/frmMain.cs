@@ -152,7 +152,7 @@ namespace WhatsApp_One
                 newRow = table.NewConversationMessagesRow();
                 newRow.time = DateTime.Now;
                 newRow.text = "Me: " + txtSendMessage.Text;
-                newRow.incoming = false;
+                newRow.incoming = true;
                 table.AddConversationMessagesRow(newRow);
 
                 conversationCtrl1.DataSource = table;
