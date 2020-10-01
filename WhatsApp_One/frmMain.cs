@@ -44,23 +44,19 @@ namespace WhatsApp_One
             conversationCtrl1.DateColumnName = table.timeColumn.ColumnName;
             conversationCtrl1.IsIncomingColumnName = table.incomingColumn.ColumnName;
 
-
             // set up socket
             sck = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             sck.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress,true);
 
-
             // get user IP
             txtLocalIp.Text = GerLocalIP();
             txtRemoteIp.Text = GerLocalIP();
-
         }
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
 
             int iretcode = 0;
-
 
             if ((txtLocalPort.Text == "") || (txtRemotePort.Text == ""))
                 return;
@@ -72,7 +68,6 @@ namespace WhatsApp_One
 
                 try
                 {
-
                     sck.Bind(epLocal);
                 }
                 catch(System.Net.Sockets.SocketException ex)
@@ -104,7 +99,6 @@ namespace WhatsApp_One
                 iretcode = 1;
                 MessageBox.Show(ex1.Message);
             }
-
 
             if(iretcode == 0)
             {
@@ -172,7 +166,6 @@ namespace WhatsApp_One
             byte[] sendingMessage = new byte[1500];
             sendingMessage = aEncoding.GetBytes(txtSendMessage.Text);
 
-
             try
             {
                 sck.Send(sendingMessage);
@@ -199,7 +192,6 @@ namespace WhatsApp_One
             }
 
         }
-
         private string GerLocalIP()
         {
             IPHostEntry host;
