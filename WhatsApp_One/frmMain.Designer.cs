@@ -47,6 +47,7 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.conversationCtrl1 = new WhatsApp_One.ControlsSuite.ConversationCtrl();
+            this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -78,6 +79,7 @@
             // 
             this.splitContainer1.Panel1.AutoScroll = true;
             this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.splitContainer1.Panel1.Controls.Add(this.propertyGrid1);
             this.splitContainer1.Panel1.Controls.Add(this.btnConnect);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox2);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
@@ -91,7 +93,7 @@
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(208, 393);
+            this.btnConnect.Location = new System.Drawing.Point(22, 66);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(125, 23);
             this.btnConnect.TabIndex = 2;
@@ -137,7 +139,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtLocalPort);
             this.groupBox1.Controls.Add(this.txtLocalIp);
-            this.groupBox1.Location = new System.Drawing.Point(22, 76);
+            this.groupBox1.Location = new System.Drawing.Point(28, 95);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(311, 141);
             this.groupBox1.TabIndex = 8;
@@ -182,7 +184,7 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.txtRemotePort);
             this.groupBox2.Controls.Add(this.txtRemoteIp);
-            this.groupBox2.Location = new System.Drawing.Point(22, 223);
+            this.groupBox2.Location = new System.Drawing.Point(34, 242);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(311, 141);
             this.groupBox2.TabIndex = 9;
@@ -206,9 +208,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSendMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSendMessage.Location = new System.Drawing.Point(62, 43);
+            this.txtSendMessage.Location = new System.Drawing.Point(62, 35);
             this.txtSendMessage.Name = "txtSendMessage";
-            this.txtSendMessage.Size = new System.Drawing.Size(1001, 26);
+            this.txtSendMessage.Size = new System.Drawing.Size(792, 26);
             this.txtSendMessage.TabIndex = 7;
             // 
             // toolStrip1
@@ -279,6 +281,14 @@
             this.conversationCtrl1.Size = new System.Drawing.Size(894, 685);
             this.conversationCtrl1.TabIndex = 10;
             // 
+            // propertyGrid1
+            // 
+            this.propertyGrid1.Location = new System.Drawing.Point(22, 399);
+            this.propertyGrid1.Name = "propertyGrid1";
+            this.propertyGrid1.SelectedObject = this.conversationCtrl1;
+            this.propertyGrid1.Size = new System.Drawing.Size(389, 585);
+            this.propertyGrid1.TabIndex = 10;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -331,6 +341,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private ControlsSuite.ConversationCtrl conversationCtrl1;
+        private System.Windows.Forms.PropertyGrid propertyGrid1;
     }
 }
 
