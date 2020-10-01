@@ -149,6 +149,20 @@ namespace WhatsApp_One
             {
                 sck.Send(sendingMessage);
 
+                newRow = table.NewConversationMessagesRow();
+                newRow.time = DateTime.Now;
+                newRow.text = "Me: " + txtSendMessage.Text;
+                newRow.incoming = false;
+                table.AddConversationMessagesRow(newRow);
+
+                conversationCtrl1.DataSource = table;
+                conversationCtrl1.MessageColumnName = table.textColumn.ColumnName;
+                conversationCtrl1.IdColumnName = table.idColumn.ColumnName;
+                conversationCtrl1.DateColumnName = table.timeColumn.ColumnName;
+                conversationCtrl1.IsIncomingColumnName = table.incomingColumn.ColumnName;
+
+                conversationCtrl1.Rebind();
+
             }
             catch (System.Net.Sockets.SocketException ex)
             {
@@ -157,6 +171,10 @@ namespace WhatsApp_One
                 MessageBox.Show(ex.Message);
 
             }
+
+
+
+    
 
         }
 
