@@ -16,7 +16,7 @@ namespace WhatsApp_One
 
     public partial class frmMain : Form
     {
-        //load some data to table and setup the conversation control
+
         public static DataSet1.ConversationMessagesDataTable table = new DataSet1.ConversationMessagesDataTable();
         public DataSet1.ConversationMessagesRow newRow = table.NewConversationMessagesRow();
 
