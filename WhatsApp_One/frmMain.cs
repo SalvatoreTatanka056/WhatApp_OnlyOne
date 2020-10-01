@@ -29,19 +29,14 @@ namespace WhatsApp_One
             InitializeComponent();
             if (DesignMode)
                 return;
-
-
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
-
         
             newRow.time = DateTime.Now;
             newRow.text = "Hi!";
             newRow.incoming = true;
             table.AddConversationMessagesRow(newRow);
-
 
             conversationCtrl1.DataSource = table;
             conversationCtrl1.MessageColumnName = table.textColumn.ColumnName;
@@ -63,17 +58,37 @@ namespace WhatsApp_One
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
-            // binding Socket
-            epLocal = new IPEndPoint(IPAddress.Parse(txtLocalIp.Text), Convert.ToInt32(txtLocalPort.Text));
-            sck.Bind(epLocal);
+            try
+            {
 
-            // Connectinf to remote IP
-            epRemote = new IPEndPoint(IPAddress.Parse(txtRemoteIp.Text), Convert.ToInt32(txtRemotePort.Text));
-            sck.Connect(epRemote);
+                try
+                {
+                    // binding Socket
+                    epLocal = new IPEndPoint(IPAddress.Parse(txtLocalIp.Text), Convert.ToInt32(txtLocalPort.Text));
+                    sck.Bind(epLocal);
 
-            // Listening the special port
-            buffer = new byte[1500];
-            sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
+                    // Connectinf to remote IP
+                    epRemote = new IPEndPoint(IPAddress.Parse(txtRemoteIp.Text), Convert.ToInt32(txtRemotePort.Text));
+                    sck.Connect(epRemote);
+
+                    // Listening the special port
+                    buffer = new byte[1500];
+                    sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
+
+
+                }
+                catch (System.FormatException ex1)
+                {
+
+                    MessageBox.Show(ex1.Message);
+                }
+
+            }
+            catch (System.Net.Sockets.SocketException ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
 
         }
 
@@ -104,7 +119,6 @@ namespace WhatsApp_One
 
                 conversationCtrl1.Rebind();
 
-
                 buffer = new byte[1500];
                 sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
 
@@ -122,8 +136,20 @@ namespace WhatsApp_One
             byte[] sendingMessage = new byte[1500];
             sendingMessage = aEncoding.GetBytes(txtSendMessage.Text);
 
-            sck.Send(sendingMessage);
 
+            try
+            {
+                sck.Send(sendingMessage);
+
+            }
+            catch (System.Net.Sockets.SocketException ex)
+            {
+
+
+                MessageBox.Show(ex.Message);
+
+            }
+           
             //conversationCtrl1.MeText
             //Adding this Message into listbox
            // lstMain.Items.Add("Me: " + txtSendMessage.Text);

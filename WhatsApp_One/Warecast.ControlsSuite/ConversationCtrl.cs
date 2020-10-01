@@ -169,7 +169,7 @@ namespace WhatsApp_One.ControlsSuite
         public ConversationCtrl()
         {
             InitializeComponent();
-            txtMessage.AllowDrop = true;
+            //txtMessage.AllowDrop = true;
         }
 
         //---------------------------------------------------------------------------------------------------
@@ -179,7 +179,7 @@ namespace WhatsApp_One.ControlsSuite
                 return false;
 
             gridConversationMessages.RowCount = 0;
-            txtMessage.Clear();
+            //txtMessage.Clear();
             RefreshData();
             return true;
         }
@@ -255,23 +255,23 @@ namespace WhatsApp_One.ControlsSuite
                 gridConversationMessages.FirstDisplayedScrollingRowIndex = keepRowIndex;
         }
         //---------------------------------------------------------------------------------------------------
-        private void btnSend_Click(object sender, EventArgs e)
-        {
-            DataRow newRow = m_DataSource.NewRow();
-            newRow[m_DateColumnName] = DateTime.Now;
-            newRow[m_MessageColumnName] = txtMessage.Text;
-            newRow[m_IsIncomingColumnName] = false;
-            m_DataSource.Rows.Add(newRow);
+        //private void btnSend_Click(object sender, EventArgs e)
+        //{
+        //    DataRow newRow = m_DataSource.NewRow();
+        //    newRow[m_DateColumnName] = DateTime.Now;
+        //    newRow[m_MessageColumnName] = txtMessage.Text;
+        //    newRow[m_IsIncomingColumnName] = false;
+        //    m_DataSource.Rows.Add(newRow);
 
             
 
-            txtMessage.Clear();
-            txtMessage.Focus();
-            RefreshData();
+        //    txtMessage.Clear();
+        //    txtMessage.Focus();
+        //    RefreshData();
 
-            if (m_DataSource.Rows.Count > 0)
-                gridConversationMessages.FirstDisplayedScrollingRowIndex = m_DataSource.Rows.Count - 1; //scroll to new message
-        }
+        //    if (m_DataSource.Rows.Count > 0)
+        //        gridConversationMessages.FirstDisplayedScrollingRowIndex = m_DataSource.Rows.Count - 1; //scroll to new message
+        //}
         //---------------------------------------------------------------------------------------------------
         #endregion private
 
