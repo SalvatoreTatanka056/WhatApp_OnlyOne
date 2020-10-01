@@ -92,7 +92,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Panel2.Margin = new System.Windows.Forms.Padding(10, 0, 0, 10);
             this.splitContainer1.Size = new System.Drawing.Size(1346, 959);
-            this.splitContainer1.SplitterDistance = 448;
+            this.splitContainer1.SplitterDistance = 421;
             this.splitContainer1.TabIndex = 11;
             // 
             // propertyGrid1
@@ -131,7 +131,7 @@
             this.conversationCtrl1.RemoteBalloonPadding = new System.Windows.Forms.Padding(20, 20, 10, 10);
             this.conversationCtrl1.RemoteCellPadding = new System.Windows.Forms.Padding(10);
             this.conversationCtrl1.RemoteText = "You";
-            this.conversationCtrl1.Size = new System.Drawing.Size(894, 670);
+            this.conversationCtrl1.Size = new System.Drawing.Size(820, 887);
             this.conversationCtrl1.TabIndex = 10;
             // 
             // groupBox2
@@ -189,7 +189,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(22, 126);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(389, 105);
+            this.groupBox1.Size = new System.Drawing.Size(389, 111);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "  (Me)  IP AMICO  ";
@@ -241,8 +241,8 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.txtSendMessage);
             this.splitContainer2.Panel2.Controls.Add(this.btnSendMessage);
-            this.splitContainer2.Size = new System.Drawing.Size(894, 959);
-            this.splitContainer2.SplitterDistance = 765;
+            this.splitContainer2.Size = new System.Drawing.Size(921, 959);
+            this.splitContainer2.SplitterDistance = 806;
             this.splitContainer2.TabIndex = 9;
             // 
             // txtSendMessage
@@ -253,7 +253,7 @@
             this.txtSendMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSendMessage.Location = new System.Drawing.Point(62, 35);
             this.txtSendMessage.Name = "txtSendMessage";
-            this.txtSendMessage.Size = new System.Drawing.Size(792, 26);
+            this.txtSendMessage.Size = new System.Drawing.Size(718, 26);
             this.txtSendMessage.TabIndex = 7;
             // 
             // btnSendMessage
@@ -269,6 +269,7 @@
             // 
             // toolStrip1
             // 
+            this.toolStrip1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
