@@ -78,7 +78,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.AutoScroll = true;
-            this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.splitContainer1.Panel1.Controls.Add(this.propertyGrid1);
             this.splitContainer1.Panel1.Controls.Add(this.btnConnect);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox2);
@@ -87,8 +87,10 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.AutoScroll = true;
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(1346, 936);
+            this.splitContainer1.Panel2.Margin = new System.Windows.Forms.Padding(10, 0, 0, 10);
+            this.splitContainer1.Size = new System.Drawing.Size(1346, 959);
             this.splitContainer1.SplitterDistance = 448;
             this.splitContainer1.TabIndex = 11;
             // 
@@ -102,6 +104,9 @@
             // 
             // conversationCtrl1
             // 
+            this.conversationCtrl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.conversationCtrl1.BackColor = System.Drawing.Color.Transparent;
             this.conversationCtrl1.BalloonBackColor = System.Drawing.Color.MediumSeaGreen;
             this.conversationCtrl1.BalloonTextPadding = new System.Windows.Forms.Padding(10);
@@ -109,11 +114,10 @@
             this.conversationCtrl1.DateColumnName = "";
             this.conversationCtrl1.DateTimeRegionHeight = ((uint)(20u));
             this.conversationCtrl1.DateTimeTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.conversationCtrl1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.conversationCtrl1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.conversationCtrl1.IdColumnName = "";
             this.conversationCtrl1.IsIncomingColumnName = "";
-            this.conversationCtrl1.Location = new System.Drawing.Point(0, 62);
+            this.conversationCtrl1.Location = new System.Drawing.Point(0, 95);
             this.conversationCtrl1.Margin = new System.Windows.Forms.Padding(4);
             this.conversationCtrl1.MeBalloonPadding = new System.Windows.Forms.Padding(10, 20, 20, 10);
             this.conversationCtrl1.MeCellPadding = new System.Windows.Forms.Padding(10);
@@ -126,7 +130,7 @@
             this.conversationCtrl1.RemoteBalloonPadding = new System.Windows.Forms.Padding(20, 20, 10, 10);
             this.conversationCtrl1.RemoteCellPadding = new System.Windows.Forms.Padding(10);
             this.conversationCtrl1.RemoteText = "You";
-            this.conversationCtrl1.Size = new System.Drawing.Size(894, 685);
+            this.conversationCtrl1.Size = new System.Drawing.Size(894, 670);
             this.conversationCtrl1.TabIndex = 10;
             // 
             // btnConnect
@@ -145,19 +149,20 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.txtRemotePort);
             this.groupBox2.Controls.Add(this.txtRemoteIp);
+            this.groupBox2.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(34, 242);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(311, 141);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = " Friend ";
+            this.groupBox2.Text = " (Friend) MIO IP ";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(35, 66);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(26, 13);
+            this.label4.Size = new System.Drawing.Size(48, 18);
             this.label4.TabIndex = 5;
             this.label4.Text = "Port";
             // 
@@ -166,7 +171,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(35, 26);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(17, 13);
+            this.label3.Size = new System.Drawing.Size(28, 18);
             this.label3.TabIndex = 4;
             this.label3.Text = "IP";
             // 
@@ -174,14 +179,14 @@
             // 
             this.txtRemotePort.Location = new System.Drawing.Point(105, 59);
             this.txtRemotePort.Name = "txtRemotePort";
-            this.txtRemotePort.Size = new System.Drawing.Size(161, 20);
+            this.txtRemotePort.Size = new System.Drawing.Size(161, 26);
             this.txtRemotePort.TabIndex = 3;
             // 
             // txtRemoteIp
             // 
             this.txtRemoteIp.Location = new System.Drawing.Point(105, 19);
             this.txtRemoteIp.Name = "txtRemoteIp";
-            this.txtRemoteIp.Size = new System.Drawing.Size(161, 20);
+            this.txtRemoteIp.Size = new System.Drawing.Size(161, 26);
             this.txtRemoteIp.TabIndex = 2;
             // 
             // groupBox1
@@ -190,19 +195,20 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtLocalPort);
             this.groupBox1.Controls.Add(this.txtLocalIp);
-            this.groupBox1.Location = new System.Drawing.Point(28, 95);
+            this.groupBox1.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(34, 95);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(311, 141);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = " Me ";
+            this.groupBox1.Text = "  (Me)  IP AMICO  ";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(37, 66);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 13);
+            this.label2.Size = new System.Drawing.Size(58, 18);
             this.label2.TabIndex = 3;
             this.label2.Text = "Port ";
             // 
@@ -211,7 +217,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(37, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(17, 13);
+            this.label1.Size = new System.Drawing.Size(28, 18);
             this.label1.TabIndex = 2;
             this.label1.Text = "IP";
             // 
@@ -219,14 +225,14 @@
             // 
             this.txtLocalPort.Location = new System.Drawing.Point(100, 59);
             this.txtLocalPort.Name = "txtLocalPort";
-            this.txtLocalPort.Size = new System.Drawing.Size(161, 20);
+            this.txtLocalPort.Size = new System.Drawing.Size(161, 26);
             this.txtLocalPort.TabIndex = 1;
             // 
             // txtLocalIp
             // 
             this.txtLocalIp.Location = new System.Drawing.Point(100, 19);
             this.txtLocalIp.Name = "txtLocalIp";
-            this.txtLocalIp.Size = new System.Drawing.Size(161, 20);
+            this.txtLocalIp.Size = new System.Drawing.Size(161, 26);
             this.txtLocalIp.TabIndex = 0;
             // 
             // splitContainer2
@@ -244,8 +250,8 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.txtSendMessage);
             this.splitContainer2.Panel2.Controls.Add(this.btnSendMessage);
-            this.splitContainer2.Size = new System.Drawing.Size(894, 936);
-            this.splitContainer2.SplitterDistance = 747;
+            this.splitContainer2.Size = new System.Drawing.Size(894, 959);
+            this.splitContainer2.SplitterDistance = 765;
             this.splitContainer2.TabIndex = 9;
             // 
             // txtSendMessage
@@ -294,7 +300,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1346, 936);
+            this.ClientSize = new System.Drawing.Size(1346, 959);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.lstMain);
