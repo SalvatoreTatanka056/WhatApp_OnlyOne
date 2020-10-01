@@ -143,7 +143,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(22, 261);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(311, 141);
+            this.groupBox2.Size = new System.Drawing.Size(389, 141);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = " (Friend) MIO IP ";
@@ -170,14 +170,14 @@
             // 
             this.txtRemotePort.Location = new System.Drawing.Point(105, 59);
             this.txtRemotePort.Name = "txtRemotePort";
-            this.txtRemotePort.Size = new System.Drawing.Size(161, 26);
+            this.txtRemotePort.Size = new System.Drawing.Size(255, 26);
             this.txtRemotePort.TabIndex = 3;
             // 
             // txtRemoteIp
             // 
             this.txtRemoteIp.Location = new System.Drawing.Point(105, 19);
             this.txtRemoteIp.Name = "txtRemoteIp";
-            this.txtRemoteIp.Size = new System.Drawing.Size(161, 26);
+            this.txtRemoteIp.Size = new System.Drawing.Size(255, 26);
             this.txtRemoteIp.TabIndex = 2;
             // 
             // groupBox1
@@ -189,7 +189,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(22, 114);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(311, 141);
+            this.groupBox1.Size = new System.Drawing.Size(389, 141);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "  (Me)  IP AMICO  ";
@@ -216,14 +216,14 @@
             // 
             this.txtLocalPort.Location = new System.Drawing.Point(100, 59);
             this.txtLocalPort.Name = "txtLocalPort";
-            this.txtLocalPort.Size = new System.Drawing.Size(161, 26);
+            this.txtLocalPort.Size = new System.Drawing.Size(260, 26);
             this.txtLocalPort.TabIndex = 1;
             // 
             // txtLocalIp
             // 
             this.txtLocalIp.Location = new System.Drawing.Point(100, 19);
             this.txtLocalIp.Name = "txtLocalIp";
-            this.txtLocalIp.Size = new System.Drawing.Size(161, 26);
+            this.txtLocalIp.Size = new System.Drawing.Size(260, 26);
             this.txtLocalIp.TabIndex = 0;
             // 
             // splitContainer2
