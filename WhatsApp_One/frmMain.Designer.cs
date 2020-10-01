@@ -33,6 +33,7 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
             this.conversationCtrl1 = new WhatsApp_One.ControlsSuite.ConversationCtrl();
+            this.btnConnect = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,7 +49,6 @@
             this.btnSendMessage = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.btnConnect = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -118,7 +118,7 @@
             this.conversationCtrl1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.conversationCtrl1.IdColumnName = "";
             this.conversationCtrl1.IsIncomingColumnName = "";
-            this.conversationCtrl1.Location = new System.Drawing.Point(0, 95);
+            this.conversationCtrl1.Location = new System.Drawing.Point(17, 78);
             this.conversationCtrl1.Margin = new System.Windows.Forms.Padding(4);
             this.conversationCtrl1.MeBalloonPadding = new System.Windows.Forms.Padding(10, 20, 20, 10);
             this.conversationCtrl1.MeCellPadding = new System.Windows.Forms.Padding(10);
@@ -131,8 +131,18 @@
             this.conversationCtrl1.RemoteBalloonPadding = new System.Windows.Forms.Padding(20, 20, 10, 10);
             this.conversationCtrl1.RemoteCellPadding = new System.Windows.Forms.Padding(10);
             this.conversationCtrl1.RemoteText = "You";
-            this.conversationCtrl1.Size = new System.Drawing.Size(820, 887);
+            this.conversationCtrl1.Size = new System.Drawing.Size(891, 704);
             this.conversationCtrl1.TabIndex = 10;
+            // 
+            // btnConnect
+            // 
+            this.btnConnect.Image = global::WhatsApp_One.Properties.Resources.CCC;
+            this.btnConnect.Location = new System.Drawing.Point(22, 66);
+            this.btnConnect.Name = "btnConnect";
+            this.btnConnect.Size = new System.Drawing.Size(148, 42);
+            this.btnConnect.TabIndex = 2;
+            this.btnConnect.UseVisualStyleBackColor = true;
+            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
             // groupBox2
             // 
@@ -276,7 +286,7 @@
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1346, 58);
             this.toolStrip1.TabIndex = 12;
-            this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.Text = "tlsMain";
             // 
             // toolStripButton1
             // 
@@ -287,16 +297,6 @@
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(408, 55);
             this.toolStripButton1.Text = "toolStripButton1";
-            // 
-            // btnConnect
-            // 
-            this.btnConnect.Image = global::WhatsApp_One.Properties.Resources.CCC;
-            this.btnConnect.Location = new System.Drawing.Point(22, 66);
-            this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(148, 42);
-            this.btnConnect.TabIndex = 2;
-            this.btnConnect.UseVisualStyleBackColor = true;
-            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
             // frmMain
             // 
