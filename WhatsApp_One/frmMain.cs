@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
-
+using System.Threading;
 
 namespace WhatsApp_One
 {
@@ -59,29 +59,58 @@ namespace WhatsApp_One
         private void btnConnect_Click(object sender, EventArgs e)
         {
 
+            int iretcode = 0;
+
+
+            if ((txtLocalPort.Text == "") || (txtRemotePort.Text == ""))
+                return;
+
             try
             {
                 // binding Socket
                 epLocal = new IPEndPoint(IPAddress.Parse(txtLocalIp.Text), Convert.ToInt32(txtLocalPort.Text));
-                sck.Bind(epLocal);
+
+                try
+                {
+
+                    sck.Bind(epLocal);
+                }
+                catch(System.Net.Sockets.SocketException ex)
+                {
+                    iretcode = 1;
+                    MessageBox.Show(ex.Message);
+                }
 
                 // Connectinf to remote IP
                 epRemote = new IPEndPoint(IPAddress.Parse(txtRemoteIp.Text), Convert.ToInt32(txtRemotePort.Text));
-                sck.Connect(epRemote);
+
+                try
+                { 
+                    sck.Connect(epRemote);
+                }
+                catch (System.Net.Sockets.SocketException ex)
+                {
+                    iretcode = 1;
+                    MessageBox.Show(ex.Message);
+                }
 
                 // Listening the special port
                 buffer = new byte[1500];
                 sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
 
-
             }
             catch (System.FormatException ex1)
             {
-
+                iretcode = 1;
                 MessageBox.Show(ex1.Message);
             }
 
-    
+
+            if(iretcode == 0)
+            {
+                btnConnect.Enabled = false;
+            }
+
         }
 
         private void MessageCallBack(IAsyncResult ar)
@@ -149,6 +178,8 @@ namespace WhatsApp_One
             {
                 sck.Send(sendingMessage);
 
+                Thread.Sleep(100);
+
                 newRow = table.NewConversationMessagesRow();
                 newRow.time = DateTime.Now;
                 newRow.text = "Me: " + txtSendMessage.Text;
@@ -163,18 +194,13 @@ namespace WhatsApp_One
 
                 conversationCtrl1.Rebind();
 
+               
+
             }
             catch (System.Net.Sockets.SocketException ex)
             {
-
-
                 MessageBox.Show(ex.Message);
-
             }
-
-
-
-    
 
         }
 
