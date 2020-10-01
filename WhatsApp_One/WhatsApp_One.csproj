@@ -108,5 +108,8 @@
   <ItemGroup>
     <None Include="Resources\Cattura.PNG" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CCC.PNG" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

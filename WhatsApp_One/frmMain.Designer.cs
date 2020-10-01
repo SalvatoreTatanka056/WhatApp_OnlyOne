@@ -32,7 +32,6 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
             this.conversationCtrl1 = new WhatsApp_One.ControlsSuite.ConversationCtrl();
-            this.btnConnect = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,6 +47,7 @@
             this.btnSendMessage = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.btnConnect = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -133,16 +133,6 @@
             this.conversationCtrl1.Size = new System.Drawing.Size(894, 670);
             this.conversationCtrl1.TabIndex = 10;
             // 
-            // btnConnect
-            // 
-            this.btnConnect.Location = new System.Drawing.Point(22, 66);
-            this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(125, 23);
-            this.btnConnect.TabIndex = 2;
-            this.btnConnect.Text = "&Connect";
-            this.btnConnect.UseVisualStyleBackColor = true;
-            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label4);
@@ -150,7 +140,7 @@
             this.groupBox2.Controls.Add(this.txtRemotePort);
             this.groupBox2.Controls.Add(this.txtRemoteIp);
             this.groupBox2.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(34, 242);
+            this.groupBox2.Location = new System.Drawing.Point(22, 261);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(311, 141);
             this.groupBox2.TabIndex = 9;
@@ -196,7 +186,7 @@
             this.groupBox1.Controls.Add(this.txtLocalPort);
             this.groupBox1.Controls.Add(this.txtLocalIp);
             this.groupBox1.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(34, 95);
+            this.groupBox1.Location = new System.Drawing.Point(22, 114);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(311, 141);
             this.groupBox1.TabIndex = 8;
@@ -295,6 +285,16 @@
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(408, 55);
             this.toolStripButton1.Text = "toolStripButton1";
+            // 
+            // btnConnect
+            // 
+            this.btnConnect.Image = global::WhatsApp_One.Properties.Resources.CCC;
+            this.btnConnect.Location = new System.Drawing.Point(22, 66);
+            this.btnConnect.Name = "btnConnect";
+            this.btnConnect.Size = new System.Drawing.Size(148, 42);
+            this.btnConnect.TabIndex = 2;
+            this.btnConnect.UseVisualStyleBackColor = true;
+            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
             // frmMain
             // 
