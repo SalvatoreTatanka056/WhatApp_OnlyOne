@@ -1,0 +1,12 @@
+C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\bin\Release\WhatsApp_One.exe.config
+C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\bin\Release\WhatsApp_One.exe
+C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\bin\Release\WhatsApp_One.pdb
+C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\bin\Release\Warecast.ControlsSuite.pdb
+C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\obj\Release\WhatsApp_One.csprojAssemblyReference.cache
+C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\obj\Release\WhatsApp_One.frmMain.resources
+C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\obj\Release\WhatsApp_One.Properties.Resources.resources
+C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\obj\Release\WhatsApp_One.csproj.GenerateResource.cache
+C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\obj\Release\WhatsApp_One.csproj.CoreCompileInputs.cache
+C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\obj\Release\WhatsApp_One.csproj.CopyComplete
+C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\obj\Release\WhatsApp_One.exe
+C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\obj\Release\WhatsApp_One.pdb

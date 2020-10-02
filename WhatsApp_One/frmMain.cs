@@ -29,9 +29,8 @@ namespace WhatsApp_One
             if (DesignMode)
                 return;
         }
-        private void Form1_Load(object sender, EventArgs e)
+        private void frmMain_Load(object sender, EventArgs e)
         {
-        
             newRow.time = DateTime.Now;
             newRow.text = "Hi!";
             newRow.incoming = true;
@@ -116,8 +115,13 @@ namespace WhatsApp_One
                 ASCIIEncoding aEncoding = new ASCIIEncoding();
                 string receiveMessage = aEncoding.GetString(receiveData);
 
+                buffer = new byte[1500];
+                sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
+
+                Application.DoEvents();
+
                 //Adding this Message into listbox
-                lstMain.Items.Add("Friend: " + receiveMessage);
+                //lstMain.Items.Add("Friend: " + receiveMessage);
 
                 newRow = table.NewConversationMessagesRow();
                 newRow.time = DateTime.Now;
@@ -131,10 +135,23 @@ namespace WhatsApp_One
                 conversationCtrl1.DateColumnName = table.timeColumn.ColumnName;
                 conversationCtrl1.IsIncomingColumnName = table.incomingColumn.ColumnName;
 
-                conversationCtrl1.Rebind();
 
-                buffer = new byte[1500];
-                sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
+                if (conversationCtrl1.InvokeRequired)
+                {
+                    conversationCtrl1.Invoke(new ThreadStart(delegate
+                    {
+                        conversationCtrl1.Rebind();
+                       
+                    }));
+                }
+                else
+                {
+                    conversationCtrl1.Rebind();
+                }
+
+                Application.DoEvents();
+
+
 
             }
             catch(Exception ex)
@@ -169,7 +186,11 @@ namespace WhatsApp_One
             {
                 sck.Send(sendingMessage);
 
-                Thread.Sleep(100);
+                Application.DoEvents();
+
+                btnSendMessage.Enabled = false;
+
+                Thread.Sleep(1000);
 
                 newRow = table.NewConversationMessagesRow();
                 newRow.time = DateTime.Now;
@@ -184,6 +205,11 @@ namespace WhatsApp_One
                 conversationCtrl1.IsIncomingColumnName = table.incomingColumn.ColumnName;
 
                 conversationCtrl1.Rebind();
+
+                Application.DoEvents();
+
+                btnSendMessage.Enabled = true;
+
             }
             catch (System.Net.Sockets.SocketException ex)
             {
@@ -191,6 +217,14 @@ namespace WhatsApp_One
             }
 
         }
+
+        private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+  
+            
+
+        }
+
         private string GerLocalIP()
         {
             IPHostEntry host;

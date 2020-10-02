@@ -1,0 +1,8 @@
+C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\bin\Release\Warecast.ControlsSuite.dll
+C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\bin\Release\Warecast.ControlsSuite.pdb
+C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\Warecast.ControlsSuite\obj\Release\Warecast.ControlsSuite.csprojAssemblyReference.cache
+C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\Warecast.ControlsSuite\obj\Release\WhatsApp_One.ControlsSuite.ConversationCtrl.resources
+C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\Warecast.ControlsSuite\obj\Release\Warecast.ControlsSuite.csproj.GenerateResource.cache
+C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\Warecast.ControlsSuite\obj\Release\Warecast.ControlsSuite.csproj.CoreCompileInputs.cache
+C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\Warecast.ControlsSuite\obj\Release\Warecast.ControlsSuite.dll
+C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\Warecast.ControlsSuite\obj\Release\Warecast.ControlsSuite.pdb
