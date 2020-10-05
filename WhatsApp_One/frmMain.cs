@@ -10,6 +10,11 @@ using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
+using Google.Apis.Drive.v3;
+using System.IO;
+using Google.Apis.Auth.OAuth2;
+using Google.Apis.Util.Store;
+using Google.Apis.Services;
 
 namespace WhatsApp_One
 {
@@ -44,7 +49,7 @@ namespace WhatsApp_One
 
             // set up socket
             sck = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
-            sck.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress,true);
+            sck.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
 
             // get user IP
             txtLocalIp.Text = GerLocalIP();
@@ -68,7 +73,7 @@ namespace WhatsApp_One
                 {
                     sck.Bind(epLocal);
                 }
-                catch(System.Net.Sockets.SocketException ex)
+                catch (System.Net.Sockets.SocketException ex)
                 {
                     iretcode = 1;
                     MessageBox.Show(ex.Message);
@@ -78,7 +83,7 @@ namespace WhatsApp_One
                 epRemote = new IPEndPoint(IPAddress.Parse(txtRemoteIp.Text), Convert.ToInt32(txtRemotePort.Text));
 
                 try
-                { 
+                {
                     sck.Connect(epRemote);
                 }
                 catch (System.Net.Sockets.SocketException ex)
@@ -98,7 +103,7 @@ namespace WhatsApp_One
                 MessageBox.Show(ex1.Message);
             }
 
-            if(iretcode == 0)
+            if (iretcode == 0)
             {
                 btnConnect.Enabled = false;
             }
@@ -119,10 +124,7 @@ namespace WhatsApp_One
                 sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
 
                 Application.DoEvents();
-
-                //Adding this Message into listbox
-                //lstMain.Items.Add("Friend: " + receiveMessage);
-
+              
                 newRow = table.NewConversationMessagesRow();
                 newRow.time = DateTime.Now;
                 newRow.text = "Friend: " + receiveMessage;
@@ -141,7 +143,7 @@ namespace WhatsApp_One
                     conversationCtrl1.Invoke(new ThreadStart(delegate
                     {
                         conversationCtrl1.Rebind();
-                       
+
                     }));
                 }
                 else
@@ -154,7 +156,7 @@ namespace WhatsApp_One
 
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
@@ -162,7 +164,7 @@ namespace WhatsApp_One
 
         private void btnSendMessage_Click(object sender, EventArgs e)
         {
-       
+
 
         }
 
@@ -173,7 +175,7 @@ namespace WhatsApp_One
 
         private void frmMain_Shown(object sender, EventArgs e)
         {
-                conversationCtrl1.Rebind();
+            conversationCtrl1.Rebind();
         }
 
         private void btnSendMessage_Click_1(object sender, EventArgs e)
@@ -220,16 +222,31 @@ namespace WhatsApp_One
 
         private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
-  
-            
 
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            // Connect to Google
+            var service = AuthenticateOauth(@"credentials.json", "tatanka056");
+            //List the files with the word 'make' in the name.
+            var files = DriveListExample.ListFiles(service,new DriveListExample.FilesListOptionalParms() { Q = "name contains '500L'", Fields = "*" });
+            foreach (var item in files.Files)
+            {
+                // download each file
+                DownloadFile(service, item, string.Format(@"{0}", item.Name));
+                // creare progressivo di invio e di ricezione.
+
+            }
         }
 
         private string GerLocalIP()
         {
             IPHostEntry host;
             host = Dns.GetHostEntry(Dns.GetHostName());
-            foreach(IPAddress ip in host.AddressList)
+            foreach (IPAddress ip in host.AddressList)
             {
                 if (ip.AddressFamily == AddressFamily.InterNetwork)
                     return ip.ToString();
@@ -237,5 +254,89 @@ namespace WhatsApp_One
 
             return "127.0.0.1";
         }
+
+        public static DriveService AuthenticateOauth(string clientSecretJson, string userName)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(userName))
+                    throw new ArgumentNullException("userName");
+                if (string.IsNullOrEmpty(clientSecretJson))
+                    throw new ArgumentNullException("clientSecretJson");
+                if (!File.Exists(clientSecretJson))
+                    throw new Exception("clientSecretJson file does not exist.");
+
+               
+                string[] scopes = new string[] { DriveService.Scope.DriveReadonly };         	                                                 
+                UserCredential credential;
+                using (var stream = new FileStream(clientSecretJson, FileMode.Open, FileAccess.Read))
+                {
+                    string credPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+                    credPath = Path.Combine(credPath, ".credentials/", System.Reflection.Assembly.GetExecutingAssembly().GetName().Name);
+
+                   
+                    credential = GoogleWebAuthorizationBroker.AuthorizeAsync(GoogleClientSecrets.Load(stream).Secrets,
+                                                                             scopes,
+                                                                             userName,
+                                                                             CancellationToken.None,
+                                                                             new FileDataStore(credPath, true)).Result;
+                }
+
+                return new DriveService(new BaseClientService.Initializer()
+                {
+                    HttpClientInitializer = credential,
+                    ApplicationName = "Drive Oauth2 Authentication Sample"
+                });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Create Oauth2 account DriveService failed" + ex.Message);
+                throw new Exception("CreateServiceAccountDriveFailed", ex);
+            }
+        }
+
+
+        private static void DownloadFile(Google.Apis.Drive.v3.DriveService service, Google.Apis.Drive.v3.Data.File file, string saveTo)
+        {
+
+            var request = service.Files.Get(file.Id);
+            var stream = new System.IO.MemoryStream();
+
+            request.MediaDownloader.ProgressChanged += (Google.Apis.Download.IDownloadProgress progress) =>
+            {
+                switch (progress.Status)
+                {
+                    case Google.Apis.Download.DownloadStatus.Downloading:
+                        {
+                            Console.WriteLine(progress.BytesDownloaded);
+                            break;
+                        }
+                    case Google.Apis.Download.DownloadStatus.Completed:
+                        {
+                            Console.WriteLine("Download complete.");
+                            SaveStream(stream, saveTo);
+                            break;
+                        }
+                    case Google.Apis.Download.DownloadStatus.Failed:
+                        {
+                            Console.WriteLine("Download failed.");
+                            break;
+                        }
+                }
+            };
+            request.Download(stream);
+
+        }
+
+        private static void SaveStream(MemoryStream stream, string saveTo)
+        {
+            using (System.IO.FileStream file = new System.IO.FileStream(saveTo, System.IO.FileMode.Create, System.IO.FileAccess.Write))
+            {
+                stream.WriteTo(file);
+            }
+        }
+
+
     }
+
 }

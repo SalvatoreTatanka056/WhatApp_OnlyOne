@@ -45,6 +45,7 @@
             this.txtLocalPort = new System.Windows.Forms.TextBox();
             this.txtLocalIp = new System.Windows.Forms.TextBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.button1 = new System.Windows.Forms.Button();
             this.txtSendMessage = new System.Windows.Forms.TextBox();
             this.btnSendMessage = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -249,11 +250,23 @@
             // 
             // splitContainer2.Panel2
             // 
+            this.splitContainer2.Panel2.Controls.Add(this.button1);
             this.splitContainer2.Panel2.Controls.Add(this.txtSendMessage);
             this.splitContainer2.Panel2.Controls.Add(this.btnSendMessage);
             this.splitContainer2.Size = new System.Drawing.Size(921, 959);
             this.splitContainer2.SplitterDistance = 806;
             this.splitContainer2.TabIndex = 9;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(173, 91);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(218, 26);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "&Send Message";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtSendMessage
             // 
@@ -353,6 +366,7 @@
         private System.Windows.Forms.SplitContainer splitContainer2;
         private ControlsSuite.ConversationCtrl conversationCtrl1;
         private System.Windows.Forms.PropertyGrid propertyGrid1;
+        private System.Windows.Forms.Button button1;
     }
 }
 
