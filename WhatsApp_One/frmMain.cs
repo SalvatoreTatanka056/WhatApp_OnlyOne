@@ -16,6 +16,7 @@ using Google.Apis.Auth.OAuth2;
 using Google.Apis.Util.Store;
 using Google.Apis.Services;
 using System.Windows.Forms.VisualStyles;
+using Google.Apis.Drive.v2.Data;
 
 namespace WhatsApp_One
 {
@@ -109,19 +110,31 @@ namespace WhatsApp_One
 
             string sNomeFile = string.Format("{0}_{1}.txt", strUsername, iTotMessaggiUpload);
 
-            //Q = "mimeType = 'application/vnd.google-apps.folder' and title = '" + CHAT + "' and trashed=false"
-
             //var files = DriveListExample.ListFiles(service, new DriveListExample.FilesListOptionalParms() { Q = "not name contains '"  + strUsername + "'", Fields = "*" });
 
-            var files = DriveListExample.ListFiles(service, new DriveListExample.FilesListOptionalParms() { Q = "'1JnK8yEovo-D1Yoiy5b-ZUfyWdbcIlg-H' in parents and trashed=false", Fields = "*" });
+           // var files = DriveListExample.ListFiles(service, new DriveListExample.FilesListOptionalParms() { Q = "'1JnK8yEovo-D1Yoiy5b-ZUfyWdbcIlg-H' in parents and trashed=false", Fields = "*" });
 
-            //request.Q = "mimeType = 'application/vnd.google-apps.folder' and name = 'test_folder'";
-
-            foreach (var item in files.Files)
+            //foreach (var item in files.Files)
             {
 
-                 // DownloadFile(service, item, string.Format(@"{0}", item.Name));
-                  MessageBox.Show(item.Name);
+                //file upload
+                string path = sNomeFile;
+                var fileMetadata = new Google.Apis.Drive.v3.Data.File();
+                fileMetadata.MimeType = "text/plain";
+                FilesResource.CreateMediaUpload request;
+                using (var stream = new System.IO.FileStream(path, System.IO.FileMode.Open))
+                {
+                    request = service.Files.Create(fileMetadata, stream, "text/plain");
+                    request.Fields = "id";
+                    request.Upload();
+                }
+                var file = request.ResponseBody;
+                
+                //end
+                
+
+                // DownloadFile(service, item, string.Format(@"{0}", item.Name));
+                MessageBox.Show(strUsername);
                 
             }
 
@@ -174,6 +187,13 @@ namespace WhatsApp_One
             //    btnConnect.Enabled = false;
             //}
 
+        }
+
+        
+
+        private static string GetMimeType(string uploadFile)
+        {
+            throw new NotImplementedException();
         }
 
         private void MessageCallBack(IAsyncResult ar)
@@ -377,7 +397,7 @@ namespace WhatsApp_One
                     throw new ArgumentNullException("userName");
                 if (string.IsNullOrEmpty(clientSecretJson))
                     throw new ArgumentNullException("clientSecretJson");
-                if (!File.Exists(clientSecretJson))
+                if (!System.IO.File.Exists(clientSecretJson))
                     throw new Exception("clientSecretJson file does not exist.");
 
                
