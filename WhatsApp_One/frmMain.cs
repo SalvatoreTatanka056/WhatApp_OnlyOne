@@ -16,7 +16,8 @@ using Google.Apis.Auth.OAuth2;
 using Google.Apis.Util.Store;
 using Google.Apis.Services;
 using System.Windows.Forms.VisualStyles;
-using Google.Apis.Drive.v2.Data;
+using System.Web;
+using System.Net.Mime;
 
 namespace WhatsApp_One
 {
@@ -110,33 +111,39 @@ namespace WhatsApp_One
 
             string sNomeFile = string.Format("{0}_{1}.txt", strUsername, iTotMessaggiUpload);
 
+
             //var files = DriveListExample.ListFiles(service, new DriveListExample.FilesListOptionalParms() { Q = "not name contains '"  + strUsername + "'", Fields = "*" });
 
-           // var files = DriveListExample.ListFiles(service, new DriveListExample.FilesListOptionalParms() { Q = "'1JnK8yEovo-D1Yoiy5b-ZUfyWdbcIlg-H' in parents and trashed=false", Fields = "*" });
+            //var files = DriveListExample.ListFiles(service, new DriveListExample.FilesListOptionalParms() { Q = "'1JnK8yEovo-D1Yoiy5b-ZUfyWdbcIlg-H' in parents and trashed=false", Fields = "*" });
 
-            //foreach (var item in files.Files)
+            /*foreach (var item in files.Files)
             {
+                //DownloadFile(service, item, string.Format(@"{0}", item.Name));
 
-                //file upload
-                string path = sNomeFile;
-                var fileMetadata = new Google.Apis.Drive.v3.Data.File();
-                fileMetadata.MimeType = "text/plain";
-                FilesResource.CreateMediaUpload request;
-                using (var stream = new System.IO.FileStream(path, System.IO.FileMode.Open))
-                {
-                    request = service.Files.Create(fileMetadata, stream, "text/plain");
-                    request.Fields = "id";
-                    request.Upload();
-                }
-                var file = request.ResponseBody;
-                
-                //end
-                
+                MessageBox.Show(string.Format(@"{0}", item.Name));
 
-                // DownloadFile(service, item, string.Format(@"{0}", item.Name));
-                MessageBox.Show(strUsername);
-                
+            }*/
+
+            string contentType = "application/zip";
+            string  FolderId = "1JnK8yEovo-D1Yoiy5b-ZUfyWdbcIlg-H";
+
+            //create service
+            var FileMetaData = new Google.Apis.Drive.v3.Data.File();
+            FileMetaData.Name = "test";
+            FileMetaData.Parents = new List<string> { FolderId };
+
+            FilesResource.CreateMediaUpload request;
+
+            using (var stream = new System.IO.FileStream(@"C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\bin\Debug\CIT094WPC_0.zip", System.IO.FileMode.Open))
+            {
+                request = service.Files.Create(FileMetaData, stream,contentType);
+                request.Upload();
             }
+
+            var file = request.ResponseBody;
+
+           // MessageBox.Show("File ID: " + file.Id);
+            //end
 
             //int iretcode = 0;
 
@@ -189,7 +196,8 @@ namespace WhatsApp_One
 
         }
 
-        
+
+
 
         private static string GetMimeType(string uploadFile)
         {
@@ -371,7 +379,7 @@ namespace WhatsApp_One
             foreach (var item in files.Files)
             {
                 
-                DownloadFile(service, item, string.Format(@"{0}", item.Name));
+               DownloadFile(service, item, string.Format(@"{0}", item.Name));
                 
             }
         }
@@ -401,7 +409,7 @@ namespace WhatsApp_One
                     throw new Exception("clientSecretJson file does not exist.");
 
                
-                string[] scopes = new string[] { DriveService.Scope.DriveReadonly };         	                                                 
+                string[] scopes = new string[] { DriveService.Scope.Drive };         	                                                 
                 UserCredential credential;
                 using (var stream = new FileStream(clientSecretJson, FileMode.Open, FileAccess.Read))
                 {
@@ -461,6 +469,9 @@ namespace WhatsApp_One
             request.Download(stream);
 
         }
+
+
+
 
         private static void SaveStream(MemoryStream stream, string saveTo)
         {
