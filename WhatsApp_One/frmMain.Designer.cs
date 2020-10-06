@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.lstMain = new System.Windows.Forms.ListBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
             this.conversationCtrl1 = new WhatsApp_One.ControlsSuite.ConversationCtrl();
             this.btnConnect = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -50,6 +49,7 @@
             this.btnSendMessage = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -83,8 +83,8 @@
             this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.splitContainer1.Panel1.Controls.Add(this.propertyGrid1);
             this.splitContainer1.Panel1.Controls.Add(this.btnConnect);
-            this.splitContainer1.Panel1.Controls.Add(this.groupBox2);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.groupBox2);
             this.splitContainer1.Panel1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);
             // 
             // splitContainer1.Panel2
@@ -95,14 +95,6 @@
             this.splitContainer1.Size = new System.Drawing.Size(1346, 959);
             this.splitContainer1.SplitterDistance = 421;
             this.splitContainer1.TabIndex = 11;
-            // 
-            // propertyGrid1
-            // 
-            this.propertyGrid1.Location = new System.Drawing.Point(22, 403);
-            this.propertyGrid1.Name = "propertyGrid1";
-            this.propertyGrid1.SelectedObject = this.conversationCtrl1;
-            this.propertyGrid1.Size = new System.Drawing.Size(389, 601);
-            this.propertyGrid1.TabIndex = 10;
             // 
             // conversationCtrl1
             // 
@@ -260,7 +252,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(173, 91);
+            this.button1.Location = new System.Drawing.Point(676, 91);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(218, 26);
             this.button1.TabIndex = 9;
@@ -310,6 +302,14 @@
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(408, 55);
             this.toolStripButton1.Text = "toolStripButton1";
+            // 
+            // propertyGrid1
+            // 
+            this.propertyGrid1.Location = new System.Drawing.Point(8, 118);
+            this.propertyGrid1.Name = "propertyGrid1";
+            this.propertyGrid1.SelectedObject = this.conversationCtrl1;
+            this.propertyGrid1.Size = new System.Drawing.Size(403, 777);
+            this.propertyGrid1.TabIndex = 11;
             // 
             // frmMain
             // 
@@ -365,8 +365,8 @@
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private ControlsSuite.ConversationCtrl conversationCtrl1;
-        private System.Windows.Forms.PropertyGrid propertyGrid1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PropertyGrid propertyGrid1;
     }
 }
 

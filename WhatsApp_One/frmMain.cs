@@ -15,12 +15,16 @@ using System.IO;
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Util.Store;
 using Google.Apis.Services;
+using System.Windows.Forms.VisualStyles;
 
 namespace WhatsApp_One
 {
-
     public partial class frmMain : Form
     {
+
+        private int iTotMessaggiUpload;
+        private int iTotMessaggiDownload;
+        private string strUsername;
 
         public static DataSet1.ConversationMessagesDataTable table = new DataSet1.ConversationMessagesDataTable();
         public DataSet1.ConversationMessagesRow newRow = table.NewConversationMessagesRow();
@@ -47,66 +51,128 @@ namespace WhatsApp_One
             conversationCtrl1.DateColumnName = table.timeColumn.ColumnName;
             conversationCtrl1.IsIncomingColumnName = table.incomingColumn.ColumnName;
 
-            // set up socket
             sck = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             sck.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
 
-            // get user IP
             txtLocalIp.Text = GerLocalIP();
             txtRemoteIp.Text = GerLocalIP();
+
+            strUsername = Dns.GetHostName();
+
+
+        }
+
+        private int GetLastIdFilesUpload()
+        {
+            // list_tot_record_upload.txt
+            int counter = 0;
+            string line;
+
+            System.IO.StreamReader file = new System.IO.StreamReader(@"C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\bin\Debug\list_tot_record_upload.txt");
+
+            while ((line = file.ReadLine()) != null)
+            {
+                System.Console.WriteLine(line);
+                break;
+            }
+
+            file.Close();
+
+            return Convert.ToInt32(line.ToString());
+        }
+
+
+        private int GetLastIdFilesDownload()
+        {
+            // list_tot_record_download.txt
+            int counter = 0;
+            string line;
+
+            System.IO.StreamReader file = new System.IO.StreamReader(@"C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\bin\Debug\list_tot_record_download.txt");
+            
+            while ((line = file.ReadLine()) != null)
+            {
+                System.Console.WriteLine(line);
+                break;
+            }
+
+            file.Close();
+
+            return Convert.ToInt32(line.ToString());
         }
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
+            var service = AuthenticateOauth(@"credentials.json", "tatanka056");
 
-            int iretcode = 0;
+            iTotMessaggiUpload = 0;
 
-            if ((txtLocalPort.Text == "") || (txtRemotePort.Text == ""))
-                return;
+            string sNomeFile = string.Format("{0}_{1}.txt", strUsername, iTotMessaggiUpload);
 
-            try
+            //Q = "mimeType = 'application/vnd.google-apps.folder' and title = '" + CHAT + "' and trashed=false"
+
+            //var files = DriveListExample.ListFiles(service, new DriveListExample.FilesListOptionalParms() { Q = "not name contains '"  + strUsername + "'", Fields = "*" });
+
+            var files = DriveListExample.ListFiles(service, new DriveListExample.FilesListOptionalParms() { Q = "'1JnK8yEovo-D1Yoiy5b-ZUfyWdbcIlg-H' in parents and trashed=false", Fields = "*" });
+
+            //request.Q = "mimeType = 'application/vnd.google-apps.folder' and name = 'test_folder'";
+
+            foreach (var item in files.Files)
             {
-                // binding Socket
-                epLocal = new IPEndPoint(IPAddress.Parse(txtLocalIp.Text), Convert.ToInt32(txtLocalPort.Text));
 
-                try
-                {
-                    sck.Bind(epLocal);
-                }
-                catch (System.Net.Sockets.SocketException ex)
-                {
-                    iretcode = 1;
-                    MessageBox.Show(ex.Message);
-                }
-
-                // Connectinf to remote IP
-                epRemote = new IPEndPoint(IPAddress.Parse(txtRemoteIp.Text), Convert.ToInt32(txtRemotePort.Text));
-
-                try
-                {
-                    sck.Connect(epRemote);
-                }
-                catch (System.Net.Sockets.SocketException ex)
-                {
-                    iretcode = 1;
-                    MessageBox.Show(ex.Message);
-                }
-
-                // Listening the special port
-                buffer = new byte[1500];
-                sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
-
-            }
-            catch (System.FormatException ex1)
-            {
-                iretcode = 1;
-                MessageBox.Show(ex1.Message);
+                 // DownloadFile(service, item, string.Format(@"{0}", item.Name));
+                  MessageBox.Show(item.Name);
+                
             }
 
-            if (iretcode == 0)
-            {
-                btnConnect.Enabled = false;
-            }
+            //int iretcode = 0;
+
+            //if ((txtLocalPort.Text == "") || (txtRemotePort.Text == ""))
+            //    return;
+
+            //try
+            //{
+            //    // binding Socket
+            //    epLocal = new IPEndPoint(IPAddress.Parse(txtLocalIp.Text), Convert.ToInt32(txtLocalPort.Text));
+
+            //    try
+            //    {
+            //        sck.Bind(epLocal);
+            //    }
+            //    catch (System.Net.Sockets.SocketException ex)
+            //    {
+            //        iretcode = 1;
+            //        MessageBox.Show(ex.Message);
+            //    }
+
+            //    // Connectinf to remote IP
+            //    epRemote = new IPEndPoint(IPAddress.Parse(txtRemoteIp.Text), Convert.ToInt32(txtRemotePort.Text));
+
+            //    try
+            //    {
+            //        sck.Connect(epRemote);
+            //    }
+            //    catch (System.Net.Sockets.SocketException ex)
+            //    {
+            //        iretcode = 1;
+            //        MessageBox.Show(ex.Message);
+            //    }
+
+            //    // Listening the special port
+            //    buffer = new byte[1500];
+            //    sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
+
+            //}
+            //catch (System.FormatException ex1)
+            //{
+            //    iretcode = 1;
+            //    MessageBox.Show(ex1.Message);
+            //}
+
+            //if (iretcode == 0)
+            //{
+            //    btnConnect.Enabled = false;
+            //}
 
         }
 
@@ -152,9 +218,6 @@ namespace WhatsApp_One
                 }
 
                 Application.DoEvents();
-
-
-
             }
             catch (Exception ex)
             {
@@ -164,7 +227,6 @@ namespace WhatsApp_One
 
         private void btnSendMessage_Click(object sender, EventArgs e)
         {
-
 
         }
 
@@ -180,18 +242,49 @@ namespace WhatsApp_One
 
         private void btnSendMessage_Click_1(object sender, EventArgs e)
         {
-            ASCIIEncoding aEncoding = new ASCIIEncoding();
+            /* ASCIIEncoding aEncoding = new ASCIIEncoding();
             byte[] sendingMessage = new byte[1500];
             sendingMessage = aEncoding.GetBytes(txtSendMessage.Text);
 
             try
             {
                 sck.Send(sendingMessage);
+                Application.DoEvents();
+                btnSendMessage.Enabled = false;
+                Thread.Sleep(1000);
+                newRow = table.NewConversationMessagesRow();
+                newRow.time = DateTime.Now;
+                newRow.text = "Me: " + txtSendMessage.Text;
+                newRow.incoming = true;
+                table.AddConversationMessagesRow(newRow);
+                conversationCtrl1.DataSource = table;
+                conversationCtrl1.MessageColumnName = table.textColumn.ColumnName;
+                conversationCtrl1.IdColumnName = table.idColumn.ColumnName;
+                conversationCtrl1.DateColumnName = table.timeColumn.ColumnName;
+                conversationCtrl1.IsIncomingColumnName = table.incomingColumn.ColumnName;
+                conversationCtrl1.Rebind();
+                Application.DoEvents();
+                btnSendMessage.Enabled = true;
+            }
+            catch (System.Net.Sockets.SocketException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }*/
+
+            //Salvare il progressivo del Messaggio Inviato ...
+
+            try
+            {
+                // Caricare Files su Drive ...
+                // var service = AuthenticateOauth(@"credentials.json", "tatanka056");
+
+
+                iTotMessaggiUpload = GetLastIdFilesUpload();
+
+                string sNomeFile = string.Format("500L_download_{0}.txt",iTotMessaggiUpload);
 
                 Application.DoEvents();
-
                 btnSendMessage.Enabled = false;
-
                 Thread.Sleep(1000);
 
                 newRow = table.NewConversationMessagesRow();
@@ -207,15 +300,35 @@ namespace WhatsApp_One
                 conversationCtrl1.IsIncomingColumnName = table.incomingColumn.ColumnName;
 
                 conversationCtrl1.Rebind();
-
                 Application.DoEvents();
-
                 btnSendMessage.Enabled = true;
 
+                WriteMessaggioFileDownload(sNomeFile, txtSendMessage.Text);
+                SetLastIdFilesDownload();
             }
             catch (System.Net.Sockets.SocketException ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void SetLastIdFilesDownload()
+        {
+            iTotMessaggiDownload++;
+        }
+
+        private void SetLastIdFilesUpload()
+        {
+            iTotMessaggiUpload++;
+        }
+
+        private void WriteMessaggioFileDownload(string sNomeFile, string Messaggio)
+        {
+            string line;
+
+            if (string.IsNullOrEmpty(sNomeFile))
+            {
+                throw new ArgumentException("message", nameof(sNomeFile));
             }
 
         }
@@ -223,22 +336,23 @@ namespace WhatsApp_One
         private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
 
-
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
 
-            // Connect to Google
             var service = AuthenticateOauth(@"credentials.json", "tatanka056");
-            //List the files with the word 'make' in the name.
-            var files = DriveListExample.ListFiles(service,new DriveListExample.FilesListOptionalParms() { Q = "name contains '500L'", Fields = "*" });
+
+            iTotMessaggiDownload = GetLastIdFilesDownload();
+
+            string sNomeFile = string.Format("500L_download_{0}.txt", iTotMessaggiUpload);
+
+            var files = DriveListExample.ListFiles(service,new DriveListExample.FilesListOptionalParms() { Q = "not name contains '" +sNomeFile + "'", Fields = "*" });
             foreach (var item in files.Files)
             {
-                // download each file
+                
                 DownloadFile(service, item, string.Format(@"{0}", item.Name));
-                // creare progressivo di invio e di ricezione.
-
+                
             }
         }
 
