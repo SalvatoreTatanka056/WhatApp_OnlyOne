@@ -413,15 +413,15 @@ namespace WhatsApp_One
                 UserCredential credential;
                 using (var stream = new FileStream(clientSecretJson, FileMode.Open, FileAccess.Read))
                 {
-                    string credPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-                    credPath = Path.Combine(credPath, ".credentials/", System.Reflection.Assembly.GetExecutingAssembly().GetName().Name);
+                   // string credPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+                    //credPath = Path.Combine(credPath, ".credentials/", System.Reflection.Assembly.GetExecutingAssembly().GetName().Name);
 
                    
                     credential = GoogleWebAuthorizationBroker.AuthorizeAsync(GoogleClientSecrets.Load(stream).Secrets,
                                                                              scopes,
                                                                              userName,
                                                                              CancellationToken.None,
-                                                                             new FileDataStore(credPath, true)).Result;
+                                                                             new FileDataStore(".", true)).Result;
                 }
 
                 return new DriveService(new BaseClientService.Initializer()
