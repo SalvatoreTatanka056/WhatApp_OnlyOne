@@ -64,7 +64,6 @@ namespace WhatsApp_One
 
             strUsername = Dns.GetHostName();
 
-
         }
 
         private int GetLastIdFilesUpload()
@@ -85,7 +84,6 @@ namespace WhatsApp_One
 
             return Convert.ToInt32(line.ToString());
         }
-
 
         private int GetLastIdFilesDownload()
         {
@@ -197,7 +195,6 @@ namespace WhatsApp_One
             //}
 
         }
-
 
         private static string GetMimeType(string uploadFile)
         {
@@ -415,7 +412,6 @@ namespace WhatsApp_One
                 {
                    // string credPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
                     //credPath = Path.Combine(credPath, ".credentials/", System.Reflection.Assembly.GetExecutingAssembly().GetName().Name);
-
                    
                     credential = GoogleWebAuthorizationBroker.AuthorizeAsync(GoogleClientSecrets.Load(stream).Secrets,
                                                                              scopes,
@@ -469,8 +465,6 @@ namespace WhatsApp_One
             request.Download(stream);
 
         }
-
-
 
 
         private static void SaveStream(MemoryStream stream, string saveTo)
