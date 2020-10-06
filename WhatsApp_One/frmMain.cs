@@ -28,6 +28,9 @@ namespace WhatsApp_One
         private int iTotMessaggiDownload;
         private string strUsername;
 
+        private string contentType = "application/txt";
+        private string FolderId = "1JnK8yEovo-D1Yoiy5b-ZUfyWdbcIlg-H";
+
         public static DataSet1.ConversationMessagesDataTable table = new DataSet1.ConversationMessagesDataTable();
         public DataSet1.ConversationMessagesRow newRow = table.NewConversationMessagesRow();
 
@@ -124,17 +127,15 @@ namespace WhatsApp_One
 
             }*/
 
-            string contentType = "application/zip";
-            string  FolderId = "1JnK8yEovo-D1Yoiy5b-ZUfyWdbcIlg-H";
-
             //create service
+            
             var FileMetaData = new Google.Apis.Drive.v3.Data.File();
-            FileMetaData.Name = "test";
+            FileMetaData.Name = "CIT094WPC_0.txt";
             FileMetaData.Parents = new List<string> { FolderId };
 
             FilesResource.CreateMediaUpload request;
 
-            using (var stream = new System.IO.FileStream(@"C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\bin\Debug\CIT094WPC_0.zip", System.IO.FileMode.Open))
+            using (var stream = new System.IO.FileStream(@"C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\bin\Debug\CIT094WPC_0.txt", System.IO.FileMode.Open))
             {
                 request = service.Files.Create(FileMetaData, stream,contentType);
                 request.Upload();
@@ -142,7 +143,8 @@ namespace WhatsApp_One
 
             var file = request.ResponseBody;
 
-           // MessageBox.Show("File ID: " + file.Id);
+            MessageBox.Show("File ID: " + file.Id);
+
             //end
 
             //int iretcode = 0;
@@ -195,8 +197,6 @@ namespace WhatsApp_One
             //}
 
         }
-
-
 
 
         private static string GetMimeType(string uploadFile)
