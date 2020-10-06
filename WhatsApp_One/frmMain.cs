@@ -24,8 +24,8 @@ namespace WhatsApp_One
     public partial class frmMain : Form
     {
 
-        private int iTotMessaggiUpload;
-        private int iTotMessaggiDownload;
+        //private int iTotMessaggiUpload;
+        //private int iTotMessaggiDownload;
         private string strUsername;
 
         private string contentType = "application/txt";
@@ -66,84 +66,10 @@ namespace WhatsApp_One
 
         }
 
-        private int GetLastIdFilesUpload()
-        {
-            // list_tot_record_upload.txt
-            int counter = 0;
-            string line;
-
-            System.IO.StreamReader file = new System.IO.StreamReader(@"C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\bin\Debug\list_tot_record_upload.txt");
-
-            while ((line = file.ReadLine()) != null)
-            {
-                System.Console.WriteLine(line);
-                break;
-            }
-
-            file.Close();
-
-            return Convert.ToInt32(line.ToString());
-        }
-
-        private int GetLastIdFilesDownload()
-        {
-            // list_tot_record_download.txt
-            int counter = 0;
-            string line;
-
-            System.IO.StreamReader file = new System.IO.StreamReader(@"C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\bin\Debug\list_tot_record_download.txt");
-            
-            while ((line = file.ReadLine()) != null)
-            {
-                System.Console.WriteLine(line);
-                break;
-            }
-
-            file.Close();
-
-            return Convert.ToInt32(line.ToString());
-        }
-
         private void btnConnect_Click(object sender, EventArgs e)
         {
-            var service = AuthenticateOauth(@"credentials.json", "tatanka056");
-
-            iTotMessaggiUpload = 0;
-
-            string sNomeFile = string.Format("{0}_{1}.txt", strUsername, iTotMessaggiUpload);
-
-
-            //var files = DriveListExample.ListFiles(service, new DriveListExample.FilesListOptionalParms() { Q = "not name contains '"  + strUsername + "'", Fields = "*" });
-
-            //var files = DriveListExample.ListFiles(service, new DriveListExample.FilesListOptionalParms() { Q = "'1JnK8yEovo-D1Yoiy5b-ZUfyWdbcIlg-H' in parents and trashed=false", Fields = "*" });
-
-            /*foreach (var item in files.Files)
-            {
-                //DownloadFile(service, item, string.Format(@"{0}", item.Name));
-
-                MessageBox.Show(string.Format(@"{0}", item.Name));
-
-            }*/
-
-            //create service
             
-            var FileMetaData = new Google.Apis.Drive.v3.Data.File();
-            FileMetaData.Name = "CIT094WPC_0.txt";
-            FileMetaData.Parents = new List<string> { FolderId };
 
-            FilesResource.CreateMediaUpload request;
-
-            using (var stream = new System.IO.FileStream(@"C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\bin\Debug\CIT094WPC_0.txt", System.IO.FileMode.Open))
-            {
-                request = service.Files.Create(FileMetaData, stream,contentType);
-                request.Upload();
-            }
-
-            var file = request.ResponseBody;
-
-            MessageBox.Show("File ID: " + file.Id);
-
-            //end
 
             //int iretcode = 0;
 
@@ -303,10 +229,7 @@ namespace WhatsApp_One
                 // Caricare Files su Drive ...
                 // var service = AuthenticateOauth(@"credentials.json", "tatanka056");
 
-
-                iTotMessaggiUpload = GetLastIdFilesUpload();
-
-                string sNomeFile = string.Format("500L_download_{0}.txt",iTotMessaggiUpload);
+                string sNomeFile = string.Format("{0}", txtUserName.Text);
 
                 Application.DoEvents();
                 btnSendMessage.Enabled = false;
@@ -329,7 +252,26 @@ namespace WhatsApp_One
                 btnSendMessage.Enabled = true;
 
                 WriteMessaggioFileDownload(sNomeFile, txtSendMessage.Text);
-                SetLastIdFilesDownload();
+
+                var service = AuthenticateOauth(@"credentials.json", "tatanka056");
+
+               
+                var FileMetaData = new Google.Apis.Drive.v3.Data.File();
+                FileMetaData.Name = sNomeFile;
+                FileMetaData.Parents = new List<string> { FolderId };
+
+                FilesResource.CreateMediaUpload request;
+
+                using (var stream = new System.IO.FileStream(sNomeFile, System.IO.FileMode.Open))
+                {
+                    request = service.Files.Create(FileMetaData, stream, contentType);
+                    request.Upload();
+                }
+
+                var file = request.ResponseBody;
+
+                timer1.Enabled = true;
+
             }
             catch (System.Net.Sockets.SocketException ex)
             {
@@ -337,26 +279,21 @@ namespace WhatsApp_One
             }
         }
 
-        private void SetLastIdFilesDownload()
-        {
-            iTotMessaggiDownload++;
-        }
 
-        private void SetLastIdFilesUpload()
+        private void WriteMessaggioFileDownload(string NomeFile, string Messaggio)
         {
-            iTotMessaggiUpload++;
-        }
-
-        private void WriteMessaggioFileDownload(string sNomeFile, string Messaggio)
-        {
-            string line;
-
-            if (string.IsNullOrEmpty(sNomeFile))
+            // Create a file to write to.
+            using (StreamWriter sw = File.CreateText(NomeFile))
             {
-                throw new ArgumentException("message", nameof(sNomeFile));
+                sw.WriteLine(Messaggio);
+                sw.Close();
             }
 
+            Thread.Sleep(1000);
+
+
         }
+
 
         private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -366,7 +303,7 @@ namespace WhatsApp_One
         private void button1_Click(object sender, EventArgs e)
         {
 
-            var service = AuthenticateOauth(@"credentials.json", "tatanka056");
+            /*var service = AuthenticateOauth(@"credentials.json", "tatanka056");
 
             iTotMessaggiDownload = GetLastIdFilesDownload();
 
@@ -378,7 +315,7 @@ namespace WhatsApp_One
                 
                DownloadFile(service, item, string.Format(@"{0}", item.Name));
                 
-            }
+            }*/
         }
 
         private string GerLocalIP()
@@ -466,6 +403,92 @@ namespace WhatsApp_One
 
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+  
+            try
+            {
+                timer1.Enabled = false;
+
+
+                string strMessaggio = "";
+                int iTrovato = 0;
+                var service = AuthenticateOauth(@"credentials.json", "tatanka056");
+                var fileId = "";
+
+                var files = DriveListExample.ListFiles(service, new DriveListExample.FilesListOptionalParms() { Q = "'1JnK8yEovo-D1Yoiy5b-ZUfyWdbcIlg-H' in parents and trashed=false", Fields = "*" });
+
+                //var files = DriveListExample.ListFiles(service,new DriveListExample.FilesListOptionalParms() { Q = "not name contains '" +sNomeFile + "'", Fields = "*" });
+                
+                foreach (var item in files.Files)
+                {
+
+                    if (item.Name.CompareTo(txtUserName.Text) != 0)
+                    {
+                        DownloadFile(service, item, string.Format(@"{0}", item.Name));
+
+                        // Open the file to read from.
+                        using (StreamReader sr = File.OpenText(item.Name))
+                        {
+                            string s = "";
+                            while ((s = sr.ReadLine()) != null)
+                            {
+                                strMessaggio = s;
+                                iTrovato = 1;
+                                fileId = item.Id;
+                                break;
+                            }
+                        }
+
+                    }
+                    if(iTrovato == 1 ) 
+                        break;
+                }
+
+                if (iTrovato == 0)
+                    return;
+
+                var request = service.Files.Delete(fileId);
+                var file = request.Execute();
+
+                Application.DoEvents();
+
+                newRow = table.NewConversationMessagesRow();
+                newRow.time = DateTime.Now;
+                newRow.text = "Friend: " + strMessaggio;
+                newRow.incoming = false;
+                table.AddConversationMessagesRow(newRow);
+
+                conversationCtrl1.DataSource = table;
+                conversationCtrl1.MessageColumnName = table.textColumn.ColumnName;
+                conversationCtrl1.IdColumnName = table.idColumn.ColumnName;
+                conversationCtrl1.DateColumnName = table.timeColumn.ColumnName;
+                conversationCtrl1.IsIncomingColumnName = table.incomingColumn.ColumnName;
+
+
+                if (conversationCtrl1.InvokeRequired)
+                {
+                    conversationCtrl1.Invoke(new ThreadStart(delegate
+                    {
+                        conversationCtrl1.Rebind();
+
+                    }));
+                }
+                else
+                {
+                    conversationCtrl1.Rebind();
+                }
+
+                Application.DoEvents();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+
+
+}
 
         private static void SaveStream(MemoryStream stream, string saveTo)
         {
