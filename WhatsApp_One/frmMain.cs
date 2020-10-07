@@ -25,7 +25,8 @@ namespace WhatsApp_One
     {
         private string strUsername;
         private string contentType = "application/txt";
-        private string FolderId = "1JnK8yEovo-D1Yoiy5b-ZUfyWdbcIlg-H";
+        //private string FolderId = "1JnK8yEovo-D1Yoiy5b-ZUfyWdbcIlg-H";
+         private string FolderId = "1B1PcGntR3RbwektTijuoePbt3NXzv5i_"; 
 
         public static DataSet1.ConversationMessagesDataTable table = new DataSet1.ConversationMessagesDataTable();
         public DataSet1.ConversationMessagesRow newRow = table.NewConversationMessagesRow();
@@ -44,7 +45,7 @@ namespace WhatsApp_One
         {
 
             btnSendMessage.Enabled = false;
-            timer1.Enabled = true;
+            
 
             newRow.time = DateTime.Now;
             newRow.text = "Hi!";
@@ -76,6 +77,8 @@ namespace WhatsApp_One
                 btnConnect.Enabled = false;
                 txtUserName.Enabled = false;
             }
+
+            timer1.Enabled = true;
 
             //int iretcode = 0;
 
@@ -401,7 +404,7 @@ namespace WhatsApp_One
                 var service = AuthenticateOauth(@"credentials.json", "tatanka056");
                 var fileId = "";
 
-                var files = DriveListExample.ListFiles(service, new DriveListExample.FilesListOptionalParms() { Q = "'1JnK8yEovo-D1Yoiy5b-ZUfyWdbcIlg-H' in parents and trashed=false", Fields = "*" });
+                var files = DriveListExample.ListFiles(service, new DriveListExample.FilesListOptionalParms() { Q = "'1B1PcGntR3RbwektTijuoePbt3NXzv5i_' in parents and trashed=false", Fields = "*" });
 
                 foreach (var item in files.Files)
                 {
