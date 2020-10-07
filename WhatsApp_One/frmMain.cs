@@ -219,7 +219,8 @@ namespace WhatsApp_One
                 MessageBox.Show(ex.Message);
             }*/
 
-            //Salvare il progressivo del Messaggio Inviato ...
+            if (txtSendMessage.Text == "")
+                return;
 
             try
             {
@@ -259,7 +260,7 @@ namespace WhatsApp_One
 
                 FilesResource.CreateMediaUpload request;
 
-                using (var stream = new System.IO.FileStream(sNomeFile, System.IO.FileMode.Open))
+                using (var stream = new System.IO.FileStream(Application.StartupPath + "\\Message\\" + sNomeFile, System.IO.FileMode.Open))
                 {
                     request = service.Files.Create(FileMetaData, stream, contentType);
                     request.Upload();
@@ -278,7 +279,7 @@ namespace WhatsApp_One
         private void WriteMessaggioFileDownload(string NomeFile, string Messaggio)
         {
             // Create a file to write to.
-            using (StreamWriter sw = File.CreateText(NomeFile))
+            using (StreamWriter sw = File.CreateText(Application.StartupPath + "\\Message\\" + NomeFile))
             {
                 sw.WriteLine(Messaggio);
                 sw.Close();
@@ -411,10 +412,9 @@ namespace WhatsApp_One
 
                     if (item.Name.CompareTo(txtUserName.Text) != 0)
                     {
-                        DownloadFile(service, item, string.Format(@"{0}", item.Name));
+                        DownloadFile(service, item, Application.StartupPath + "\\Message\\" + string.Format(@"{0}", item.Name));
 
-                        // Open the file to read from.
-                        using (StreamReader sr = File.OpenText(item.Name))
+                        using (StreamReader sr = File.OpenText(Application.StartupPath + "\\Message\\" + item.Name))
                         {
                             string s = "";
                             while ((s = sr.ReadLine()) != null)

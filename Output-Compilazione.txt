@@ -1,3 +1,2 @@
 ﻿1>------ Inizio compilazione: Progetto: WhatsApp_One, Configurazione: Debug Any CPU ------
-1>  WhatsApp_One -> C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\bin\Debug\WhatsApp_One.exe
-========== Compilazione: 1 completate, 0 non riuscite, 1 aggiornate, 0 ignorate ==========
+1>C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\frmMain.cs(26,24,26,35): warning CS0169: Il campo 'frmMain.strUsername' non viene mai usato
