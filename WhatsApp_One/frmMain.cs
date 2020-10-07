@@ -58,8 +58,8 @@ namespace WhatsApp_One
             conversationCtrl1.DateColumnName = table.timeColumn.ColumnName;
             conversationCtrl1.IsIncomingColumnName = table.incomingColumn.ColumnName;
 
-            sck = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
-            sck.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
+            //sck = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+            //sck.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
 
             //txtLocalIp.Text = GerLocalIP();
             //txtRemoteIp.Text = GerLocalIP();
@@ -231,7 +231,7 @@ namespace WhatsApp_One
 
                 Application.DoEvents();
                 btnSendMessage.Enabled = false;
-                Thread.Sleep(1000);
+                Thread.Sleep(500);
 
                 newRow = table.NewConversationMessagesRow();
                 newRow.time = DateTime.Now;
@@ -268,6 +268,7 @@ namespace WhatsApp_One
 
                 var file = request.ResponseBody;
 
+                File.Delete(Application.StartupPath + "\\Message\\" + sNomeFile);
             }
             catch (System.Net.Sockets.SocketException ex)
             {
@@ -285,8 +286,7 @@ namespace WhatsApp_One
                 sw.Close();
             }
 
-            Thread.Sleep(500);
-
+            Thread.Sleep(100);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -377,7 +377,11 @@ namespace WhatsApp_One
                     case Google.Apis.Download.DownloadStatus.Completed:
                         {
                             Console.WriteLine("Download complete.");
+
+                            Thread.Sleep(500);
                             SaveStream(stream, saveTo);
+                            
+
                             break;
                         }
                     case Google.Apis.Download.DownloadStatus.Failed:
@@ -414,6 +418,8 @@ namespace WhatsApp_One
                     {
                         DownloadFile(service, item, Application.StartupPath + "\\Message\\" + string.Format(@"{0}", item.Name));
 
+                        Thread.Sleep(200);
+
                         using (StreamReader sr = File.OpenText(Application.StartupPath + "\\Message\\" + item.Name))
                         {
                             string s = "";
@@ -424,7 +430,11 @@ namespace WhatsApp_One
                                 fileId = item.Id;
                                 break;
                             }
+
+                            sr.Close();
                         }
+
+                        File.Delete(Application.StartupPath + "\\Message\\" + item.Name);
 
                     }
                     if (iTrovato == 1)
@@ -466,6 +476,8 @@ namespace WhatsApp_One
                 }
 
                 Application.DoEvents();
+
+                
             }
             catch (Exception ex)
             {
@@ -475,9 +487,15 @@ namespace WhatsApp_One
 
         private static void SaveStream(MemoryStream stream, string saveTo)
         {
-            using (System.IO.FileStream file = new System.IO.FileStream(saveTo, System.IO.FileMode.Create, System.IO.FileAccess.Write))
+            try
             {
-                stream.WriteTo(file);
+                using (System.IO.FileStream file = new System.IO.FileStream(saveTo, System.IO.FileMode.Create, System.IO.FileAccess.Write))
+                {
+                    stream.WriteTo(file);
+                }
+            }catch(Exception ex)
+            {
+                return;
             }
         }
     }
