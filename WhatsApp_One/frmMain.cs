@@ -45,6 +45,10 @@ namespace WhatsApp_One
         }
         private void frmMain_Load(object sender, EventArgs e)
         {
+
+            btnSendMessage.Enabled = false;
+            timer1.Enabled = true;
+
             newRow.time = DateTime.Now;
             newRow.text = "Hi!";
             newRow.incoming = true;
@@ -68,8 +72,13 @@ namespace WhatsApp_One
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
-            
+            btnSendMessage.Enabled = true;
 
+            if (txtUserName.Text != "")
+            {
+                btnConnect.Enabled = false;
+                txtUserName.Enabled = false;
+            }
 
             //int iretcode = 0;
 
@@ -154,20 +163,17 @@ namespace WhatsApp_One
                 conversationCtrl1.DateColumnName = table.timeColumn.ColumnName;
                 conversationCtrl1.IsIncomingColumnName = table.incomingColumn.ColumnName;
 
-
                 if (conversationCtrl1.InvokeRequired)
                 {
                     conversationCtrl1.Invoke(new ThreadStart(delegate
                     {
                         conversationCtrl1.Rebind();
-
                     }));
                 }
                 else
                 {
                     conversationCtrl1.Rebind();
                 }
-
                 Application.DoEvents();
             }
             catch (Exception ex)
@@ -270,8 +276,6 @@ namespace WhatsApp_One
 
                 var file = request.ResponseBody;
 
-                timer1.Enabled = true;
-
             }
             catch (System.Net.Sockets.SocketException ex)
             {
@@ -289,8 +293,7 @@ namespace WhatsApp_One
                 sw.Close();
             }
 
-            Thread.Sleep(1000);
-
+            Thread.Sleep(500);
 
         }
 
@@ -342,7 +345,6 @@ namespace WhatsApp_One
                 if (!System.IO.File.Exists(clientSecretJson))
                     throw new Exception("clientSecretJson file does not exist.");
 
-               
                 string[] scopes = new string[] { DriveService.Scope.Drive };         	                                                 
                 UserCredential credential;
                 using (var stream = new FileStream(clientSecretJson, FileMode.Open, FileAccess.Read))
@@ -399,17 +401,19 @@ namespace WhatsApp_One
                         }
                 }
             };
+            
             request.Download(stream);
-
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+
+            if (txtUserName.Text == "")
+                return;
   
             try
             {
-                timer1.Enabled = false;
-
+                //timer1.Enabled = false;
 
                 string strMessaggio = "";
                 int iTrovato = 0;
