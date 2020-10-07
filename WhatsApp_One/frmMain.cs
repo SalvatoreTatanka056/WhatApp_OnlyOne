@@ -23,11 +23,7 @@ namespace WhatsApp_One
 {
     public partial class frmMain : Form
     {
-
-        //private int iTotMessaggiUpload;
-        //private int iTotMessaggiDownload;
         private string strUsername;
-
         private string contentType = "application/txt";
         private string FolderId = "1JnK8yEovo-D1Yoiy5b-ZUfyWdbcIlg-H";
 
@@ -37,6 +33,7 @@ namespace WhatsApp_One
         Socket sck;
         EndPoint epLocal, epRemote;
         byte[] buffer;
+
         public frmMain()
         {
             InitializeComponent();
@@ -63,10 +60,10 @@ namespace WhatsApp_One
             sck = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             sck.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
 
-            txtLocalIp.Text = GerLocalIP();
-            txtRemoteIp.Text = GerLocalIP();
+            //txtLocalIp.Text = GerLocalIP();
+            //txtRemoteIp.Text = GerLocalIP();
 
-            strUsername = Dns.GetHostName();
+            //strUsername = Dns.GetHostName();
 
         }
 
@@ -138,7 +135,7 @@ namespace WhatsApp_One
 
         private void MessageCallBack(IAsyncResult ar)
         {
-            try
+            /*try
             {
                 byte[] receiveData = new byte[1500];
                 receiveData = (byte[])ar.AsyncState;
@@ -150,7 +147,7 @@ namespace WhatsApp_One
                 sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
 
                 Application.DoEvents();
-              
+
                 newRow = table.NewConversationMessagesRow();
                 newRow.time = DateTime.Now;
                 newRow.text = "Friend: " + receiveMessage;
@@ -179,19 +176,10 @@ namespace WhatsApp_One
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
-            }
+            }*/
         }
 
-        private void btnSendMessage_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void conversationCtrl1_Load(object sender, EventArgs e)
-        {
-
-        }
-
+ 
         private void frmMain_Shown(object sender, EventArgs e)
         {
             conversationCtrl1.Rebind();
@@ -261,7 +249,7 @@ namespace WhatsApp_One
 
                 var service = AuthenticateOauth(@"credentials.json", "tatanka056");
 
-               
+
                 var FileMetaData = new Google.Apis.Drive.v3.Data.File();
                 FileMetaData.Name = sNomeFile;
                 FileMetaData.Parents = new List<string> { FolderId };
@@ -294,12 +282,6 @@ namespace WhatsApp_One
             }
 
             Thread.Sleep(500);
-
-        }
-
-
-        private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
-        {
 
         }
 
@@ -345,13 +327,13 @@ namespace WhatsApp_One
                 if (!System.IO.File.Exists(clientSecretJson))
                     throw new Exception("clientSecretJson file does not exist.");
 
-                string[] scopes = new string[] { DriveService.Scope.Drive };         	                                                 
+                string[] scopes = new string[] { DriveService.Scope.Drive };
                 UserCredential credential;
                 using (var stream = new FileStream(clientSecretJson, FileMode.Open, FileAccess.Read))
                 {
-                   // string credPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+                    // string credPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
                     //credPath = Path.Combine(credPath, ".credentials/", System.Reflection.Assembly.GetExecutingAssembly().GetName().Name);
-                   
+
                     credential = GoogleWebAuthorizationBroker.AuthorizeAsync(GoogleClientSecrets.Load(stream).Secrets,
                                                                              scopes,
                                                                              userName,
@@ -401,7 +383,7 @@ namespace WhatsApp_One
                         }
                 }
             };
-            
+
             request.Download(stream);
         }
 
@@ -410,11 +392,10 @@ namespace WhatsApp_One
 
             if (txtUserName.Text == "")
                 return;
-  
+
             try
             {
-                //timer1.Enabled = false;
-
+ 
                 string strMessaggio = "";
                 int iTrovato = 0;
                 var service = AuthenticateOauth(@"credentials.json", "tatanka056");
@@ -422,8 +403,6 @@ namespace WhatsApp_One
 
                 var files = DriveListExample.ListFiles(service, new DriveListExample.FilesListOptionalParms() { Q = "'1JnK8yEovo-D1Yoiy5b-ZUfyWdbcIlg-H' in parents and trashed=false", Fields = "*" });
 
-                //var files = DriveListExample.ListFiles(service,new DriveListExample.FilesListOptionalParms() { Q = "not name contains '" +sNomeFile + "'", Fields = "*" });
-                
                 foreach (var item in files.Files)
                 {
 
@@ -445,7 +424,7 @@ namespace WhatsApp_One
                         }
 
                     }
-                    if(iTrovato == 1 ) 
+                    if (iTrovato == 1)
                         break;
                 }
 
@@ -489,10 +468,7 @@ namespace WhatsApp_One
             {
                 MessageBox.Show(ex.ToString());
             }
-
-
-
-}
+        }
 
         private static void SaveStream(MemoryStream stream, string saveTo)
         {
@@ -501,8 +477,6 @@ namespace WhatsApp_One
                 stream.WriteTo(file);
             }
         }
-
-
     }
 
 }
