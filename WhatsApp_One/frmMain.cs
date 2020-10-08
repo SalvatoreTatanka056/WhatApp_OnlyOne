@@ -308,8 +308,8 @@ namespace WhatsApp_One
             Thread.Sleep(1000);
 
             btnSendMessage.Enabled = true;
-          
         }
+
         private void WriteMessaggioFileDownload(string NomeFile, string Messaggio)
         {
               // Create a file to write to.
@@ -370,8 +370,7 @@ namespace WhatsApp_One
                 {
                     // string credPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
                     //credPath = Path.Combine(credPath, ".credentials/", System.Reflection.Assembly.GetExecutingAssembly().GetName().Name);
-
-                    credential = GoogleWebAuthorizationBroker.AuthorizeAsync(GoogleClientSecrets.Load(stream).Secrets,
+                        credential = GoogleWebAuthorizationBroker.AuthorizeAsync(GoogleClientSecrets.Load(stream).Secrets,
                                                                              scopes,
                                                                              userName,
                                                                              CancellationToken.None,
@@ -390,7 +389,6 @@ namespace WhatsApp_One
                 throw new Exception("CreateServiceAccountDriveFailed", ex);
             }
         }
-
 
         private static void DownloadFile(Google.Apis.Drive.v3.DriveService service, Google.Apis.Drive.v3.Data.File file, string saveTo)
         {
@@ -439,11 +437,8 @@ namespace WhatsApp_One
 
             timer1.Enabled = false;
 
-
             try
             {
-
-
                 string strMessaggio = "";
                 int iTrovato = 0;
                 var service = AuthenticateOauth(@"credentials.json", "tatanka056");
@@ -543,7 +538,7 @@ namespace WhatsApp_One
                     stream.WriteTo(file);
                 }
             }
-            catch(Exception ex)
+            catch (Exception)
             {
                 return;
             }
@@ -565,7 +560,5 @@ namespace WhatsApp_One
                 e.Handled = true;
             }
         }
-
     }
-
 }
