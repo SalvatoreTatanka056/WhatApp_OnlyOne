@@ -26,7 +26,8 @@ namespace WhatsApp_One
         private string strUsername;
         private string contentType = "application/txt";
         //private string FolderId = "1JnK8yEovo-D1Yoiy5b-ZUfyWdbcIlg-H";
-         private string FolderId = "1B1PcGntR3RbwektTijuoePbt3NXzv5i_"; 
+        private string FolderId = "1B1PcGntR3RbwektTijuoePbt3NXzv5i_";
+        private string FolderPathUser = "";
 
         public static DataSet1.ConversationMessagesDataTable table = new DataSet1.ConversationMessagesDataTable();
         public DataSet1.ConversationMessagesRow newRow = table.NewConversationMessagesRow();
@@ -60,22 +61,39 @@ namespace WhatsApp_One
 
             //sck = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             //sck.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
-
             //txtLocalIp.Text = GerLocalIP();
             //txtRemoteIp.Text = GerLocalIP();
-
             //strUsername = Dns.GetHostName();
 
         }
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
+            if (txtUserName.Text == "")
+                return;
+
             btnSendMessage.Enabled = true;
+
+            
 
             if (txtUserName.Text != "")
             {
                 btnConnect.Enabled = false;
                 txtUserName.Enabled = false;
+            }
+
+            FolderPathUser = string.Format(Application.StartupPath + "\\{0}",txtUserName.Text);
+
+
+            if (Directory.Exists(FolderPathUser))
+            {
+                Console.WriteLine("That path exists already.");
+            }
+            else
+            {
+                // Try to create the directory.
+                DirectoryInfo di = Directory.CreateDirectory(FolderPathUser);
+
             }
 
             timer1.Enabled = true;
@@ -231,7 +249,6 @@ namespace WhatsApp_One
 
                 Application.DoEvents();
                 btnSendMessage.Enabled = false;
-                Thread.Sleep(500);
 
                 newRow = table.NewConversationMessagesRow();
                 newRow.time = DateTime.Now;
@@ -247,12 +264,11 @@ namespace WhatsApp_One
 
                 conversationCtrl1.Rebind();
                 Application.DoEvents();
-                btnSendMessage.Enabled = true;
+                
 
                 WriteMessaggioFileDownload(sNomeFile, txtSendMessage.Text);
 
                 var service = AuthenticateOauth(@"credentials.json", "tatanka056");
-
 
                 var FileMetaData = new Google.Apis.Drive.v3.Data.File();
                 FileMetaData.Name = sNomeFile;
@@ -260,33 +276,39 @@ namespace WhatsApp_One
 
                 FilesResource.CreateMediaUpload request;
 
-                using (var stream = new System.IO.FileStream(Application.StartupPath + "\\Message\\" + sNomeFile, System.IO.FileMode.Open))
+                using (var stream = new System.IO.FileStream(FolderPathUser + sNomeFile, System.IO.FileMode.Open))
                 {
                     request = service.Files.Create(FileMetaData, stream, contentType);
                     request.Upload();
+                    Application.DoEvents();
                 }
 
                 var file = request.ResponseBody;
 
-                File.Delete(Application.StartupPath + "\\Message\\" + sNomeFile);
+                File.Delete(FolderPathUser + sNomeFile);
             }
             catch (System.Net.Sockets.SocketException ex)
             {
                 MessageBox.Show(ex.Message);
             }
+            Thread.Sleep(1000);
+
+            btnSendMessage.Enabled = true;
+          
         }
 
 
         private void WriteMessaggioFileDownload(string NomeFile, string Messaggio)
         {
-            // Create a file to write to.
-            using (StreamWriter sw = File.CreateText(Application.StartupPath + "\\Message\\" + NomeFile))
-            {
-                sw.WriteLine(Messaggio);
-                sw.Close();
-            }
+              // Create a file to write to.
+                using (StreamWriter sw = File.CreateText(FolderPathUser + NomeFile))
+                {
+                    sw.WriteLine(Messaggio);
+                    sw.Close();
+                }
 
-            Thread.Sleep(100);
+                Application.DoEvents();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -393,17 +415,21 @@ namespace WhatsApp_One
             };
 
             request.Download(stream);
+
+            Application.DoEvents();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
 
+
             if (txtUserName.Text == "")
                 return;
 
+            timer1.Enabled = false;
+
             try
             {
- 
                 string strMessaggio = "";
                 int iTrovato = 0;
                 var service = AuthenticateOauth(@"credentials.json", "tatanka056");
@@ -416,11 +442,9 @@ namespace WhatsApp_One
 
                     if (item.Name.CompareTo(txtUserName.Text) != 0)
                     {
-                        DownloadFile(service, item, Application.StartupPath + "\\Message\\" + string.Format(@"{0}", item.Name));
+                        DownloadFile(service, item, FolderPathUser + "\\" + string.Format(@"{0}", item.Name));
 
-                        Thread.Sleep(200);
-
-                        using (StreamReader sr = File.OpenText(Application.StartupPath + "\\Message\\" + item.Name))
+                        using (StreamReader sr = File.OpenText(FolderPathUser + "\\" + item.Name))
                         {
                             string s = "";
                             while ((s = sr.ReadLine()) != null)
@@ -428,21 +452,24 @@ namespace WhatsApp_One
                                 strMessaggio = s;
                                 iTrovato = 1;
                                 fileId = item.Id;
+                                sr.Close();
                                 break;
                             }
-
-                            sr.Close();
+                            
                         }
-
-                        File.Delete(Application.StartupPath + "\\Message\\" + item.Name);
-
                     }
                     if (iTrovato == 1)
+                    {
+                        File.Delete(FolderPathUser + "\\" + item.Name);
                         break;
+                    }
                 }
 
                 if (iTrovato == 0)
+                {
+                    timer1.Enabled = true;
                     return;
+                }
 
                 var request = service.Files.Delete(fileId);
                 var file = request.Execute();
@@ -476,13 +503,13 @@ namespace WhatsApp_One
                 }
 
                 Application.DoEvents();
-
-                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
+            timer1.Enabled = true;
+
         }
 
         private static void SaveStream(MemoryStream stream, string saveTo)
@@ -493,7 +520,8 @@ namespace WhatsApp_One
                 {
                     stream.WriteTo(file);
                 }
-            }catch(Exception ex)
+            }
+            catch(Exception ex)
             {
                 return;
             }
