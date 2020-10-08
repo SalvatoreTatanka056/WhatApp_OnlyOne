@@ -87,7 +87,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.AutoScroll = true;
-            this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.splitContainer1.Panel1.Controls.Add(this.lblMain);
             this.splitContainer1.Panel1.Controls.Add(this.txtUserName);
             this.splitContainer1.Panel1.Controls.Add(this.propertyGrid1);
@@ -101,25 +101,27 @@
             this.splitContainer1.Panel2.AutoScroll = true;
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Panel2.Margin = new System.Windows.Forms.Padding(10, 0, 0, 10);
-            this.splitContainer1.Size = new System.Drawing.Size(1434, 1045);
-            this.splitContainer1.SplitterDistance = 448;
+            this.splitContainer1.Size = new System.Drawing.Size(1275, 1045);
+            this.splitContainer1.SplitterDistance = 473;
             this.splitContainer1.TabIndex = 11;
             // 
             // lblMain
             // 
             this.lblMain.AutoSize = true;
-            this.lblMain.Location = new System.Drawing.Point(5, 79);
+            this.lblMain.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMain.Location = new System.Drawing.Point(5, 75);
             this.lblMain.Name = "lblMain";
-            this.lblMain.Size = new System.Drawing.Size(55, 13);
+            this.lblMain.Size = new System.Drawing.Size(89, 21);
             this.lblMain.TabIndex = 13;
             this.lblMain.Text = "Nickname";
             // 
             // txtUserName
             // 
             this.txtUserName.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserName.Location = new System.Drawing.Point(73, 74);
+            this.txtUserName.Location = new System.Drawing.Point(100, 70);
+            this.txtUserName.Multiline = true;
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(168, 24);
+            this.txtUserName.Size = new System.Drawing.Size(192, 42);
             this.txtUserName.TabIndex = 12;
             // 
             // propertyGrid1
@@ -127,7 +129,7 @@
             this.propertyGrid1.Location = new System.Drawing.Point(8, 118);
             this.propertyGrid1.Name = "propertyGrid1";
             this.propertyGrid1.SelectedObject = this.conversationCtrl1;
-            this.propertyGrid1.Size = new System.Drawing.Size(437, 777);
+            this.propertyGrid1.Size = new System.Drawing.Size(438, 777);
             this.propertyGrid1.TabIndex = 11;
             // 
             // conversationCtrl1
@@ -158,13 +160,13 @@
             this.conversationCtrl1.RemoteBalloonPadding = new System.Windows.Forms.Padding(20, 20, 10, 10);
             this.conversationCtrl1.RemoteCellPadding = new System.Windows.Forms.Padding(10);
             this.conversationCtrl1.RemoteText = "You";
-            this.conversationCtrl1.Size = new System.Drawing.Size(952, 775);
+            this.conversationCtrl1.Size = new System.Drawing.Size(768, 775);
             this.conversationCtrl1.TabIndex = 10;
             // 
             // btnConnect
             // 
             this.btnConnect.Image = global::WhatsApp_One.Properties.Resources.CCC;
-            this.btnConnect.Location = new System.Drawing.Point(263, 70);
+            this.btnConnect.Location = new System.Drawing.Point(298, 70);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(148, 42);
             this.btnConnect.TabIndex = 2;
@@ -278,7 +280,7 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.panel1);
             this.splitContainer2.Panel2.Controls.Add(this.button1);
-            this.splitContainer2.Size = new System.Drawing.Size(982, 1045);
+            this.splitContainer2.Size = new System.Drawing.Size(798, 1045);
             this.splitContainer2.SplitterDistance = 877;
             this.splitContainer2.TabIndex = 9;
             // 
@@ -289,7 +291,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(982, 164);
+            this.panel1.Size = new System.Drawing.Size(798, 164);
             this.panel1.TabIndex = 10;
             // 
             // txtSendMessage
@@ -302,7 +304,7 @@
             this.txtSendMessage.Multiline = true;
             this.txtSendMessage.Name = "txtSendMessage";
             this.txtSendMessage.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtSendMessage.Size = new System.Drawing.Size(982, 66);
+            this.txtSendMessage.Size = new System.Drawing.Size(798, 66);
             this.txtSendMessage.TabIndex = 11;
             this.txtSendMessage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSendMessage_KeyDown);
             // 
@@ -337,7 +339,7 @@
             this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1434, 58);
+            this.toolStrip1.Size = new System.Drawing.Size(1275, 58);
             this.toolStrip1.TabIndex = 12;
             this.toolStrip1.Text = "tlsMain";
             // 
@@ -365,7 +367,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1434, 1045);
+            this.ClientSize = new System.Drawing.Size(1275, 1045);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.lstMain);
