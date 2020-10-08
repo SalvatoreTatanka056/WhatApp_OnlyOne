@@ -297,7 +297,6 @@ namespace WhatsApp_One
           
         }
 
-
         private void WriteMessaggioFileDownload(string NomeFile, string Messaggio)
         {
               // Create a file to write to.
