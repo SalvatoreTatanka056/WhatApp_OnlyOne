@@ -65,12 +65,18 @@ namespace WhatsApp_One
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
+
             if (txtUserName.Text == "")
             {
                 MessageBox.Show("Inserire un nikname a piacimento Grazie!", "Attenzione Username Mancante", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
 
             }
+
+
+            tsslblMain.Text = "Connessione in corso ...";
+
+            tstsPrg.Value = 10;
 
             btnSendMessage.Enabled = true;
 
@@ -79,6 +85,8 @@ namespace WhatsApp_One
                 btnConnect.Enabled = false;
                 txtUserName.Enabled = false;
             }
+
+            tstsPrg.Value = 50;
 
             FolderPathUser = string.Format(Application.StartupPath + "\\{0}",txtUserName.Text);
 
@@ -90,6 +98,9 @@ namespace WhatsApp_One
             {
                 DirectoryInfo di = Directory.CreateDirectory(FolderPathUser);
             }
+
+            tstsPrg.Value = 100;
+            tsslblMain.Text = "Connesso.";
 
             timer1.Enabled = true;
 
@@ -245,6 +256,9 @@ namespace WhatsApp_One
                 Application.DoEvents();
                 btnSendMessage.Enabled = false;
 
+                tsslblMain.Text = "Invio Messaggio in corso ...";
+                tstsPrg.Value = 10;
+
                 newRow = table.NewConversationMessagesRow();
                 newRow.time = DateTime.Now;
                 newRow.text = "Me: " + txtSendMessage.Text;
@@ -259,9 +273,10 @@ namespace WhatsApp_One
 
                 conversationCtrl1.Rebind();
                 Application.DoEvents();
-                
 
                 WriteMessaggioFileDownload(sNomeFile, txtSendMessage.Text);
+
+                tstsPrg.Value = 30;
 
                 var service = AuthenticateOauth(@"credentials.json", "tatanka056");
 
@@ -281,6 +296,10 @@ namespace WhatsApp_One
                 var file = request.ResponseBody;
 
                 File.Delete(FolderPathUser + sNomeFile);
+
+                tstsPrg.Value = 100;
+                tsslblMain.Text = "Messaggio Inviato.";
+
             }
             catch (System.Net.Sockets.SocketException ex)
             {
@@ -413,15 +432,18 @@ namespace WhatsApp_One
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-
+            tstsPrg.Value = 0;
 
             if (txtUserName.Text == "")
                 return;
 
             timer1.Enabled = false;
 
+
             try
             {
+
+
                 string strMessaggio = "";
                 int iTrovato = 0;
                 var service = AuthenticateOauth(@"credentials.json", "tatanka056");
@@ -434,6 +456,9 @@ namespace WhatsApp_One
 
                     if (item.Name.CompareTo(txtUserName.Text) != 0)
                     {
+                        tstsPrg.Value = 10;
+                        tsslblMain.Text = "Ricezione Messaggio in corso...";
+
                         DownloadFile(service, item, FolderPathUser + "\\" + string.Format(@"{0}", item.Name));
 
                         using (StreamReader sr = File.OpenText(FolderPathUser + "\\" + item.Name))
@@ -445,6 +470,8 @@ namespace WhatsApp_One
                                 iTrovato = 1;
                                 fileId = item.Id;
                             }
+
+                            tstsPrg.Value = 30;
 
                             sr.Close();
                             break;
@@ -466,6 +493,7 @@ namespace WhatsApp_One
                 var request = service.Files.Delete(fileId);
                 var file = request.Execute();
 
+                tstsPrg.Value = 80;
                 Application.DoEvents();
 
                 newRow = table.NewConversationMessagesRow();
@@ -500,6 +528,9 @@ namespace WhatsApp_One
             {
                 MessageBox.Show(ex.ToString());
             }
+
+            tstsPrg.Value = 100;
+            tsslblMain.Text = "Messaggio Ricevuto";
             timer1.Enabled = true;
 
         }
