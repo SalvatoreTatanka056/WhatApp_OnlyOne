@@ -306,6 +306,8 @@
             // 
             // txtSendMessage
             // 
+            this.txtSendMessage.AcceptsTab = true;
+            this.txtSendMessage.AllowDrop = true;
             this.txtSendMessage.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtSendMessage.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSendMessage.Location = new System.Drawing.Point(0, 0);
@@ -314,6 +316,7 @@
             this.txtSendMessage.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtSendMessage.Size = new System.Drawing.Size(982, 66);
             this.txtSendMessage.TabIndex = 11;
+            this.txtSendMessage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSendMessage_KeyDown);
             // 
             // toolStripButton1
             // 
@@ -339,9 +342,9 @@
             // 
             this.btnSendMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSendMessage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSendMessage.Location = new System.Drawing.Point(27, 93);
+            this.btnSendMessage.Location = new System.Drawing.Point(0, 72);
             this.btnSendMessage.Name = "btnSendMessage";
-            this.btnSendMessage.Size = new System.Drawing.Size(85, 33);
+            this.btnSendMessage.Size = new System.Drawing.Size(112, 25);
             this.btnSendMessage.TabIndex = 10;
             this.btnSendMessage.Text = "&Send >>";
             this.btnSendMessage.UseVisualStyleBackColor = true;

@@ -514,6 +514,23 @@ namespace WhatsApp_One
             }
         }
 
+        private void txtSendMessage_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (txtUserName.Text == "")
+                return;
+
+            if (e.KeyCode == Keys.Enter)
+            {
+
+                btnSendMessage_Click(btnSendMessage, new EventArgs());
+
+                txtSendMessage.Text = "";
+
+                e.Handled = true;
+            }
+        }
+
     }
 
 }
