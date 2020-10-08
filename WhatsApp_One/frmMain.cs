@@ -23,7 +23,7 @@ namespace WhatsApp_One
 {
     public partial class frmMain : Form
     {
-        private string strUsername;
+        //private string strUsername = "";
         private string contentType = "application/txt";
         //private string FolderId = "1JnK8yEovo-D1Yoiy5b-ZUfyWdbcIlg-H" Personale;
         private string FolderId = "1B1PcGntR3RbwektTijuoePbt3NXzv5i_";
@@ -197,7 +197,7 @@ namespace WhatsApp_One
             conversationCtrl1.Rebind();
         }
 
-        private void btnSendMessage_Click_1(object sender, EventArgs e)
+        private void btnSendMessage_Click(object sender, EventArgs e)
         {
             /* ASCIIEncoding aEncoding = new ASCIIEncoding();
             byte[] sendingMessage = new byte[1500];
@@ -437,13 +437,13 @@ namespace WhatsApp_One
                             string s = "";
                             while ((s = sr.ReadLine()) != null)
                             {
-                                strMessaggio = s;
+                                strMessaggio += " " + s;
                                 iTrovato = 1;
                                 fileId = item.Id;
-                                sr.Close();
-                                break;
                             }
-                            
+
+                            sr.Close();
+                            break;
                         }
                     }
                     if (iTrovato == 1)
@@ -513,6 +513,7 @@ namespace WhatsApp_One
                 return;
             }
         }
+
     }
 
 }

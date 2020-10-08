@@ -142,6 +142,7 @@
     <None Include="Resources\CCC.PNG" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="bin\Debug\send-message.ico" />
     <Content Include="VSLiveShare.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

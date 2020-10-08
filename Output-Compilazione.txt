@@ -1,1 +1,4 @@
-﻿========== Compilazione: 0 completate, 0 non riuscite, 2 aggiornate, 0 ignorate ==========
+﻿1>------ Inizio compilazione: Progetto: WhatsApp_One, Configurazione: Debug Any CPU ------
+1>C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\frmMain.cs(511,29,511,31): warning CS0168: La variabile 'ex' è dichiarata, ma non viene mai usata
+1>  WhatsApp_One -> C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\bin\Debug\WhatsApp_One.exe
+========== Compilazione: 1 completate, 0 non riuscite, 1 aggiornate, 0 ignorate ==========
