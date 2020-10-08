@@ -66,7 +66,11 @@ namespace WhatsApp_One
         private void btnConnect_Click(object sender, EventArgs e)
         {
             if (txtUserName.Text == "")
+            {
+                MessageBox.Show("Inserire un nikname a piacimento Grazie!", "Attenzione Username Mancante", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
+
+            }
 
             btnSendMessage.Enabled = true;
 

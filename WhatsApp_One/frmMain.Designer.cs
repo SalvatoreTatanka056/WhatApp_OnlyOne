@@ -55,6 +55,7 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.btnConnect = new System.Windows.Forms.Button();
             this.btnSendMessage = new System.Windows.Forms.Button();
+            this.lblMain = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -87,6 +88,7 @@
             // 
             this.splitContainer1.Panel1.AutoScroll = true;
             this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.splitContainer1.Panel1.Controls.Add(this.lblMain);
             this.splitContainer1.Panel1.Controls.Add(this.txtUserName);
             this.splitContainer1.Panel1.Controls.Add(this.propertyGrid1);
             this.splitContainer1.Panel1.Controls.Add(this.btnConnect);
@@ -106,9 +108,9 @@
             // txtUserName
             // 
             this.txtUserName.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserName.Location = new System.Drawing.Point(176, 78);
+            this.txtUserName.Location = new System.Drawing.Point(73, 74);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(221, 24);
+            this.txtUserName.Size = new System.Drawing.Size(168, 24);
             this.txtUserName.TabIndex = 12;
             // 
             // propertyGrid1
@@ -331,7 +333,7 @@
             // btnConnect
             // 
             this.btnConnect.Image = global::WhatsApp_One.Properties.Resources.CCC;
-            this.btnConnect.Location = new System.Drawing.Point(22, 66);
+            this.btnConnect.Location = new System.Drawing.Point(263, 70);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(148, 42);
             this.btnConnect.TabIndex = 2;
@@ -349,6 +351,15 @@
             this.btnSendMessage.Text = "&Send >>";
             this.btnSendMessage.UseVisualStyleBackColor = true;
             this.btnSendMessage.Click += new System.EventHandler(this.btnSendMessage_Click);
+            // 
+            // lblMain
+            // 
+            this.lblMain.AutoSize = true;
+            this.lblMain.Location = new System.Drawing.Point(5, 79);
+            this.lblMain.Name = "lblMain";
+            this.lblMain.Size = new System.Drawing.Size(55, 13);
+            this.lblMain.TabIndex = 13;
+            this.lblMain.Text = "Nickname";
             // 
             // frmMain
             // 
@@ -411,6 +422,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnSendMessage;
         private System.Windows.Forms.TextBox txtSendMessage;
+        private System.Windows.Forms.Label lblMain;
     }
 }
 
