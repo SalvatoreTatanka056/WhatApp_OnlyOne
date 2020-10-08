@@ -25,16 +25,16 @@ namespace WhatsApp_One
     {
         private string strUsername;
         private string contentType = "application/txt";
-        //private string FolderId = "1JnK8yEovo-D1Yoiy5b-ZUfyWdbcIlg-H";
+        //private string FolderId = "1JnK8yEovo-D1Yoiy5b-ZUfyWdbcIlg-H" Personale;
         private string FolderId = "1B1PcGntR3RbwektTijuoePbt3NXzv5i_";
         private string FolderPathUser = "";
 
         public static DataSet1.ConversationMessagesDataTable table = new DataSet1.ConversationMessagesDataTable();
         public DataSet1.ConversationMessagesRow newRow = table.NewConversationMessagesRow();
 
-        Socket sck;
-        EndPoint epLocal, epRemote;
-        byte[] buffer;
+        //Socket sck;
+        //EndPoint epLocal, epRemote;
+        //byte[] buffer;
 
         public frmMain()
         {
@@ -46,13 +46,10 @@ namespace WhatsApp_One
         {
 
             btnSendMessage.Enabled = false;
-            
-
             newRow.time = DateTime.Now;
             newRow.text = "Hi!";
             newRow.incoming = true;
             table.AddConversationMessagesRow(newRow);
-
             conversationCtrl1.DataSource = table;
             conversationCtrl1.MessageColumnName = table.textColumn.ColumnName;
             conversationCtrl1.IdColumnName = table.idColumn.ColumnName;
@@ -64,7 +61,6 @@ namespace WhatsApp_One
             //txtLocalIp.Text = GerLocalIP();
             //txtRemoteIp.Text = GerLocalIP();
             //strUsername = Dns.GetHostName();
-
         }
 
         private void btnConnect_Click(object sender, EventArgs e)
@@ -74,8 +70,6 @@ namespace WhatsApp_One
 
             btnSendMessage.Enabled = true;
 
-            
-
             if (txtUserName.Text != "")
             {
                 btnConnect.Enabled = false;
@@ -84,16 +78,13 @@ namespace WhatsApp_One
 
             FolderPathUser = string.Format(Application.StartupPath + "\\{0}",txtUserName.Text);
 
-
             if (Directory.Exists(FolderPathUser))
             {
                 Console.WriteLine("That path exists already.");
             }
             else
             {
-                // Try to create the directory.
                 DirectoryInfo di = Directory.CreateDirectory(FolderPathUser);
-
             }
 
             timer1.Enabled = true;
@@ -149,10 +140,10 @@ namespace WhatsApp_One
 
         }
 
-        private static string GetMimeType(string uploadFile)
+        /*private static string GetMimeType(string uploadFile)
         {
             throw new NotImplementedException();
-        }
+        }*/
 
         private void MessageCallBack(IAsyncResult ar)
         {
@@ -296,7 +287,6 @@ namespace WhatsApp_One
             btnSendMessage.Enabled = true;
           
         }
-
         private void WriteMessaggioFileDownload(string NomeFile, string Messaggio)
         {
               // Create a file to write to.
@@ -309,7 +299,6 @@ namespace WhatsApp_One
                 Application.DoEvents();
             
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -328,7 +317,7 @@ namespace WhatsApp_One
             }*/
         }
 
-        private string GerLocalIP()
+        /*private string GerLocalIP()
         {
             IPHostEntry host;
             host = Dns.GetHostEntry(Dns.GetHostName());
@@ -339,7 +328,7 @@ namespace WhatsApp_One
             }
 
             return "127.0.0.1";
-        }
+        }*/
 
         public static DriveService AuthenticateOauth(string clientSecretJson, string userName)
         {
@@ -510,7 +499,6 @@ namespace WhatsApp_One
             timer1.Enabled = true;
 
         }
-
         private static void SaveStream(MemoryStream stream, string saveTo)
         {
             try
