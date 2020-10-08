@@ -32,9 +32,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.lstMain = new System.Windows.Forms.ListBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.lblMain = new System.Windows.Forms.Label();
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
             this.conversationCtrl1 = new WhatsApp_One.ControlsSuite.ConversationCtrl();
+            this.btnConnect = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,16 +48,14 @@
             this.txtRemotePort = new System.Windows.Forms.TextBox();
             this.txtRemoteIp = new System.Windows.Forms.TextBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.button1 = new System.Windows.Forms.Button();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtSendMessage = new System.Windows.Forms.TextBox();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.btnConnect = new System.Windows.Forms.Button();
             this.btnSendMessage = new System.Windows.Forms.Button();
-            this.lblMain = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -66,8 +66,8 @@
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lstMain
@@ -105,6 +105,15 @@
             this.splitContainer1.SplitterDistance = 448;
             this.splitContainer1.TabIndex = 11;
             // 
+            // lblMain
+            // 
+            this.lblMain.AutoSize = true;
+            this.lblMain.Location = new System.Drawing.Point(5, 79);
+            this.lblMain.Name = "lblMain";
+            this.lblMain.Size = new System.Drawing.Size(55, 13);
+            this.lblMain.TabIndex = 13;
+            this.lblMain.Text = "Nickname";
+            // 
             // txtUserName
             // 
             this.txtUserName.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -118,7 +127,7 @@
             this.propertyGrid1.Location = new System.Drawing.Point(8, 118);
             this.propertyGrid1.Name = "propertyGrid1";
             this.propertyGrid1.SelectedObject = this.conversationCtrl1;
-            this.propertyGrid1.Size = new System.Drawing.Size(403, 777);
+            this.propertyGrid1.Size = new System.Drawing.Size(437, 777);
             this.propertyGrid1.TabIndex = 11;
             // 
             // conversationCtrl1
@@ -149,8 +158,18 @@
             this.conversationCtrl1.RemoteBalloonPadding = new System.Windows.Forms.Padding(20, 20, 10, 10);
             this.conversationCtrl1.RemoteCellPadding = new System.Windows.Forms.Padding(10);
             this.conversationCtrl1.RemoteText = "You";
-            this.conversationCtrl1.Size = new System.Drawing.Size(952, 776);
+            this.conversationCtrl1.Size = new System.Drawing.Size(952, 775);
             this.conversationCtrl1.TabIndex = 10;
+            // 
+            // btnConnect
+            // 
+            this.btnConnect.Image = global::WhatsApp_One.Properties.Resources.CCC;
+            this.btnConnect.Location = new System.Drawing.Point(263, 70);
+            this.btnConnect.Name = "btnConnect";
+            this.btnConnect.Size = new System.Drawing.Size(148, 42);
+            this.btnConnect.TabIndex = 2;
+            this.btnConnect.UseVisualStyleBackColor = true;
+            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
             // groupBox1
             // 
@@ -260,8 +279,44 @@
             this.splitContainer2.Panel2.Controls.Add(this.panel1);
             this.splitContainer2.Panel2.Controls.Add(this.button1);
             this.splitContainer2.Size = new System.Drawing.Size(982, 1045);
-            this.splitContainer2.SplitterDistance = 878;
+            this.splitContainer2.SplitterDistance = 877;
             this.splitContainer2.TabIndex = 9;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.txtSendMessage);
+            this.panel1.Controls.Add(this.btnSendMessage);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(982, 164);
+            this.panel1.TabIndex = 10;
+            // 
+            // txtSendMessage
+            // 
+            this.txtSendMessage.AcceptsTab = true;
+            this.txtSendMessage.AllowDrop = true;
+            this.txtSendMessage.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtSendMessage.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSendMessage.Location = new System.Drawing.Point(0, 0);
+            this.txtSendMessage.Multiline = true;
+            this.txtSendMessage.Name = "txtSendMessage";
+            this.txtSendMessage.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtSendMessage.Size = new System.Drawing.Size(982, 66);
+            this.txtSendMessage.TabIndex = 11;
+            this.txtSendMessage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSendMessage_KeyDown);
+            // 
+            // btnSendMessage
+            // 
+            this.btnSendMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSendMessage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSendMessage.Location = new System.Drawing.Point(0, 72);
+            this.btnSendMessage.Name = "btnSendMessage";
+            this.btnSendMessage.Size = new System.Drawing.Size(112, 25);
+            this.btnSendMessage.TabIndex = 10;
+            this.btnSendMessage.Text = "&Send >>";
+            this.btnSendMessage.UseVisualStyleBackColor = true;
+            this.btnSendMessage.Click += new System.EventHandler(this.btnSendMessage_Click);
             // 
             // button1
             // 
@@ -286,40 +341,6 @@
             this.toolStrip1.TabIndex = 12;
             this.toolStrip1.Text = "tlsMain";
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 2000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.txtSendMessage);
-            this.panel1.Controls.Add(this.btnSendMessage);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(982, 163);
-            this.panel1.TabIndex = 10;
-            // 
-            // txtSendMessage
-            // 
-            this.txtSendMessage.AcceptsTab = true;
-            this.txtSendMessage.AllowDrop = true;
-            this.txtSendMessage.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtSendMessage.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSendMessage.Location = new System.Drawing.Point(0, 0);
-            this.txtSendMessage.Multiline = true;
-            this.txtSendMessage.Name = "txtSendMessage";
-            this.txtSendMessage.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtSendMessage.Size = new System.Drawing.Size(982, 66);
-            this.txtSendMessage.TabIndex = 11;
-            this.txtSendMessage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSendMessage_KeyDown);
-            // 
             // toolStripButton1
             // 
             this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -330,36 +351,15 @@
             this.toolStripButton1.Size = new System.Drawing.Size(408, 55);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
-            // btnConnect
+            // contextMenuStrip1
             // 
-            this.btnConnect.Image = global::WhatsApp_One.Properties.Resources.CCC;
-            this.btnConnect.Location = new System.Drawing.Point(263, 70);
-            this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(148, 42);
-            this.btnConnect.TabIndex = 2;
-            this.btnConnect.UseVisualStyleBackColor = true;
-            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // btnSendMessage
+            // timer1
             // 
-            this.btnSendMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSendMessage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSendMessage.Location = new System.Drawing.Point(0, 72);
-            this.btnSendMessage.Name = "btnSendMessage";
-            this.btnSendMessage.Size = new System.Drawing.Size(112, 25);
-            this.btnSendMessage.TabIndex = 10;
-            this.btnSendMessage.Text = "&Send >>";
-            this.btnSendMessage.UseVisualStyleBackColor = true;
-            this.btnSendMessage.Click += new System.EventHandler(this.btnSendMessage_Click);
-            // 
-            // lblMain
-            // 
-            this.lblMain.AutoSize = true;
-            this.lblMain.Location = new System.Drawing.Point(5, 79);
-            this.lblMain.Name = "lblMain";
-            this.lblMain.Size = new System.Drawing.Size(55, 13);
-            this.lblMain.TabIndex = 13;
-            this.lblMain.Text = "Nickname";
+            this.timer1.Interval = 2000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // frmMain
             // 
@@ -387,10 +387,10 @@
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
