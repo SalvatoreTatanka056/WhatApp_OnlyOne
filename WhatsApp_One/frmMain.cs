@@ -74,7 +74,6 @@ namespace WhatsApp_One
 
             }
 
-
             tsslblMain.Text = "Connessione in corso ...";
 
             tstsPrg.Value = 10;
@@ -104,6 +103,10 @@ namespace WhatsApp_One
 
             tstsPrg.Value = 100;
             tsslblMain.Text = "Connesso.";
+
+
+            // creare un'altra cartella per scrivere i file di connessione che alla fine veranno cancellati
+            // se l'applicazione ne trova >= 2 non si collega, si collega solamente se ne trova files di connessione < 2
 
             timer1.Enabled = true;
 
