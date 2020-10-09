@@ -28,6 +28,7 @@ namespace WhatsApp_One
         //private string FolderId = "1JnK8yEovo-D1Yoiy5b-ZUfyWdbcIlg-H" Personale;
         private string FolderId = "1B1PcGntR3RbwektTijuoePbt3NXzv5i_";
         private string FolderPathUser = "";
+        private string HostName = "";
 
         public static DataSet1.ConversationMessagesDataTable table = new DataSet1.ConversationMessagesDataTable();
         public DataSet1.ConversationMessagesRow newRow = table.NewConversationMessagesRow();
@@ -88,7 +89,9 @@ namespace WhatsApp_One
 
             tstsPrg.Value = 50;
 
-            FolderPathUser = string.Format(Application.StartupPath + "\\{0}",txtUserName.Text);
+            HostName = Dns.GetHostName();
+
+            FolderPathUser = string.Format(Application.StartupPath + "\\{0}_{1}", HostName, txtUserName.Text);
 
             if (Directory.Exists(FolderPathUser))
             {
@@ -251,7 +254,7 @@ namespace WhatsApp_One
                 // Caricare Files su Drive ...
                 // var service = AuthenticateOauth(@"credentials.json", "tatanka056");
 
-                string sNomeFile = string.Format("{0}", txtUserName.Text);
+                string sNomeFile = string.Format("{0}_{1}", HostName , txtUserName.Text);
 
                 Application.DoEvents();
                 btnSendMessage.Enabled = false;
@@ -449,7 +452,7 @@ namespace WhatsApp_One
                 foreach (var item in files.Files)
                 {
 
-                    if (item.Name.CompareTo(txtUserName.Text) != 0)
+                    if (item.Name.CompareTo(HostName + "_" + txtUserName.Text) != 0)
                     {
                         tstsPrg.Value = 10;
                         tsslblMain.Text = "Ricezione Messaggio in corso...";
