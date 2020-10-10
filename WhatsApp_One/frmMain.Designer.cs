@@ -109,7 +109,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Panel2.Margin = new System.Windows.Forms.Padding(10, 0, 0, 10);
             this.splitContainer1.Size = new System.Drawing.Size(1507, 1045);
-            this.splitContainer1.SplitterDistance = 559;
+            this.splitContainer1.SplitterDistance = 411;
             this.splitContainer1.TabIndex = 11;
             // 
             // statusStrip1
@@ -119,9 +119,9 @@
             this.tsslblMain,
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel2});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 1023);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 1006);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(559, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(446, 22);
             this.statusStrip1.TabIndex = 14;
             this.statusStrip1.Text = "stsMain";
             // 
@@ -200,7 +200,7 @@
             this.conversationCtrl1.RemoteBalloonPadding = new System.Windows.Forms.Padding(20, 20, 10, 10);
             this.conversationCtrl1.RemoteCellPadding = new System.Windows.Forms.Padding(10);
             this.conversationCtrl1.RemoteText = "You";
-            this.conversationCtrl1.Size = new System.Drawing.Size(914, 775);
+            this.conversationCtrl1.Size = new System.Drawing.Size(1062, 775);
             this.conversationCtrl1.TabIndex = 10;
             // 
             // groupBox1
@@ -310,7 +310,7 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.panel1);
             this.splitContainer2.Panel2.Controls.Add(this.button1);
-            this.splitContainer2.Size = new System.Drawing.Size(944, 1045);
+            this.splitContainer2.Size = new System.Drawing.Size(1092, 1045);
             this.splitContainer2.SplitterDistance = 877;
             this.splitContainer2.TabIndex = 9;
             // 
@@ -321,7 +321,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(944, 164);
+            this.panel1.Size = new System.Drawing.Size(1092, 164);
             this.panel1.TabIndex = 10;
             // 
             // txtSendMessage
@@ -334,7 +334,7 @@
             this.txtSendMessage.Multiline = true;
             this.txtSendMessage.Name = "txtSendMessage";
             this.txtSendMessage.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtSendMessage.Size = new System.Drawing.Size(944, 66);
+            this.txtSendMessage.Size = new System.Drawing.Size(1092, 66);
             this.txtSendMessage.TabIndex = 11;
             this.txtSendMessage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSendMessage_KeyDown);
             // 
