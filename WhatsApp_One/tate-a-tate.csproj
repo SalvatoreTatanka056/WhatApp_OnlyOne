@@ -7,7 +7,7 @@
     <ProjectGuid>{59A8A6CF-888F-46F3-8CE6-2F816DF9BB87}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>WhatsApp_One</RootNamespace>
-    <AssemblyName>WhatsApp_One</AssemblyName>
+    <AssemblyName>tate-a-tate</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -49,7 +49,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>VSLiveShare.ico</ApplicationIcon>
+    <ApplicationIcon>tate-a-tate.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>4ED2FB67E77ECF8E12500C39BAB0FD28EE8E5556</ManifestCertificateThumbprint>
@@ -173,6 +173,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\send-message.ico" />
+    <Content Include="tate-a-tate.ico" />
+    <Content Include="TextTemplate.ico" />
     <Content Include="VSLiveShare.ico" />
   </ItemGroup>
   <ItemGroup>
