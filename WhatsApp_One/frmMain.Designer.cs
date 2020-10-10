@@ -41,6 +41,7 @@
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
             this.conversationCtrl1 = new WhatsApp_One.ControlsSuite.ConversationCtrl();
+            this.btnConnect = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -57,10 +58,9 @@
             this.btnSendMessage = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btnConnect = new System.Windows.Forms.Button();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -196,12 +196,23 @@
             this.conversationCtrl1.MeText = "Me";
             this.conversationCtrl1.MinimalBalloonWidth = 250;
             this.conversationCtrl1.Name = "conversationCtrl1";
-            this.conversationCtrl1.PanelDividersBackColor = System.Drawing.Color.Navy;
+            this.conversationCtrl1.PanelDividersBackColor = System.Drawing.Color.Sienna;
             this.conversationCtrl1.RemoteBalloonPadding = new System.Windows.Forms.Padding(20, 20, 10, 10);
             this.conversationCtrl1.RemoteCellPadding = new System.Windows.Forms.Padding(10);
             this.conversationCtrl1.RemoteText = "You";
             this.conversationCtrl1.Size = new System.Drawing.Size(1062, 775);
             this.conversationCtrl1.TabIndex = 10;
+            // 
+            // btnConnect
+            // 
+            this.btnConnect.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnConnect.Image = global::WhatsApp_One.Properties.Resources.CCC;
+            this.btnConnect.Location = new System.Drawing.Point(298, 70);
+            this.btnConnect.Name = "btnConnect";
+            this.btnConnect.Size = new System.Drawing.Size(148, 42);
+            this.btnConnect.TabIndex = 2;
+            this.btnConnect.UseVisualStyleBackColor = false;
+            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
             // groupBox1
             // 
@@ -373,27 +384,6 @@
             this.toolStrip1.TabIndex = 12;
             this.toolStrip1.Text = "tlsMain";
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 2000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // btnConnect
-            // 
-            this.btnConnect.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnConnect.Image = global::WhatsApp_One.Properties.Resources.CCC;
-            this.btnConnect.Location = new System.Drawing.Point(298, 70);
-            this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(148, 42);
-            this.btnConnect.TabIndex = 2;
-            this.btnConnect.UseVisualStyleBackColor = false;
-            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
-            // 
             // toolStripButton1
             // 
             this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -403,6 +393,16 @@
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(408, 55);
             this.toolStripButton1.Text = "toolStripButton1";
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 2000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // frmMain
             // 
