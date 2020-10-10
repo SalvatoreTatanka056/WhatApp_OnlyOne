@@ -25,7 +25,7 @@ namespace WhatsApp_One
     {
         //private string strUsername = "";
         private string contentType = "application/txt";
-        //private string FolderId = "1JnK8yEovo-D1Yoiy5b-ZUfyWdbcIlg-H" Personale;
+        private string FolderConnectId = "1-Q6sgSBOIARyu6yoTfZkrgffTI3VE87R";
         private string FolderId = "1B1PcGntR3RbwektTijuoePbt3NXzv5i_";
         private string FolderPathUser = "";
         private string HostName = "";
@@ -74,6 +74,46 @@ namespace WhatsApp_One
 
             }
 
+            /**/
+
+            HostName = Dns.GetHostName();
+            var service = AuthenticateOauth(@"credentials.json", "dueinchat");
+            int nUTentiConnessi = 0;
+
+            var files = DriveListExample.ListFiles(service, new DriveListExample.FilesListOptionalParms() { Q = "'1-Q6sgSBOIARyu6yoTfZkrgffTI3VE87R' in parents and trashed=false", Fields = "*" });
+
+            foreach (var item in files.Files)
+            {
+                    nUTentiConnessi++;
+            }
+
+            /**/
+
+            if(nUTentiConnessi == 2)
+            {
+                MessageBox.Show("Attendere Conversazione in Corso, riprova più tardi...", "Attenzione Conversazione in Corso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            WriteMessaggioFileDownload(HostName + "_" + txtUserName.Text + "C", "Connesso.");
+
+            var FileMetaData = new Google.Apis.Drive.v3.Data.File();
+            FileMetaData.Name = HostName + "_" + txtUserName.Text + "C";
+            FileMetaData.Parents = new List<string> { FolderConnectId };
+
+            FilesResource.CreateMediaUpload request;
+
+            using (var stream = new System.IO.FileStream(FolderPathUser + HostName + "_" + txtUserName.Text + "C", System.IO.FileMode.Open))
+            {
+                request = service.Files.Create(FileMetaData, stream, contentType);
+                request.Upload();
+                Application.DoEvents();
+            }
+
+            var file = request.ResponseBody;
+
+            File.Delete(FolderPathUser + HostName + "_" + txtUserName.Text + "C");
+
             tsslblMain.Text = "Connessione in corso ...";
 
             tstsPrg.Value = 10;
@@ -88,7 +128,7 @@ namespace WhatsApp_One
 
             tstsPrg.Value = 50;
 
-            HostName = Dns.GetHostName();
+           
 
             FolderPathUser = string.Format(Application.StartupPath + "\\{0}_{1}", HostName, txtUserName.Text);
 
@@ -564,6 +604,25 @@ namespace WhatsApp_One
                 txtSendMessage.Text = "";
 
                 e.Handled = true;
+            }
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+            var service = AuthenticateOauth(@"credentials.json", "tatanka056");
+           
+            var files = DriveListExample.ListFiles(service, new DriveListExample.FilesListOptionalParms() { Q = "'1-Q6sgSBOIARyu6yoTfZkrgffTI3VE87R' in parents and trashed=false", Fields = "*" });
+
+            foreach (var item in files.Files)
+            {
+
+                if (item.Name.CompareTo(HostName + "_" + txtUserName.Text + "C") == 0)
+                {
+                    var request = service.Files.Delete(item.Id);
+                    var file = request.Execute();
+
+                }
             }
         }
     }
