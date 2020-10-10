@@ -39,8 +39,6 @@
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblMain = new System.Windows.Forms.Label();
             this.txtUserName = new System.Windows.Forms.TextBox();
-            this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
-            this.conversationCtrl1 = new WhatsApp_One.ControlsSuite.ConversationCtrl();
             this.btnConnect = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -61,6 +59,8 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
+            this.conversationCtrl1 = new WhatsApp_One.ControlsSuite.ConversationCtrl();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -163,45 +163,6 @@
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(192, 42);
             this.txtUserName.TabIndex = 12;
-            // 
-            // propertyGrid1
-            // 
-            this.propertyGrid1.Location = new System.Drawing.Point(8, 118);
-            this.propertyGrid1.Name = "propertyGrid1";
-            this.propertyGrid1.SelectedObject = this.conversationCtrl1;
-            this.propertyGrid1.Size = new System.Drawing.Size(438, 777);
-            this.propertyGrid1.TabIndex = 11;
-            // 
-            // conversationCtrl1
-            // 
-            this.conversationCtrl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.conversationCtrl1.BackColor = System.Drawing.Color.Transparent;
-            this.conversationCtrl1.BalloonBackColor = System.Drawing.Color.MediumSeaGreen;
-            this.conversationCtrl1.BalloonTextPadding = new System.Windows.Forms.Padding(10);
-            this.conversationCtrl1.DataSource = null;
-            this.conversationCtrl1.DateColumnName = "";
-            this.conversationCtrl1.DateTimeRegionHeight = ((uint)(20u));
-            this.conversationCtrl1.DateTimeTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.conversationCtrl1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.conversationCtrl1.IdColumnName = "";
-            this.conversationCtrl1.IsIncomingColumnName = "";
-            this.conversationCtrl1.Location = new System.Drawing.Point(17, 78);
-            this.conversationCtrl1.Margin = new System.Windows.Forms.Padding(4);
-            this.conversationCtrl1.MeBalloonPadding = new System.Windows.Forms.Padding(10, 20, 20, 10);
-            this.conversationCtrl1.MeCellPadding = new System.Windows.Forms.Padding(10);
-            this.conversationCtrl1.MessageColumnName = "";
-            this.conversationCtrl1.MessageToDateTimeVerticalIndent = 10;
-            this.conversationCtrl1.MeText = "Me";
-            this.conversationCtrl1.MinimalBalloonWidth = 250;
-            this.conversationCtrl1.Name = "conversationCtrl1";
-            this.conversationCtrl1.PanelDividersBackColor = System.Drawing.Color.Navy;
-            this.conversationCtrl1.RemoteBalloonPadding = new System.Windows.Forms.Padding(20, 20, 10, 10);
-            this.conversationCtrl1.RemoteCellPadding = new System.Windows.Forms.Padding(10);
-            this.conversationCtrl1.RemoteText = "You";
-            this.conversationCtrl1.Size = new System.Drawing.Size(914, 775);
-            this.conversationCtrl1.TabIndex = 10;
             // 
             // btnConnect
             // 
@@ -380,18 +341,17 @@
             this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1507, 58);
+            this.toolStrip1.Size = new System.Drawing.Size(1507, 25);
             this.toolStrip1.TabIndex = 12;
             this.toolStrip1.Text = "tlsMain";
             // 
             // toolStripButton1
             // 
             this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = global::WhatsApp_One.Properties.Resources.Cattura;
             this.toolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(408, 55);
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
             // contextMenuStrip1
@@ -404,6 +364,45 @@
             this.timer1.Interval = 2000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // propertyGrid1
+            // 
+            this.propertyGrid1.Location = new System.Drawing.Point(8, 118);
+            this.propertyGrid1.Name = "propertyGrid1";
+            this.propertyGrid1.SelectedObject = this.conversationCtrl1;
+            this.propertyGrid1.Size = new System.Drawing.Size(438, 777);
+            this.propertyGrid1.TabIndex = 11;
+            // 
+            // conversationCtrl1
+            // 
+            this.conversationCtrl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.conversationCtrl1.BackColor = System.Drawing.Color.Transparent;
+            this.conversationCtrl1.BalloonBackColor = System.Drawing.Color.MediumSeaGreen;
+            this.conversationCtrl1.BalloonTextPadding = new System.Windows.Forms.Padding(10);
+            this.conversationCtrl1.DataSource = null;
+            this.conversationCtrl1.DateColumnName = "";
+            this.conversationCtrl1.DateTimeRegionHeight = ((uint)(20u));
+            this.conversationCtrl1.DateTimeTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.conversationCtrl1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.conversationCtrl1.IdColumnName = "";
+            this.conversationCtrl1.IsIncomingColumnName = "";
+            this.conversationCtrl1.Location = new System.Drawing.Point(17, 78);
+            this.conversationCtrl1.Margin = new System.Windows.Forms.Padding(4);
+            this.conversationCtrl1.MeBalloonPadding = new System.Windows.Forms.Padding(10, 20, 20, 10);
+            this.conversationCtrl1.MeCellPadding = new System.Windows.Forms.Padding(10);
+            this.conversationCtrl1.MessageColumnName = "";
+            this.conversationCtrl1.MessageToDateTimeVerticalIndent = 10;
+            this.conversationCtrl1.MeText = "Me";
+            this.conversationCtrl1.MinimalBalloonWidth = 250;
+            this.conversationCtrl1.Name = "conversationCtrl1";
+            this.conversationCtrl1.PanelDividersBackColor = System.Drawing.Color.Navy;
+            this.conversationCtrl1.RemoteBalloonPadding = new System.Windows.Forms.Padding(20, 20, 10, 10);
+            this.conversationCtrl1.RemoteCellPadding = new System.Windows.Forms.Padding(10);
+            this.conversationCtrl1.RemoteText = "You";
+            this.conversationCtrl1.Size = new System.Drawing.Size(914, 775);
+            this.conversationCtrl1.TabIndex = 10;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -414,7 +413,7 @@
             this.Controls.Add(this.lstMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMain";
-            this.Text = "Chat Apps";
+            this.Text = "tate-a-tate ( Chat Apps ).";
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.Shown += new System.EventHandler(this.frmMain_Shown);
             this.splitContainer1.Panel1.ResumeLayout(false);

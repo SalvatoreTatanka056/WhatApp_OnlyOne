@@ -53,7 +53,7 @@
             // 
             // panelAddresses
             // 
-            this.panelAddresses.BackColor = System.Drawing.Color.Navy;
+            this.panelAddresses.BackColor = System.Drawing.Color.Maroon;
             this.panelAddresses.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelAddresses.Location = new System.Drawing.Point(0, 0);
             this.panelAddresses.Name = "panelAddresses";
@@ -63,7 +63,7 @@
             // 
             // panelSplit
             // 
-            this.panelSplit.BackColor = System.Drawing.Color.Navy;
+            this.panelSplit.BackColor = System.Drawing.Color.Chocolate;
             this.panelSplit.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelSplit.Location = new System.Drawing.Point(0, 150);
             this.panelSplit.Name = "panelSplit";
