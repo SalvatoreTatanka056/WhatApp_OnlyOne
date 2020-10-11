@@ -29,6 +29,7 @@ namespace WhatsApp_One
         private string FolderId = "1B1PcGntR3RbwektTijuoePbt3NXzv5i_";
         private string FolderPathUser = "";
         private string HostName = "";
+        private DriveService service;
 
         public static DataSet1.ConversationMessagesDataTable table = new DataSet1.ConversationMessagesDataTable();
         public DataSet1.ConversationMessagesRow newRow = table.NewConversationMessagesRow();
@@ -81,7 +82,7 @@ namespace WhatsApp_One
             /**/
 
             HostName = Dns.GetHostName();
-            var service = AuthenticateOauth(@"credentials.json", "dueinchat");
+            service = AuthenticateOauth(@"credentials.json", "dueinchat");
             int nUTentiConnessi = 0;
 
             var files = DriveListExample.ListFiles(service, new DriveListExample.FilesListOptionalParms() { Q = "'1-Q6sgSBOIARyu6yoTfZkrgffTI3VE87R' in parents and trashed=false", Fields = "*" });
@@ -333,7 +334,7 @@ namespace WhatsApp_One
 
                 tstsPrg.Value = 30;
 
-                var service = AuthenticateOauth(@"credentials.json", "dueinchat");
+                //var service = AuthenticateOauth(@"credentials.json", "dueinchat");
 
                 var FileMetaData = new Google.Apis.Drive.v3.Data.File();
                 FileMetaData.Name = sNomeFile;
@@ -502,7 +503,7 @@ namespace WhatsApp_One
             {
                 string strMessaggio = "";
                 int iTrovato = 0;
-                var service = AuthenticateOauth(@"credentials.json", "dueinchat");
+                //var service = AuthenticateOauth(@"credentials.json", "dueinchat");
                 var fileId = "";
 
                 var files = DriveListExample.ListFiles(service, new DriveListExample.FilesListOptionalParms() { Q = "'1B1PcGntR3RbwektTijuoePbt3NXzv5i_' in parents and trashed=false", Fields = "*" });
@@ -639,7 +640,7 @@ namespace WhatsApp_One
             if (txtUserName.Text.CompareTo("") == 0)
                 return;
 
-            var service = AuthenticateOauth(@"credentials.json", "dueinchat");
+            //var service = AuthenticateOauth(@"credentials.json", "dueinchat");
            
             var files = DriveListExample.ListFiles(service, new DriveListExample.FilesListOptionalParms() { Q = "'1-Q6sgSBOIARyu6yoTfZkrgffTI3VE87R' in parents and trashed=false", Fields = "*" });
 
