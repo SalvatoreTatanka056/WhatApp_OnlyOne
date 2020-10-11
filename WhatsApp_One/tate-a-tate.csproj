@@ -23,7 +23,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>6</ApplicationRevision>
+    <ApplicationRevision>7</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -171,6 +171,8 @@
   <ItemGroup>
     <None Include="bin\Debug\send-message.ico" />
     <None Include="Resources\connect.PNG" />
+    <None Include="Resources\attach-file.ico" />
+    <None Include="Resources\ic-send_Message.ico" />
     <Content Include="tate-a-tate.ico" />
     <Content Include="TextTemplate.ico" />
     <Content Include="VSLiveShare.ico" />

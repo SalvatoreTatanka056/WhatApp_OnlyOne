@@ -302,7 +302,7 @@ namespace WhatsApp_One
                 Application.DoEvents();
                 btnSendMessage.Enabled = false;
 
-                tsslblMain.Text = "Invio Messaggio in corso ...";
+                tsslblMain.Text = "Invio messaggio in corso ...";
                 tstsPrg.Value = 10;
 
                 newRow = table.NewConversationMessagesRow();
@@ -336,15 +336,18 @@ namespace WhatsApp_One
                 {
                     request = service.Files.Create(FileMetaData, stream, contentType);
                     request.Upload();
-                    Application.DoEvents();
+
+                    tstsPrg.Value = 60;
+                   Application.DoEvents();
+                    
                 }
 
                 var file = request.ResponseBody;
 
                 File.Delete(FolderPathUser + sNomeFile);
 
-                tstsPrg.Value = 100;
-                tsslblMain.Text = "Messaggio Inviato.";
+                tstsPrg.Value = 90;
+                tsslblMain.Text = "Messaggio inviato.";
 
             }
             catch (System.Net.Sockets.SocketException ex)
@@ -352,6 +355,8 @@ namespace WhatsApp_One
                 MessageBox.Show(ex.Message);
             }
             Thread.Sleep(1000);
+
+            tstsPrg.Value = 100;
 
             btnSendMessage.Enabled = true;
         }
@@ -498,7 +503,7 @@ namespace WhatsApp_One
                     if (item.Name.CompareTo(HostName + "_" + txtUserName.Text) != 0)
                     {
                         tstsPrg.Value = 10;
-                        tsslblMain.Text = "Ricezione Messaggio in corso...";
+                        tsslblMain.Text = "Ricezione messaggio in corso...";
 
                         DownloadFile(service, item, FolderPathUser + "\\" + string.Format(@"{0}", item.Name));
 
@@ -571,7 +576,7 @@ namespace WhatsApp_One
             }
 
             tstsPrg.Value = 100;
-            tsslblMain.Text = "Messaggio Ricevuto";
+            tsslblMain.Text = "Messaggio ricevuto";
             timer1.Enabled = true;
 
         }
@@ -589,19 +594,28 @@ namespace WhatsApp_One
                 return;
             }
         }
+        private string Messaggio = "";
 
         private void txtSendMessage_KeyDown(object sender, KeyEventArgs e)
         {
+            if (Messaggio != "")
+                return;
 
             if (txtUserName.Text == "")
                 return;
 
             if (e.KeyCode == Keys.Enter)
             {
+                txtSendMessage.Enabled = false;
+
+                Messaggio = txtSendMessage.Text;
 
                 btnSendMessage_Click(btnSendMessage, new EventArgs());
 
                 txtSendMessage.Text = "";
+                Messaggio = "";
+
+                txtSendMessage.Enabled = true;
 
                 e.Handled = true;
             }
@@ -624,6 +638,12 @@ namespace WhatsApp_One
 
                 }
             }
+        }
+
+        private void btnAllegaFile_Click(object sender, EventArgs e)
+        {
+            // Upload file da inviare e inviare link per scaricare files.
+            // Gestione terza cartella ...
         }
     }
 }

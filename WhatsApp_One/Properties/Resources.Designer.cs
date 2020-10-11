@@ -63,6 +63,16 @@ namespace WhatsApp_One.Properties {
         /// <summary>
         ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap attach_file {
+            get {
+                object obj = ResourceManager.GetObject("attach-file", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Cattura {
             get {
                 object obj = ResourceManager.GetObject("Cattura", resourceCulture);
@@ -76,6 +86,16 @@ namespace WhatsApp_One.Properties {
         internal static System.Drawing.Bitmap CCC {
             get {
                 object obj = ResourceManager.GetObject("CCC", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_send_Message {
+            get {
+                object obj = ResourceManager.GetObject("ic-send_Message", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

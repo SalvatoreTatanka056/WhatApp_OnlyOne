@@ -42,18 +42,9 @@
             this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
             this.conversationCtrl1 = new WhatsApp_One.ControlsSuite.ConversationCtrl();
             this.btnConnect = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtLocalPort = new System.Windows.Forms.TextBox();
-            this.txtLocalIp = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtRemotePort = new System.Windows.Forms.TextBox();
-            this.txtRemoteIp = new System.Windows.Forms.TextBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnAllegaFile = new System.Windows.Forms.Button();
             this.txtSendMessage = new System.Windows.Forms.TextBox();
             this.btnSendMessage = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -66,8 +57,6 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
@@ -99,8 +88,6 @@
             this.splitContainer1.Panel1.Controls.Add(this.txtUserName);
             this.splitContainer1.Panel1.Controls.Add(this.propertyGrid1);
             this.splitContainer1.Panel1.Controls.Add(this.btnConnect);
-            this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
-            this.splitContainer1.Panel1.Controls.Add(this.groupBox2);
             this.splitContainer1.Panel1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);
             // 
             // splitContainer1.Panel2
@@ -109,26 +96,29 @@
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Panel2.Margin = new System.Windows.Forms.Padding(10, 0, 0, 10);
             this.splitContainer1.Size = new System.Drawing.Size(1507, 1045);
-            this.splitContainer1.SplitterDistance = 411;
+            this.splitContainer1.SplitterDistance = 491;
             this.splitContainer1.TabIndex = 11;
             // 
             // statusStrip1
             // 
+            this.statusStrip1.BackColor = System.Drawing.Color.White;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tstsPrg,
             this.tsslblMain,
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel2});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 1006);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 112);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(446, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(474, 22);
             this.statusStrip1.TabIndex = 14;
             this.statusStrip1.Text = "stsMain";
             // 
             // tstsPrg
             // 
+            this.tstsPrg.AutoToolTip = true;
             this.tstsPrg.Name = "tstsPrg";
             this.tstsPrg.Size = new System.Drawing.Size(100, 16);
+            this.tstsPrg.Step = 1;
             // 
             // tsslblMain
             // 
@@ -149,7 +139,7 @@
             // 
             this.lblMain.AutoSize = true;
             this.lblMain.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMain.Location = new System.Drawing.Point(5, 75);
+            this.lblMain.Location = new System.Drawing.Point(8, 70);
             this.lblMain.Name = "lblMain";
             this.lblMain.Size = new System.Drawing.Size(89, 21);
             this.lblMain.TabIndex = 13;
@@ -158,7 +148,7 @@
             // txtUserName
             // 
             this.txtUserName.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserName.Location = new System.Drawing.Point(100, 70);
+            this.txtUserName.Location = new System.Drawing.Point(103, 70);
             this.txtUserName.Multiline = true;
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(192, 42);
@@ -166,10 +156,11 @@
             // 
             // propertyGrid1
             // 
-            this.propertyGrid1.Location = new System.Drawing.Point(8, 118);
+            this.propertyGrid1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.propertyGrid1.Location = new System.Drawing.Point(0, 134);
             this.propertyGrid1.Name = "propertyGrid1";
             this.propertyGrid1.SelectedObject = this.conversationCtrl1;
-            this.propertyGrid1.Size = new System.Drawing.Size(438, 777);
+            this.propertyGrid1.Size = new System.Drawing.Size(474, 1111);
             this.propertyGrid1.TabIndex = 11;
             // 
             // conversationCtrl1
@@ -200,111 +191,19 @@
             this.conversationCtrl1.RemoteBalloonPadding = new System.Windows.Forms.Padding(20, 20, 10, 10);
             this.conversationCtrl1.RemoteCellPadding = new System.Windows.Forms.Padding(10);
             this.conversationCtrl1.RemoteText = "You";
-            this.conversationCtrl1.Size = new System.Drawing.Size(1062, 775);
+            this.conversationCtrl1.Size = new System.Drawing.Size(982, 775);
             this.conversationCtrl1.TabIndex = 10;
             // 
             // btnConnect
             // 
             this.btnConnect.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnConnect.Image = global::WhatsApp_One.Properties.Resources.CCC;
-            this.btnConnect.Location = new System.Drawing.Point(298, 70);
+            this.btnConnect.Location = new System.Drawing.Point(323, 70);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(148, 42);
             this.btnConnect.TabIndex = 2;
             this.btnConnect.UseVisualStyleBackColor = false;
             this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtLocalPort);
-            this.groupBox1.Controls.Add(this.txtLocalIp);
-            this.groupBox1.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(22, 126);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(389, 111);
-            this.groupBox1.TabIndex = 8;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "  (Me)  IP AMICO  ";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(37, 66);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 18);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Port ";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(37, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(28, 18);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "IP";
-            // 
-            // txtLocalPort
-            // 
-            this.txtLocalPort.Location = new System.Drawing.Point(100, 59);
-            this.txtLocalPort.Name = "txtLocalPort";
-            this.txtLocalPort.Size = new System.Drawing.Size(260, 26);
-            this.txtLocalPort.TabIndex = 1;
-            // 
-            // txtLocalIp
-            // 
-            this.txtLocalIp.Location = new System.Drawing.Point(100, 19);
-            this.txtLocalIp.Name = "txtLocalIp";
-            this.txtLocalIp.Size = new System.Drawing.Size(260, 26);
-            this.txtLocalIp.TabIndex = 0;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.txtRemotePort);
-            this.groupBox2.Controls.Add(this.txtRemoteIp);
-            this.groupBox2.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(22, 261);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(389, 107);
-            this.groupBox2.TabIndex = 9;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = " (Friend) MIO IP ";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(35, 66);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 18);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Port";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(35, 26);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(28, 18);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "IP";
-            // 
-            // txtRemotePort
-            // 
-            this.txtRemotePort.Location = new System.Drawing.Point(105, 59);
-            this.txtRemotePort.Name = "txtRemotePort";
-            this.txtRemotePort.Size = new System.Drawing.Size(255, 26);
-            this.txtRemotePort.TabIndex = 3;
-            // 
-            // txtRemoteIp
-            // 
-            this.txtRemoteIp.Location = new System.Drawing.Point(105, 19);
-            this.txtRemoteIp.Name = "txtRemoteIp";
-            this.txtRemoteIp.Size = new System.Drawing.Size(255, 26);
-            this.txtRemoteIp.TabIndex = 2;
             // 
             // splitContainer2
             // 
@@ -321,19 +220,33 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.panel1);
             this.splitContainer2.Panel2.Controls.Add(this.button1);
-            this.splitContainer2.Size = new System.Drawing.Size(1092, 1045);
+            this.splitContainer2.Size = new System.Drawing.Size(1012, 1045);
             this.splitContainer2.SplitterDistance = 877;
             this.splitContainer2.TabIndex = 9;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnAllegaFile);
             this.panel1.Controls.Add(this.txtSendMessage);
             this.panel1.Controls.Add(this.btnSendMessage);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1092, 164);
+            this.panel1.Size = new System.Drawing.Size(1012, 164);
             this.panel1.TabIndex = 10;
+            // 
+            // btnAllegaFile
+            // 
+            this.btnAllegaFile.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAllegaFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAllegaFile.Image = global::WhatsApp_One.Properties.Resources.attach_file;
+            this.btnAllegaFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAllegaFile.Location = new System.Drawing.Point(48, 72);
+            this.btnAllegaFile.Name = "btnAllegaFile";
+            this.btnAllegaFile.Size = new System.Drawing.Size(46, 47);
+            this.btnAllegaFile.TabIndex = 12;
+            this.btnAllegaFile.UseVisualStyleBackColor = true;
+            this.btnAllegaFile.Click += new System.EventHandler(this.btnAllegaFile_Click);
             // 
             // txtSendMessage
             // 
@@ -345,19 +258,20 @@
             this.txtSendMessage.Multiline = true;
             this.txtSendMessage.Name = "txtSendMessage";
             this.txtSendMessage.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtSendMessage.Size = new System.Drawing.Size(1092, 66);
+            this.txtSendMessage.Size = new System.Drawing.Size(1012, 66);
             this.txtSendMessage.TabIndex = 11;
             this.txtSendMessage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSendMessage_KeyDown);
             // 
             // btnSendMessage
             // 
+            this.btnSendMessage.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSendMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSendMessage.Image = global::WhatsApp_One.Properties.Resources.ic_send_Message;
             this.btnSendMessage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSendMessage.Location = new System.Drawing.Point(0, 72);
             this.btnSendMessage.Name = "btnSendMessage";
-            this.btnSendMessage.Size = new System.Drawing.Size(112, 25);
+            this.btnSendMessage.Size = new System.Drawing.Size(46, 47);
             this.btnSendMessage.TabIndex = 10;
-            this.btnSendMessage.Text = "&Send >>";
             this.btnSendMessage.UseVisualStyleBackColor = true;
             this.btnSendMessage.Click += new System.EventHandler(this.btnSendMessage_Click);
             // 
@@ -425,10 +339,6 @@
             this.splitContainer1.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
@@ -446,16 +356,6 @@
         private System.Windows.Forms.ListBox lstMain;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Button btnConnect;
-        private System.Windows.Forms.TextBox txtLocalIp;
-        private System.Windows.Forms.TextBox txtLocalPort;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtRemoteIp;
-        private System.Windows.Forms.TextBox txtRemotePort;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private ControlsSuite.ConversationCtrl conversationCtrl1;
@@ -474,6 +374,7 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.Button btnAllegaFile;
     }
 }
 
