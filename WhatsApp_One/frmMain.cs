@@ -301,6 +301,7 @@ namespace WhatsApp_One
 
                 Application.DoEvents();
                 btnSendMessage.Enabled = false;
+                txtSendMessage.Enabled = false;
 
                 tsslblMain.Text = "Invio messaggio in corso ...";
                 tstsPrg.Value = 10;
@@ -359,6 +360,7 @@ namespace WhatsApp_One
             tstsPrg.Value = 100;
 
             btnSendMessage.Enabled = true;
+            txtSendMessage.Enabled = true;
         }
 
         private void WriteMessaggioFileDownload(string NomeFile, string Messaggio)
@@ -623,6 +625,11 @@ namespace WhatsApp_One
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (HostName.CompareTo("") == 0)
+                return;
+
+            if (txtUserName.Text.CompareTo("") == 0)
+                return;
 
             var service = AuthenticateOauth(@"credentials.json", "tatanka056");
            
