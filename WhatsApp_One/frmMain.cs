@@ -711,8 +711,6 @@ namespace WhatsApp_One
 
                 }
             }
-         
-
 
             var files = DriveListExample.ListFiles(service, new DriveListExample.FilesListOptionalParms() { Q = "name contains '" + sNomeFile + "'", Fields = "*" });
 
