@@ -149,10 +149,6 @@ namespace WhatsApp_One
             tstsPrg.Value = 100;
             tsslblMain.Text = "Connesso.";
 
-
-            // creare un'altra cartella per scrivere i file di connessione che alla fine veranno cancellati
-            // se l'applicazione ne trova >= 2 non si collega, si collega solamente se ne trova files di connessione < 2
-
             timer1.Enabled = true;
             txtSendMessage.Enabled = true;
 
@@ -374,7 +370,7 @@ namespace WhatsApp_One
 
         private void WriteMessaggioFileDownload(string NomeFile, string Messaggio)
         {
-              // Create a file to write to.
+                // Create a file to write to.
                 using (StreamWriter sw = File.CreateText(FolderPathUser + NomeFile))
                 {
                     sw.WriteLine(Messaggio);
@@ -658,8 +654,77 @@ namespace WhatsApp_One
 
         private void btnAllegaFile_Click(object sender, EventArgs e)
         {
-            // Upload file da inviare e inviare link per scaricare files.
-            // Gestione terza cartella ...
+            var fileContent = string.Empty;
+            var filePath = string.Empty;
+            string sNomeFile = "";
+            string sLinkDownloadFile = "";
+
+            tsslblMain.Text = "Caricamento files in corso ...";
+
+            tstsPrg.Value = 0;
+
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.InitialDirectory = "c:\\";
+                openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+                openFileDialog.FilterIndex = 2;
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    //Get the path of specified file
+                    filePath = openFileDialog.FileName;
+
+                    sNomeFile = Path.GetFileName(filePath);
+
+                    var FileMetaData = new Google.Apis.Drive.v3.Data.File();
+                    FileMetaData.Name = sNomeFile;
+                    //FileMetaData.Parents = new List<string> { FolderId };  // upload su root
+                    //Google.Apis.Drive.v3.Data.Permission permission = new Google.Apis.Drive.v3.Data.Permission();
+                    //permission.Role = "writer";
+                    //permission.Type = "anyone";
+                    //permission.WithLink = true;
+                    //FileMetaData.Permissions = new List<Google.Apis.Drive.v3.Data.Permission>() { permission };
+
+                    FilesResource.CreateMediaUpload request;
+
+                    tstsPrg.Value = 30;
+
+                    using (var stream = new System.IO.FileStream(filePath, System.IO.FileMode.Open))
+                    {
+                        request = service.Files.Create(FileMetaData, stream, contentType);
+                        request.Upload();
+                        var file = request.ResponseBody;
+
+                        tstsPrg.Value = 90;
+
+                        Application.DoEvents();
+
+                    }
+                }
+            }
+
+
+            var files = DriveListExample.ListFiles(service, new DriveListExample.FilesListOptionalParms() { Q = "name contains '" + sNomeFile + "'", Fields = "*" });
+
+            foreach (var item in files.Files)
+            {
+
+                if (item.Name.CompareTo(sNomeFile) == 0)
+                {
+                    sLinkDownloadFile = string.Format(@"https://drive.google.com/file/d/{0}/edit?usp=sharing", item.Id);
+                    break;
+                }
+            }
+
+            /* file condiviso */
+            tstsPrg.Value = 100;
+            tsslblMain.Text = "file caricato.";
+
+            txtSendMessage.Text = "Caricamento e condivisione del file richiesto eseguite con successo... < " + sLinkDownloadFile + " >";
+
+            /* inviare il messaggio per il link da scaricare */
+            btnSendMessage_Click(txtSendMessage.Text, new EventArgs());
         }
     }
 }
