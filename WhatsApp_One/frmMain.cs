@@ -49,7 +49,7 @@ namespace WhatsApp_One
 
             btnSendMessage.Enabled = false;
             newRow.time = DateTime.Now;
-            newRow.text = "Hi!";
+            newRow.text = "Ciao inizio conversazione con l'applicazione <tate-a-tate>.";
             newRow.incoming = true;
             table.AddConversationMessagesRow(newRow);
             conversationCtrl1.DataSource = table;
