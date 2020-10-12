@@ -59,6 +59,7 @@ namespace WhatsApp_One
             conversationCtrl1.IsIncomingColumnName = table.incomingColumn.ColumnName;
 
             txtSendMessage.Enabled = false;
+            btnAllegaFile.Enabled = false;
 
             //sck = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             //sck.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
@@ -151,6 +152,7 @@ namespace WhatsApp_One
 
             timer1.Enabled = true;
             txtSendMessage.Enabled = true;
+            btnAllegaFile.Enabled = true;
 
             //int iretcode = 0;
 
@@ -702,7 +704,14 @@ namespace WhatsApp_One
 
                     }
                 }
+                else
+                {
+                    tsslblMain.Text = "";
+                    return;
+
+                }
             }
+         
 
 
             var files = DriveListExample.ListFiles(service, new DriveListExample.FilesListOptionalParms() { Q = "name contains '" + sNomeFile + "'", Fields = "*" });
