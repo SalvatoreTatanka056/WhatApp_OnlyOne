@@ -514,6 +514,12 @@ namespace WhatsApp_One
                         tstsPrg.Value = 10;
                         tsslblMain.Text = "Ricezione messaggio in corso...";
 
+                        if(Directory.Exists(FolderPathUser) == false)
+                        {
+                            DirectoryInfo di = Directory.CreateDirectory(FolderPathUser);
+
+                        }
+
                         DownloadFile(service, item, FolderPathUser + "\\" + string.Format(@"{0}", item.Name));
 
                         using (StreamReader sr = File.OpenText(FolderPathUser + "\\" + item.Name))
