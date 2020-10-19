@@ -620,12 +620,11 @@ namespace WhatsApp_One.ControlsSuite
     
         private void gridConversationMessages_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-
-
             DataRow row = m_DataSource.Rows[e.RowIndex];
             String messageText = (String)row[m_MessageColumnName];
 
             Clipboard.SetText(messageText);
+
             MessageBox.Show("Messaggio copiato.", "Clipbord",MessageBoxButtons.OK,MessageBoxIcon.Information);
 
         }
