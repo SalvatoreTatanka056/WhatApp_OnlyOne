@@ -1,3 +1,1 @@
-﻿1>------ Inizio compilazione: Progetto: Warecast.ControlsSuite, Configurazione: Debug Any CPU ------
-1>  Warecast.ControlsSuite -> C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\bin\Debug\Warecast.ControlsSuite.dll
-========== Compilazione: 1 completate, 0 non riuscite, 0 aggiornate, 0 ignorate ==========
+﻿========== Compilazione: 0 completate, 0 non riuscite, 2 aggiornate, 0 ignorate ==========

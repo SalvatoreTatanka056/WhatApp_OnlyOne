@@ -101,6 +101,14 @@ namespace WhatsApp_One
                 return;
             }
 
+            FolderPathUser = string.Format(Application.StartupPath + "\\{0}_{1}\\", HostName, txtUserName.Text);
+
+            if (!Directory.Exists(FolderPathUser))
+            {
+
+                DirectoryInfo di = Directory.CreateDirectory(FolderPathUser);
+            }
+
             WriteMessaggioFileDownload(HostName + "_" + txtUserName.Text + "C", "Connesso.");
 
             var FileMetaData = new Google.Apis.Drive.v3.Data.File();
@@ -108,7 +116,7 @@ namespace WhatsApp_One
             FileMetaData.Parents = new List<string> { FolderConnectId };
 
             FilesResource.CreateMediaUpload request;
-
+         
             using (var stream = new System.IO.FileStream(FolderPathUser + HostName + "_" + txtUserName.Text + "C", System.IO.FileMode.Open))
             {
                 request = service.Files.Create(FileMetaData, stream, contentType);
@@ -133,10 +141,6 @@ namespace WhatsApp_One
             }
 
             tstsPrg.Value = 50;
-
-           
-
-            FolderPathUser = string.Format(Application.StartupPath + "\\{0}_{1}", HostName, txtUserName.Text);
 
             if (Directory.Exists(FolderPathUser))
             {
