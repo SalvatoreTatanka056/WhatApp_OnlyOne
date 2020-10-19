@@ -179,6 +179,7 @@ namespace WhatsApp_One.ControlsSuite
                 return false;
 
             gridConversationMessages.RowCount = 0;
+
             //txtMessage.Clear();
             RefreshData();
             return true;
@@ -614,6 +615,19 @@ namespace WhatsApp_One.ControlsSuite
             { return Create(rect.X, rect.Y, rect.Width, rect.Height); }
             //---------------------------------------------------------------------------------------------------
         }
-        #endregion 
+        #endregion
+
+    
+        private void gridConversationMessages_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+
+            DataRow row = m_DataSource.Rows[e.RowIndex];
+            String messageText = (String)row[m_MessageColumnName];
+
+            Clipboard.SetText(messageText);
+            MessageBox.Show("Messaggio copiato.", "Clipbord",MessageBoxButtons.OK,MessageBoxIcon.Information);
+
+        }
     }
 }

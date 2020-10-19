@@ -28,3 +28,4 @@ C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\Wa
 C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\Warecast.ControlsSuite\obj\Debug\Warecast.ControlsSuite.csproj.CoreCompileInputs.cache
 C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\Warecast.ControlsSuite\obj\Debug\Warecast.ControlsSuite.dll
 C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\Warecast.ControlsSuite\obj\Debug\Warecast.ControlsSuite.pdb
+C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\Warecast.ControlsSuite\obj\Debug\Warecast.ControlsSuite.csprojAssemblyReference.cache

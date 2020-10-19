@@ -1,3 +1,3 @@
-﻿1>------ Inizio compilazione: Progetto: tate-a-tate, Configurazione: Debug Any CPU ------
-1>  tate-a-tate -> C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\bin\Debug\tate-a-tate.exe
-========== Compilazione: 1 completate, 0 non riuscite, 1 aggiornate, 0 ignorate ==========
+﻿1>------ Inizio compilazione: Progetto: Warecast.ControlsSuite, Configurazione: Debug Any CPU ------
+1>  Warecast.ControlsSuite -> C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\bin\Debug\Warecast.ControlsSuite.dll
+========== Compilazione: 1 completate, 0 non riuscite, 0 aggiornate, 0 ignorate ==========

@@ -110,6 +110,7 @@
             this.gridConversationMessages.Size = new System.Drawing.Size(623, 124);
             this.gridConversationMessages.TabIndex = 63;
             this.gridConversationMessages.VirtualMode = true;
+            this.gridConversationMessages.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridConversationMessages_CellMouseClick);
             this.gridConversationMessages.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.gridConversationMessages_CellPainting);
             this.gridConversationMessages.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.gridConversationMessages_CellValueNeeded);
             this.gridConversationMessages.NewRowNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.gridConversationMessages_NewRowNeeded);
