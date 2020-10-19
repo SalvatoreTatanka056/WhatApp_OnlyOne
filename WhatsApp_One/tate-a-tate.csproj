@@ -173,6 +173,7 @@
     <None Include="Resources\connect.PNG" />
     <None Include="Resources\attach-file.ico" />
     <None Include="Resources\ic-send_Message.ico" />
+    <None Include="Resources\cestino.ico" />
     <Content Include="tate-a-tate.ico" />
     <Content Include="TextTemplate.ico" />
     <Content Include="VSLiveShare.ico" />

@@ -743,5 +743,33 @@ namespace WhatsApp_One
             /* inviare il messaggio per il link da scaricare */
             btnSendMessage_Click(txtSendMessage.Text, new EventArgs());
         }
+
+        private void btnCancellaCronologia_Click(object sender, EventArgs e)
+        {
+            //Cancellare cronologia messaggi.
+
+            DialogResult res = MessageBox.Show("Si vuole cancellare tutta la cronologia dei messaggi?", "Cancellazione cronologia", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+            if (res == DialogResult.Yes)
+            {
+                table.Clear();
+                conversationCtrl1.Rebind();
+            }
+
+        }
+
+        private void txtUserName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (Char.IsLetter(e.KeyChar) || Char.IsDigit(e.KeyChar))
+            {
+                //to do
+            }
+            else
+            {
+                e.Handled = true;
+            }
+
+        }
     }
 }

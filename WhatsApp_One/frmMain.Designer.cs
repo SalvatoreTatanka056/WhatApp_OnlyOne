@@ -32,9 +32,19 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.lstMain = new System.Windows.Forms.ListBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.tstsPrg = new System.Windows.Forms.ToolStripProgressBar();
+            this.tsslblMain = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblMain = new System.Windows.Forms.Label();
+            this.txtUserName = new System.Windows.Forms.TextBox();
+            this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
             this.conversationCtrl1 = new WhatsApp_One.ControlsSuite.ConversationCtrl();
+            this.btnConnect = new System.Windows.Forms.Button();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCancellaCronologia = new System.Windows.Forms.Button();
             this.btnAllegaFile = new System.Windows.Forms.Button();
             this.txtSendMessage = new System.Windows.Forms.TextBox();
             this.btnSendMessage = new System.Windows.Forms.Button();
@@ -43,26 +53,17 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btnConnect = new System.Windows.Forms.Button();
-            this.txtUserName = new System.Windows.Forms.TextBox();
-            this.lblMain = new System.Windows.Forms.Label();
-            this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
-            this.tstsPrg = new System.Windows.Forms.ToolStripProgressBar();
-            this.tsslblMain = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lstMain
@@ -99,6 +100,71 @@
             this.splitContainer1.SplitterDistance = 502;
             this.splitContainer1.TabIndex = 11;
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.BackColor = System.Drawing.Color.White;
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tstsPrg,
+            this.tsslblMain,
+            this.toolStripStatusLabel1,
+            this.toolStripStatusLabel2});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 102);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(485, 22);
+            this.statusStrip1.TabIndex = 14;
+            this.statusStrip1.Text = "stsMain";
+            // 
+            // tstsPrg
+            // 
+            this.tstsPrg.AutoToolTip = true;
+            this.tstsPrg.Name = "tstsPrg";
+            this.tstsPrg.Size = new System.Drawing.Size(100, 16);
+            this.tstsPrg.Step = 1;
+            // 
+            // tsslblMain
+            // 
+            this.tsslblMain.Name = "tsslblMain";
+            this.tsslblMain.Size = new System.Drawing.Size(0, 17);
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(0, 17);
+            // 
+            // lblMain
+            // 
+            this.lblMain.AutoSize = true;
+            this.lblMain.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMain.Location = new System.Drawing.Point(8, 74);
+            this.lblMain.Name = "lblMain";
+            this.lblMain.Size = new System.Drawing.Size(89, 21);
+            this.lblMain.TabIndex = 13;
+            this.lblMain.Text = "Nickname";
+            // 
+            // txtUserName
+            // 
+            this.txtUserName.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUserName.Location = new System.Drawing.Point(103, 70);
+            this.txtUserName.Multiline = true;
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.Size = new System.Drawing.Size(192, 32);
+            this.txtUserName.TabIndex = 12;
+            this.txtUserName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUserName_KeyPress);
+            // 
+            // propertyGrid1
+            // 
+            this.propertyGrid1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.propertyGrid1.Location = new System.Drawing.Point(0, 124);
+            this.propertyGrid1.Name = "propertyGrid1";
+            this.propertyGrid1.SelectedObject = this.conversationCtrl1;
+            this.propertyGrid1.Size = new System.Drawing.Size(485, 1111);
+            this.propertyGrid1.TabIndex = 11;
+            // 
             // conversationCtrl1
             // 
             this.conversationCtrl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -130,6 +196,17 @@
             this.conversationCtrl1.Size = new System.Drawing.Size(982, 769);
             this.conversationCtrl1.TabIndex = 10;
             // 
+            // btnConnect
+            // 
+            this.btnConnect.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnConnect.Image = global::WhatsApp_One.Properties.Resources.CCC;
+            this.btnConnect.Location = new System.Drawing.Point(323, 70);
+            this.btnConnect.Name = "btnConnect";
+            this.btnConnect.Size = new System.Drawing.Size(148, 32);
+            this.btnConnect.TabIndex = 2;
+            this.btnConnect.UseVisualStyleBackColor = false;
+            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
+            // 
             // splitContainer2
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -151,6 +228,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnCancellaCronologia);
             this.panel1.Controls.Add(this.btnAllegaFile);
             this.panel1.Controls.Add(this.txtSendMessage);
             this.panel1.Controls.Add(this.btnSendMessage);
@@ -159,6 +237,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1001, 183);
             this.panel1.TabIndex = 10;
+            // 
+            // btnCancellaCronologia
+            // 
+            this.btnCancellaCronologia.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCancellaCronologia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancellaCronologia.Image = global::WhatsApp_One.Properties.Resources.cestino1;
+            this.btnCancellaCronologia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancellaCronologia.Location = new System.Drawing.Point(131, 72);
+            this.btnCancellaCronologia.Name = "btnCancellaCronologia";
+            this.btnCancellaCronologia.Size = new System.Drawing.Size(46, 47);
+            this.btnCancellaCronologia.TabIndex = 13;
+            this.btnCancellaCronologia.UseVisualStyleBackColor = true;
+            this.btnCancellaCronologia.Click += new System.EventHandler(this.btnCancellaCronologia_Click);
             // 
             // btnAllegaFile
             // 
@@ -243,81 +334,6 @@
             this.timer1.Interval = 2000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // btnConnect
-            // 
-            this.btnConnect.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnConnect.Image = global::WhatsApp_One.Properties.Resources.CCC;
-            this.btnConnect.Location = new System.Drawing.Point(323, 70);
-            this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(148, 32);
-            this.btnConnect.TabIndex = 2;
-            this.btnConnect.UseVisualStyleBackColor = false;
-            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
-            // 
-            // txtUserName
-            // 
-            this.txtUserName.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserName.Location = new System.Drawing.Point(103, 70);
-            this.txtUserName.Multiline = true;
-            this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(192, 32);
-            this.txtUserName.TabIndex = 12;
-            // 
-            // lblMain
-            // 
-            this.lblMain.AutoSize = true;
-            this.lblMain.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMain.Location = new System.Drawing.Point(8, 74);
-            this.lblMain.Name = "lblMain";
-            this.lblMain.Size = new System.Drawing.Size(89, 21);
-            this.lblMain.TabIndex = 13;
-            this.lblMain.Text = "Nickname";
-            // 
-            // propertyGrid1
-            // 
-            this.propertyGrid1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.propertyGrid1.Location = new System.Drawing.Point(0, 124);
-            this.propertyGrid1.Name = "propertyGrid1";
-            this.propertyGrid1.SelectedObject = this.conversationCtrl1;
-            this.propertyGrid1.Size = new System.Drawing.Size(485, 1111);
-            this.propertyGrid1.TabIndex = 11;
-            // 
-            // tstsPrg
-            // 
-            this.tstsPrg.AutoToolTip = true;
-            this.tstsPrg.Name = "tstsPrg";
-            this.tstsPrg.Size = new System.Drawing.Size(100, 16);
-            this.tstsPrg.Step = 1;
-            // 
-            // tsslblMain
-            // 
-            this.tsslblMain.Name = "tsslblMain";
-            this.tsslblMain.Size = new System.Drawing.Size(0, 17);
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
-            // 
-            // toolStripStatusLabel2
-            // 
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(0, 17);
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.BackColor = System.Drawing.Color.White;
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tstsPrg,
-            this.tsslblMain,
-            this.toolStripStatusLabel1,
-            this.toolStripStatusLabel2});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 102);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(485, 22);
-            this.statusStrip1.TabIndex = 14;
-            this.statusStrip1.Text = "stsMain";
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -337,6 +353,8 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
@@ -345,8 +363,6 @@
             this.panel1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -375,6 +391,7 @@
         private System.Windows.Forms.TextBox txtUserName;
         private System.Windows.Forms.PropertyGrid propertyGrid1;
         private System.Windows.Forms.Button btnConnect;
+        private System.Windows.Forms.Button btnCancellaCronologia;
     }
 }
 
