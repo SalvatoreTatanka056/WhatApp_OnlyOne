@@ -344,6 +344,7 @@
             this.Controls.Add(this.lstMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMain";
+            this.Opacity = 0.95D;
             this.Text = "tate-a-tate ( Chat Apps ).";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
