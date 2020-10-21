@@ -18,6 +18,8 @@ using Google.Apis.Services;
 using System.Windows.Forms.VisualStyles;
 using System.Web;
 using System.Net.Mime;
+using Google.Apis.Calendar.v3;
+using Google.Apis.Calendar.v3.Data;
 
 namespace WhatsApp_One
 {
@@ -30,6 +32,7 @@ namespace WhatsApp_One
         private string FolderPathUser = "";
         private string HostName = "";
         private DriveService service;
+        private CalendarService service_calendar;
 
         public static DataSet1.ConversationMessagesDataTable table = new DataSet1.ConversationMessagesDataTable();
         public DataSet1.ConversationMessagesRow newRow = table.NewConversationMessagesRow();
@@ -434,18 +437,27 @@ namespace WhatsApp_One
                 {
                     // string credPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
                     //credPath = Path.Combine(credPath, ".credentials/", System.Reflection.Assembly.GetExecutingAssembly().GetName().Name);
-                        credential = GoogleWebAuthorizationBroker.AuthorizeAsync(GoogleClientSecrets.Load(stream).Secrets,
+                    credential = GoogleWebAuthorizationBroker.AuthorizeAsync(GoogleClientSecrets.Load(stream).Secrets,
                                                                              scopes,
                                                                              userName,
                                                                              CancellationToken.None,
                                                                              new FileDataStore(".", true)).Result;
                 }
 
+                /*CalendarService _service_ = new CalendarService(new BaseClientService.Initializer()
+                {
+                    HttpClientInitializer = credential,
+                    ApplicationName = ApplicationName,
+                });*/
+
+
+
                 return new DriveService(new BaseClientService.Initializer()
                 {
                     HttpClientInitializer = credential,
-                    ApplicationName = "Drive Oauth2 Authentication Sample"
+                    ApplicationName = "Drive Oauth2 Authentication "
                 });
+
             }
             catch (Exception ex)
             {
@@ -771,5 +783,42 @@ namespace WhatsApp_One
             }
 
         }
-    }
+
+
+
+      //  static string[] Scopes = { CalendarService.Scope.CalendarReadonly };
+      //  static string ApplicationName = "Google Calendar Test";
+
+      /*  private void button2_Click(object sender, EventArgs e)
+        {
+ 
+                EventsResource.ListRequest request = service_calendar.Events.List("primary");
+                request.TimeMin = DateTime.Now;
+                request.ShowDeleted = false;
+                request.SingleEvents = true;
+                request.MaxResults = 10;
+                request.OrderBy = EventsResource.ListRequest.OrderByEnum.StartTime;
+
+                Events events = request.Execute();
+                MessageBox.Show("PROSSIMI EVENTI:");
+
+                if (events.Items != null && events.Items.Count > 0)
+                {
+                    foreach (var eventItem in events.Items)
+                    {
+                        string when = eventItem.Start.DateTime.ToString();
+                        if (String.IsNullOrEmpty(when))
+                        {
+                            when = eventItem.Start.Date;
+                        }
+                        MessageBox.Show(string.Format("{0} ({1})", eventItem.Summary, when));
+                    }
+                }
+                else
+                {
+                MessageBox.Show(("NULLA DA RICORDARE"));
+                }
+                Console.Read();
+            }*/
+        }
 }
