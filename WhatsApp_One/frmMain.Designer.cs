@@ -53,6 +53,7 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -228,6 +229,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.btnCancellaCronologia);
             this.panel1.Controls.Add(this.btnAllegaFile);
             this.panel1.Controls.Add(this.txtSendMessage);
@@ -244,7 +246,7 @@
             this.btnCancellaCronologia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancellaCronologia.Image = global::WhatsApp_One.Properties.Resources.cestino1;
             this.btnCancellaCronologia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancellaCronologia.Location = new System.Drawing.Point(131, 72);
+            this.btnCancellaCronologia.Location = new System.Drawing.Point(135, 72);
             this.btnCancellaCronologia.Name = "btnCancellaCronologia";
             this.btnCancellaCronologia.Size = new System.Drawing.Size(46, 47);
             this.btnCancellaCronologia.TabIndex = 13;
@@ -334,6 +336,17 @@
             this.timer1.Interval = 2000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(196, 72);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(46, 47);
+            this.button2.TabIndex = 14;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -393,6 +406,7 @@
         private System.Windows.Forms.PropertyGrid propertyGrid1;
         private System.Windows.Forms.Button btnConnect;
         private System.Windows.Forms.Button btnCancellaCronologia;
+        private System.Windows.Forms.Button button2;
     }
 }
 

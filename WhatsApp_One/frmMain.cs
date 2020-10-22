@@ -20,6 +20,7 @@ using System.Web;
 using System.Net.Mime;
 using Google.Apis.Calendar.v3;
 using Google.Apis.Calendar.v3.Data;
+using GoogleMaps.LocationServices;
 
 namespace WhatsApp_One
 {
@@ -753,7 +754,7 @@ namespace WhatsApp_One
             txtSendMessage.Text = "Caricamento e condivisione del file richiesto eseguite con successo... < " + sLinkDownloadFile + " >";
 
             /* inviare il messaggio per il link da scaricare */
-            btnSendMessage_Click(txtSendMessage.Text, new EventArgs());
+            btnSendMessage_Click(btnSendMessage, new EventArgs());
         }
 
         private void btnCancellaCronologia_Click(object sender, EventArgs e)
@@ -784,41 +785,66 @@ namespace WhatsApp_One
 
         }
 
-
-
-      //  static string[] Scopes = { CalendarService.Scope.CalendarReadonly };
-      //  static string ApplicationName = "Google Calendar Test";
-
-      /*  private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
- 
-                EventsResource.ListRequest request = service_calendar.Events.List("primary");
-                request.TimeMin = DateTime.Now;
-                request.ShowDeleted = false;
-                request.SingleEvents = true;
-                request.MaxResults = 10;
-                request.OrderBy = EventsResource.ListRequest.OrderByEnum.StartTime;
+            string sLink = @"Romano Salvatore Telefono:3339620194 Maps: -- https://www.google.it/maps/place/Vico+I+Fraschetelle,+12,+80030+San+Paolo+Bel+Sito+NA/@40.915178,14.5472716,17z/data=!3m1!4b1!4m5!3m4!1s0x133bb3e21557f453:0xd8e216ba278a2194!8m2!3d40.915174!4d14.5494603";
 
-                Events events = request.Execute();
-                MessageBox.Show("PROSSIMI EVENTI:");
+            txtSendMessage.Text = sLink;
 
-                if (events.Items != null && events.Items.Count > 0)
-                {
-                    foreach (var eventItem in events.Items)
-                    {
-                        string when = eventItem.Start.DateTime.ToString();
-                        if (String.IsNullOrEmpty(when))
-                        {
-                            when = eventItem.Start.Date;
-                        }
-                        MessageBox.Show(string.Format("{0} ({1})", eventItem.Summary, when));
-                    }
-                }
-                else
-                {
-                MessageBox.Show(("NULLA DA RICORDARE"));
-                }
-                Console.Read();
-            }*/
+            btnSendMessage_Click(btnSendMessage, new EventArgs());
+
         }
+
+        /* private void button2_Click(object sender, EventArgs e)
+         {
+
+                 var address = "San Paolo Bel Sito (Napoli)";
+
+                 var locationService = new GoogleLocationService();
+                 var point = locationService.GetLatLongFromAddress(address);
+
+                 var latitude = point.Latitude;
+                 var longitude = point.Longitude;
+
+                 // Save lat/long values to DB...
+
+         }*/
+
+
+
+        //  static string[] Scopes = { CalendarService.Scope.CalendarReadonly };
+        //  static string ApplicationName = "Google Calendar Test";
+
+        /*  private void button2_Click(object sender, EventArgs e)
+          {
+
+                  EventsResource.ListRequest request = service_calendar.Events.List("primary");
+                  request.TimeMin = DateTime.Now;
+                  request.ShowDeleted = false;
+                  request.SingleEvents = true;
+                  request.MaxResults = 10;
+                  request.OrderBy = EventsResource.ListRequest.OrderByEnum.StartTime;
+
+                  Events events = request.Execute();
+                  MessageBox.Show("PROSSIMI EVENTI:");
+
+                  if (events.Items != null && events.Items.Count > 0)
+                  {
+                      foreach (var eventItem in events.Items)
+                      {
+                          string when = eventItem.Start.DateTime.ToString();
+                          if (String.IsNullOrEmpty(when))
+                          {
+                              when = eventItem.Start.Date;
+                          }
+                          MessageBox.Show(string.Format("{0} ({1})", eventItem.Summary, when));
+                      }
+                  }
+                  else
+                  {
+                  MessageBox.Show(("NULLA DA RICORDARE"));
+                  }
+                  Console.Read();
+              }*/
+    }
 }

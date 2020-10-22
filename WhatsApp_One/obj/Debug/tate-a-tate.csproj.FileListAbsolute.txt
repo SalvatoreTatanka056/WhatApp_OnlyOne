@@ -36,3 +36,4 @@ C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\bi
 C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\bin\Debug\Google.Apis.Calendar.v3.dll
 C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\bin\Debug\Google.Apis.Calendar.v3.pdb
 C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\bin\Debug\Google.Apis.Calendar.v3.xml
+C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\bin\Debug\GoogleMaps.LocationServices.dll
