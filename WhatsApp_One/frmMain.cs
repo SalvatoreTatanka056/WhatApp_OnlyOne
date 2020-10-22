@@ -1,26 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
-using System.Net.Sockets;
 using System.Threading;
 using Google.Apis.Drive.v3;
 using System.IO;
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Util.Store;
 using Google.Apis.Services;
-using System.Windows.Forms.VisualStyles;
-using System.Web;
-using System.Net.Mime;
 using Google.Apis.Calendar.v3;
-using Google.Apis.Calendar.v3.Data;
-using GoogleMaps.LocationServices;
+
 
 namespace WhatsApp_One
 {
@@ -787,11 +776,11 @@ namespace WhatsApp_One
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string sLink = @"Romano Salvatore Telefono:3339620194 Maps: -- https://www.google.it/maps/place/Vico+I+Fraschetelle,+12,+80030+San+Paolo+Bel+Sito+NA/@40.915178,14.5472716,17z/data=!3m1!4b1!4m5!3m4!1s0x133bb3e21557f453:0xd8e216ba278a2194!8m2!3d40.915174!4d14.5494603";
 
-            txtSendMessage.Text = sLink;
 
-            btnSendMessage_Click(btnSendMessage, new EventArgs());
+            //string sLink = @"Romano Salvatore Telefono:3339620194 Maps: -- https://www.google.it/maps/place/Vico+I+Fraschetelle,+12,+80030+San+Paolo+Bel+Sito+NA/@40.915178,14.5472716,17z/data=!3m1!4b1!4m5!3m4!1s0x133bb3e21557f453:0xd8e216ba278a2194!8m2!3d40.915174!4d14.5494603";
+            //txtSendMessage.Text = sLink;
+            //btnSendMessage_Click(btnSendMessage, new EventArgs());
 
         }
 

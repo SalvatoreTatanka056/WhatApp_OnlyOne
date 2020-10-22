@@ -41,19 +41,19 @@
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
             this.conversationCtrl1 = new WhatsApp_One.ControlsSuite.ConversationCtrl();
-            this.btnConnect = new System.Windows.Forms.Button();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnCancellaCronologia = new System.Windows.Forms.Button();
-            this.btnAllegaFile = new System.Windows.Forms.Button();
             this.txtSendMessage = new System.Windows.Forms.TextBox();
-            this.btnSendMessage = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.button2 = new System.Windows.Forms.Button();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.btnConnect = new System.Windows.Forms.Button();
+            this.btnAudio = new System.Windows.Forms.Button();
+            this.btnCancellaCronologia = new System.Windows.Forms.Button();
+            this.btnAllegaFile = new System.Windows.Forms.Button();
+            this.btnSendMessage = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -197,17 +197,6 @@
             this.conversationCtrl1.Size = new System.Drawing.Size(982, 769);
             this.conversationCtrl1.TabIndex = 10;
             // 
-            // btnConnect
-            // 
-            this.btnConnect.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnConnect.Image = global::WhatsApp_One.Properties.Resources.CCC;
-            this.btnConnect.Location = new System.Drawing.Point(323, 70);
-            this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(148, 32);
-            this.btnConnect.TabIndex = 2;
-            this.btnConnect.UseVisualStyleBackColor = false;
-            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
-            // 
             // splitContainer2
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -229,7 +218,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.btnAudio);
             this.panel1.Controls.Add(this.btnCancellaCronologia);
             this.panel1.Controls.Add(this.btnAllegaFile);
             this.panel1.Controls.Add(this.txtSendMessage);
@@ -239,6 +228,84 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1001, 183);
             this.panel1.TabIndex = 10;
+            // 
+            // txtSendMessage
+            // 
+            this.txtSendMessage.AcceptsTab = true;
+            this.txtSendMessage.AllowDrop = true;
+            this.txtSendMessage.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtSendMessage.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSendMessage.Location = new System.Drawing.Point(0, 0);
+            this.txtSendMessage.Multiline = true;
+            this.txtSendMessage.Name = "txtSendMessage";
+            this.txtSendMessage.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtSendMessage.Size = new System.Drawing.Size(1001, 66);
+            this.txtSendMessage.TabIndex = 11;
+            this.txtSendMessage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSendMessage_KeyDown);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(62, 93);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(218, 26);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "&Send Message";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.BackColor = System.Drawing.Color.Black;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1507, 58);
+            this.toolStrip1.TabIndex = 12;
+            this.toolStrip1.Text = "tlsMain";
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 2000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(408, 55);
+            this.toolStripButton1.Text = "toolStripButton1";
+            // 
+            // btnConnect
+            // 
+            this.btnConnect.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnConnect.Image = global::WhatsApp_One.Properties.Resources.CCC;
+            this.btnConnect.Location = new System.Drawing.Point(323, 70);
+            this.btnConnect.Name = "btnConnect";
+            this.btnConnect.Size = new System.Drawing.Size(148, 32);
+            this.btnConnect.TabIndex = 2;
+            this.btnConnect.UseVisualStyleBackColor = false;
+            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
+            // 
+            // btnAudio
+            // 
+            this.btnAudio.Image = global::WhatsApp_One.Properties.Resources.microphone;
+            this.btnAudio.Location = new System.Drawing.Point(205, 72);
+            this.btnAudio.Name = "btnAudio";
+            this.btnAudio.Size = new System.Drawing.Size(46, 47);
+            this.btnAudio.TabIndex = 14;
+            this.btnAudio.UseVisualStyleBackColor = true;
+            this.btnAudio.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnCancellaCronologia
             // 
@@ -266,20 +333,6 @@
             this.btnAllegaFile.UseVisualStyleBackColor = true;
             this.btnAllegaFile.Click += new System.EventHandler(this.btnAllegaFile_Click);
             // 
-            // txtSendMessage
-            // 
-            this.txtSendMessage.AcceptsTab = true;
-            this.txtSendMessage.AllowDrop = true;
-            this.txtSendMessage.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtSendMessage.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSendMessage.Location = new System.Drawing.Point(0, 0);
-            this.txtSendMessage.Multiline = true;
-            this.txtSendMessage.Name = "txtSendMessage";
-            this.txtSendMessage.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtSendMessage.Size = new System.Drawing.Size(1001, 66);
-            this.txtSendMessage.TabIndex = 11;
-            this.txtSendMessage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSendMessage_KeyDown);
-            // 
             // btnSendMessage
             // 
             this.btnSendMessage.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -292,60 +345,6 @@
             this.btnSendMessage.TabIndex = 10;
             this.btnSendMessage.UseVisualStyleBackColor = true;
             this.btnSendMessage.Click += new System.EventHandler(this.btnSendMessage_Click);
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(62, 93);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(218, 26);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "&Send Message";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.BackColor = System.Drawing.Color.Black;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1507, 58);
-            this.toolStrip1.TabIndex = 12;
-            this.toolStrip1.Text = "tlsMain";
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(408, 55);
-            this.toolStripButton1.Text = "toolStripButton1";
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 2000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(196, 72);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(46, 47);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Visible = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // frmMain
             // 
@@ -406,7 +405,7 @@
         private System.Windows.Forms.PropertyGrid propertyGrid1;
         private System.Windows.Forms.Button btnConnect;
         private System.Windows.Forms.Button btnCancellaCronologia;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnAudio;
     }
 }
 
