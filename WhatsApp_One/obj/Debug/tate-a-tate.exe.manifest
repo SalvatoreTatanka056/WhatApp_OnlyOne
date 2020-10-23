@@ -163,14 +163,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="tate-a-tate.exe" size="119808">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="tate-a-tate.exe" size="121344">
       <assemblyIdentity name="tate-a-tate" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>uAEvhOXH7dKmOgYvkUSyoaFi8+psw4VVqzY/7b2LEwE=</dsig:DigestValue>
+        <dsig:DigestValue>gv0mM/Ucvzz8ouqlg9Ew66DazluqdjJmIGcyl1k034A=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

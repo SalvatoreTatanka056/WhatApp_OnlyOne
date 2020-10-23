@@ -9,7 +9,7 @@ using Google.Apis.Auth.OAuth2;
 using Google.Apis.Util.Store;
 using Google.Apis.Services;
 using Google.Apis.Calendar.v3;
-
+using System.Runtime.InteropServices;
 
 namespace WhatsApp_One
 {
@@ -23,9 +23,16 @@ namespace WhatsApp_One
         private string HostName = "";
         private DriveService service;
         private CalendarService service_calendar;
+        private int i = 0;
+
+        private bool recording = false;
+        private string file;
 
         public static DataSet1.ConversationMessagesDataTable table = new DataSet1.ConversationMessagesDataTable();
         public DataSet1.ConversationMessagesRow newRow = table.NewConversationMessagesRow();
+
+        [DllImport("winmm.dll")]
+        private static extern int mciSendString(string command, string buffer, int bufferSize, IntPtr hwndCallBack);
 
         //Socket sck;
         //EndPoint epLocal, epRemote;
@@ -58,16 +65,16 @@ namespace WhatsApp_One
             btnConferma.Visible = false;
             lblSecondi.Visible = false;
 
+ 
 
+        //sck = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+        //sck.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
+        //txtLocalIp.Text = GerLocalIP();
+        //txtRemoteIp.Text = GerLocalIP();
+        //strUsername = Dns.GetHostName();
+    }
 
-            //sck = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
-            //sck.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
-            //txtLocalIp.Text = GerLocalIP();
-            //txtRemoteIp.Text = GerLocalIP();
-            //strUsername = Dns.GetHostName();
-        }
-
-        private void btnConnect_Click(object sender, EventArgs e)
+    private void btnConnect_Click(object sender, EventArgs e)
         {
 
             if (txtUserName.Text == "")
@@ -785,7 +792,12 @@ namespace WhatsApp_One
             btnAnnulla.Visible = true;
             btnConferma.Visible = true;
             lblSecondi.Visible = true;
+            tmrSecondiRegistrazione.Enabled = true;
 
+            file = "audio_temp.mp3";
+
+            mciSendString("open new Type waveaudio alias recsound", "", 0, (IntPtr)0);
+            mciSendString("record recsound", "", 0, (IntPtr)0);
 
             //string sLink = @"Romano Salvatore Telefono:3339620194 Maps: -- https://www.google.it/maps/place/Vico+I+Fraschetelle,+12,+80030+San+Paolo+Bel+Sito+NA/@40.915178,14.5472716,17z/data=!3m1!4b1!4m5!3m4!1s0x133bb3e21557f453:0xd8e216ba278a2194!8m2!3d40.915174!4d14.5494603";
             //txtSendMessage.Text = sLink;
@@ -799,6 +811,77 @@ namespace WhatsApp_One
             btnConferma.Visible = false;
             lblSecondi.Visible = false;
 
+            tmrSecondiRegistrazione.Enabled = false;
+
+            i = 0;
+            lblSecondi.Text = i.ToString();
+
+        }
+
+        private void btnConferma_Click(object sender, EventArgs e)
+        {
+
+ 
+            mciSendString("save recsound " + file, "", 0, (IntPtr)0);
+            mciSendString("close recsound", "", 0, (IntPtr)0);
+
+
+            var FileMetaData = new Google.Apis.Drive.v3.Data.File();
+            FileMetaData.Name = file;
+            string sLinkDownloadFile ="";
+
+            FilesResource.CreateMediaUpload request;
+
+
+            using (var stream = new System.IO.FileStream(file, System.IO.FileMode.Open))
+            {
+                request = service.Files.Create(FileMetaData, stream, contentType);
+                request.Upload();
+                var file = request.ResponseBody;
+
+                tstsPrg.Value = 90;
+
+                Application.DoEvents();
+
+            }
+
+            var files = DriveListExample.ListFiles(service, new DriveListExample.FilesListOptionalParms() { Q = "name contains '" + file + "'", Fields = "*" });
+
+            foreach (var item in files.Files)
+            {
+
+                if (item.Name.CompareTo(file) == 0)
+                {
+                    sLinkDownloadFile = string.Format(@"https://drive.google.com/file/d/{0}/edit?usp=sharing", item.Id);
+                    break;
+                }
+            }
+
+
+            tsslblMain.Text = "file caricato.";
+
+            txtSendMessage.Text = "Caricamento e condivisione del file richiesto eseguite con successo... < " + sLinkDownloadFile + " >";
+
+            /* inviare il messaggio per il link da scaricare */
+            btnSendMessage_Click(btnSendMessage, new EventArgs());
+
+            i = 0;
+            lblSecondi.Text = i.ToString();
+
+            btnAnnulla.Visible = false;
+            btnConferma.Visible = false;
+            lblSecondi.Visible = false;
+
+
+        }
+
+        private void tmrSecondiRegistrazione_Tick(object sender, EventArgs e)
+        {
+
+           
+
+            i = i + 1;
+            lblSecondi.Text = i.ToString();  
         }
 
         /* private void button2_Click(object sender, EventArgs e)
