@@ -181,6 +181,8 @@
     <None Include="Resources\ic-send_Message.ico" />
     <None Include="Resources\cestino.ico" />
     <None Include="Resources\microphone.ico" />
+    <None Include="Resources\annulla.ico" />
+    <None Include="Resources\conferma.ico" />
     <Content Include="tate-a-tate.ico" />
     <Content Include="TextTemplate.ico" />
     <Content Include="VSLiveShare.ico" />

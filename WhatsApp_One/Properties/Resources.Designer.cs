@@ -63,6 +63,26 @@ namespace WhatsApp_One.Properties {
         /// <summary>
         ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap annulla {
+            get {
+                object obj = ResourceManager.GetObject("annulla", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap annulla1 {
+            get {
+                object obj = ResourceManager.GetObject("annulla1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap attach_file {
             get {
                 object obj = ResourceManager.GetObject("attach-file", resourceCulture);
@@ -106,6 +126,16 @@ namespace WhatsApp_One.Properties {
         internal static System.Drawing.Bitmap cestino1 {
             get {
                 object obj = ResourceManager.GetObject("cestino1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap conferma {
+            get {
+                object obj = ResourceManager.GetObject("conferma", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

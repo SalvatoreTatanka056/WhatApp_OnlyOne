@@ -54,6 +54,12 @@ namespace WhatsApp_One
             txtSendMessage.Enabled = false;
             btnAllegaFile.Enabled = false;
 
+            btnAnnulla.Visible = false;
+            btnConferma.Visible = false;
+            lblSecondi.Visible = false;
+
+
+
             //sck = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             //sck.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
             //txtLocalIp.Text = GerLocalIP();
@@ -776,11 +782,22 @@ namespace WhatsApp_One
 
         private void button2_Click(object sender, EventArgs e)
         {
+            btnAnnulla.Visible = true;
+            btnConferma.Visible = true;
+            lblSecondi.Visible = true;
 
 
             //string sLink = @"Romano Salvatore Telefono:3339620194 Maps: -- https://www.google.it/maps/place/Vico+I+Fraschetelle,+12,+80030+San+Paolo+Bel+Sito+NA/@40.915178,14.5472716,17z/data=!3m1!4b1!4m5!3m4!1s0x133bb3e21557f453:0xd8e216ba278a2194!8m2!3d40.915174!4d14.5494603";
             //txtSendMessage.Text = sLink;
             //btnSendMessage_Click(btnSendMessage, new EventArgs());
+
+        }
+
+        private void btnAnnulla_Click(object sender, EventArgs e)
+        {
+            btnAnnulla.Visible = false;
+            btnConferma.Visible = false;
+            lblSecondi.Visible = false;
 
         }
 

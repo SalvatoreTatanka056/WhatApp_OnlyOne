@@ -48,8 +48,11 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lblSecondi = new System.Windows.Forms.Label();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.btnConnect = new System.Windows.Forms.Button();
+            this.btnConferma = new System.Windows.Forms.Button();
+            this.btnAnnulla = new System.Windows.Forms.Button();
             this.btnAudio = new System.Windows.Forms.Button();
             this.btnCancellaCronologia = new System.Windows.Forms.Button();
             this.btnAllegaFile = new System.Windows.Forms.Button();
@@ -218,6 +221,9 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblSecondi);
+            this.panel1.Controls.Add(this.btnConferma);
+            this.panel1.Controls.Add(this.btnAnnulla);
             this.panel1.Controls.Add(this.btnAudio);
             this.panel1.Controls.Add(this.btnCancellaCronologia);
             this.panel1.Controls.Add(this.btnAllegaFile);
@@ -276,6 +282,16 @@
             this.timer1.Interval = 2000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // lblSecondi
+            // 
+            this.lblSecondi.AutoSize = true;
+            this.lblSecondi.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSecondi.Location = new System.Drawing.Point(346, 85);
+            this.lblSecondi.Name = "lblSecondi";
+            this.lblSecondi.Size = new System.Drawing.Size(29, 31);
+            this.lblSecondi.TabIndex = 17;
+            this.lblSecondi.Text = "0";
+            // 
             // toolStripButton1
             // 
             this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -296,6 +312,25 @@
             this.btnConnect.TabIndex = 2;
             this.btnConnect.UseVisualStyleBackColor = false;
             this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
+            // 
+            // btnConferma
+            // 
+            this.btnConferma.Image = global::WhatsApp_One.Properties.Resources.conferma;
+            this.btnConferma.Location = new System.Drawing.Point(420, 72);
+            this.btnConferma.Name = "btnConferma";
+            this.btnConferma.Size = new System.Drawing.Size(46, 47);
+            this.btnConferma.TabIndex = 16;
+            this.btnConferma.UseVisualStyleBackColor = true;
+            // 
+            // btnAnnulla
+            // 
+            this.btnAnnulla.Image = global::WhatsApp_One.Properties.Resources.annulla;
+            this.btnAnnulla.Location = new System.Drawing.Point(257, 72);
+            this.btnAnnulla.Name = "btnAnnulla";
+            this.btnAnnulla.Size = new System.Drawing.Size(46, 47);
+            this.btnAnnulla.TabIndex = 15;
+            this.btnAnnulla.UseVisualStyleBackColor = true;
+            this.btnAnnulla.Click += new System.EventHandler(this.btnAnnulla_Click);
             // 
             // btnAudio
             // 
@@ -406,6 +441,9 @@
         private System.Windows.Forms.Button btnConnect;
         private System.Windows.Forms.Button btnCancellaCronologia;
         private System.Windows.Forms.Button btnAudio;
+        private System.Windows.Forms.Label lblSecondi;
+        private System.Windows.Forms.Button btnConferma;
+        private System.Windows.Forms.Button btnAnnulla;
     }
 }
 
