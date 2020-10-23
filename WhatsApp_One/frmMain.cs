@@ -24,6 +24,7 @@ namespace WhatsApp_One
         private DriveService service;
         private CalendarService service_calendar;
         private int i = 0;
+        private int iConn;
 
         private bool recording = false;
         private string file;
@@ -163,6 +164,8 @@ namespace WhatsApp_One
             timer1.Enabled = true;
             txtSendMessage.Enabled = true;
             btnAllegaFile.Enabled = true;
+
+            iConn = 1;
 
             //int iretcode = 0;
 
@@ -789,19 +792,24 @@ namespace WhatsApp_One
 
         private void button2_Click(object sender, EventArgs e)
         {
-            btnAnnulla.Visible = true;
-            btnConferma.Visible = true;
-            lblSecondi.Visible = true;
-            tmrSecondiRegistrazione.Enabled = true;
+            if (iConn == 1)
+            {
+                btnAnnulla.Visible = true;
+                btnConferma.Visible = true;
+                lblSecondi.Visible = true;
+                tmrSecondiRegistrazione.Enabled = true;
 
-            file = "audio_temp.mp3";
+                file = "audio_temp.mp3";
 
-            mciSendString("open new Type waveaudio alias recsound", "", 0, (IntPtr)0);
-            mciSendString("record recsound", "", 0, (IntPtr)0);
+                mciSendString("open new Type waveaudio alias recsound", "", 0, (IntPtr)0);
+                mciSendString("record recsound", "", 0, (IntPtr)0);
 
-            //string sLink = @"Romano Salvatore Telefono:3339620194 Maps: -- https://www.google.it/maps/place/Vico+I+Fraschetelle,+12,+80030+San+Paolo+Bel+Sito+NA/@40.915178,14.5472716,17z/data=!3m1!4b1!4m5!3m4!1s0x133bb3e21557f453:0xd8e216ba278a2194!8m2!3d40.915174!4d14.5494603";
-            //txtSendMessage.Text = sLink;
-            //btnSendMessage_Click(btnSendMessage, new EventArgs());
+                //string sLink = @"Romano Salvatore Telefono:3339620194 Maps: -- https://www.google.it/maps/place/Vico+I+Fraschetelle,+12,+80030+San+Paolo+Bel+Sito+NA/@40.915178,14.5472716,17z/data=!3m1!4b1!4m5!3m4!1s0x133bb3e21557f453:0xd8e216ba278a2194!8m2!3d40.915174!4d14.5494603";
+                //txtSendMessage.Text = sLink;
+                //btnSendMessage_Click(btnSendMessage, new EventArgs());
+
+                iConn = 0;
+            }
 
         }
 
@@ -815,6 +823,8 @@ namespace WhatsApp_One
 
             i = 0;
             lblSecondi.Text = i.ToString();
+
+            iConn = 0;
 
         }
 
