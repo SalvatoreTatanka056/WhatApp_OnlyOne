@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace WhatsApp_One
 {
@@ -76,6 +77,8 @@ namespace WhatsApp_One
             catch (Exception ex)
             {
                 throw new Exception("Request Files.List failed.", ex);
+               // System.Windows.Forms.MessageBox.Show("Request Files.List failed.", ex.Message);
+
             }
         }
 

@@ -66,14 +66,17 @@ namespace WhatsApp_One
             btnConferma.Visible = false;
             lblSecondi.Visible = false;
 
- 
+
+            btnAllegaFile.Enabled = false;
+            btnAudio.Enabled = false;
+
 
         //sck = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
         //sck.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
         //txtLocalIp.Text = GerLocalIP();
         //txtRemoteIp.Text = GerLocalIP();
         //strUsername = Dns.GetHostName();
-    }
+        }
 
     private void btnConnect_Click(object sender, EventArgs e)
         {
