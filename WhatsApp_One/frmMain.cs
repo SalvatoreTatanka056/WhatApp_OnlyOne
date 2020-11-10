@@ -10,6 +10,7 @@ using Google.Apis.Util.Store;
 using Google.Apis.Services;
 using Google.Apis.Calendar.v3;
 using System.Runtime.InteropServices;
+using System.Media;
 
 namespace WhatsApp_One
 {
@@ -317,6 +318,7 @@ namespace WhatsApp_One
 
             try
             {
+
                 // Caricare Files su Drive ...
                 // var service = AuthenticateOauth(@"credentials.json", "tatanka056");
 
@@ -378,12 +380,17 @@ namespace WhatsApp_One
             {
                 MessageBox.Show(ex.Message);
             }
+
+            SoundPlayer Send = new SoundPlayer("SOUND1.wav"); // Send Sound Effect
+
             Thread.Sleep(1000);
 
             tstsPrg.Value = 100;
 
             btnSendMessage.Enabled = true;
             txtSendMessage.Enabled = true;
+
+
         }
 
         private void WriteMessaggioFileDownload(string NomeFile, string Messaggio)
@@ -614,6 +621,8 @@ namespace WhatsApp_One
             {
                 MessageBox.Show(ex.ToString());
             }
+            
+            SoundPlayer Rcv = new SoundPlayer("SOUND2.wav"); // Recieve Sound Effect
 
             tstsPrg.Value = 100;
             tsslblMain.Text = "Messaggio ricevuto";
