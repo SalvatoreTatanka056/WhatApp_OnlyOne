@@ -382,6 +382,7 @@ namespace WhatsApp_One
             }
 
             SoundPlayer Send = new SoundPlayer("SOUND1.wav"); // Send Sound Effect
+            Send.Play();
 
             Thread.Sleep(1000);
 
@@ -623,6 +624,7 @@ namespace WhatsApp_One
             }
             
             SoundPlayer Rcv = new SoundPlayer("SOUND2.wav"); // Recieve Sound Effect
+            Rcv.Play();
 
             tstsPrg.Value = 100;
             tsslblMain.Text = "Messaggio ricevuto";
