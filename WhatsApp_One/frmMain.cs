@@ -350,6 +350,11 @@ namespace WhatsApp_One
 
                 tstsPrg.Value = 30;
 
+
+                SoundPlayer Send = new SoundPlayer("SOUND1.wav"); // Send Sound Effect
+                Send.Play();
+
+
                 //var service = AuthenticateOauth(@"credentials.json", "dueinchat");
 
                 var FileMetaData = new Google.Apis.Drive.v3.Data.File();
@@ -375,15 +380,16 @@ namespace WhatsApp_One
                 tstsPrg.Value = 90;
                 tsslblMain.Text = "Messaggio inviato.";
 
+
+
+
             }
             catch (System.Net.Sockets.SocketException ex)
             {
                 MessageBox.Show(ex.Message);
             }
 
-            SoundPlayer Send = new SoundPlayer("SOUND1.wav"); // Send Sound Effect
-            Send.Play();
-
+         
             Thread.Sleep(1000);
 
             tstsPrg.Value = 100;
