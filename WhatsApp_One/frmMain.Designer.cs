@@ -44,6 +44,7 @@
             this.btnConnect = new System.Windows.Forms.Button();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblSecondi = new System.Windows.Forms.Label();
             this.btnConferma = new System.Windows.Forms.Button();
             this.btnAnnulla = new System.Windows.Forms.Button();
@@ -58,7 +59,6 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tmrSecondiRegistrazione = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -69,8 +69,8 @@
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lstMain
@@ -103,8 +103,8 @@
             this.splitContainer1.Panel2.AutoScroll = true;
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Panel2.Margin = new System.Windows.Forms.Padding(10, 0, 0, 10);
-            this.splitContainer1.Size = new System.Drawing.Size(1507, 1045);
-            this.splitContainer1.SplitterDistance = 502;
+            this.splitContainer1.Size = new System.Drawing.Size(1607, 1045);
+            this.splitContainer1.SplitterDistance = 535;
             this.splitContainer1.TabIndex = 11;
             // 
             // statusStrip1
@@ -117,7 +117,7 @@
             this.toolStripStatusLabel2});
             this.statusStrip1.Location = new System.Drawing.Point(0, 102);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(485, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(518, 22);
             this.statusStrip1.TabIndex = 14;
             this.statusStrip1.Text = "stsMain";
             // 
@@ -169,7 +169,7 @@
             this.propertyGrid1.Location = new System.Drawing.Point(0, 124);
             this.propertyGrid1.Name = "propertyGrid1";
             this.propertyGrid1.SelectedObject = this.conversationCtrl1;
-            this.propertyGrid1.Size = new System.Drawing.Size(485, 1111);
+            this.propertyGrid1.Size = new System.Drawing.Size(518, 1111);
             this.propertyGrid1.TabIndex = 11;
             // 
             // conversationCtrl1
@@ -200,7 +200,7 @@
             this.conversationCtrl1.RemoteBalloonPadding = new System.Windows.Forms.Padding(20, 20, 10, 10);
             this.conversationCtrl1.RemoteCellPadding = new System.Windows.Forms.Padding(10);
             this.conversationCtrl1.RemoteText = "You";
-            this.conversationCtrl1.Size = new System.Drawing.Size(982, 769);
+            this.conversationCtrl1.Size = new System.Drawing.Size(1049, 769);
             this.conversationCtrl1.TabIndex = 10;
             // 
             // btnConnect
@@ -229,7 +229,7 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.panel1);
             this.splitContainer2.Panel2.Controls.Add(this.button1);
-            this.splitContainer2.Size = new System.Drawing.Size(1001, 1045);
+            this.splitContainer2.Size = new System.Drawing.Size(1068, 1045);
             this.splitContainer2.SplitterDistance = 858;
             this.splitContainer2.TabIndex = 9;
             // 
@@ -247,8 +247,20 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1001, 183);
+            this.panel1.Size = new System.Drawing.Size(1068, 183);
             this.panel1.TabIndex = 10;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(653, 66);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(415, 117);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 18;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Visible = false;
             // 
             // lblSecondi
             // 
@@ -326,7 +338,7 @@
             this.txtSendMessage.Multiline = true;
             this.txtSendMessage.Name = "txtSendMessage";
             this.txtSendMessage.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtSendMessage.Size = new System.Drawing.Size(1001, 66);
+            this.txtSendMessage.Size = new System.Drawing.Size(1068, 66);
             this.txtSendMessage.TabIndex = 11;
             this.txtSendMessage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSendMessage_KeyDown);
             // 
@@ -362,7 +374,7 @@
             this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1507, 58);
+            this.toolStrip1.Size = new System.Drawing.Size(1607, 58);
             this.toolStrip1.TabIndex = 12;
             this.toolStrip1.Text = "tlsMain";
             // 
@@ -391,21 +403,11 @@
             this.tmrSecondiRegistrazione.Interval = 1000;
             this.tmrSecondiRegistrazione.Tick += new System.EventHandler(this.tmrSecondiRegistrazione_Tick);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(494, 72);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(415, 84);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 18;
-            this.pictureBox1.TabStop = false;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1507, 1045);
+            this.ClientSize = new System.Drawing.Size(1607, 1045);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.lstMain);
@@ -429,9 +431,9 @@
             this.splitContainer2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
