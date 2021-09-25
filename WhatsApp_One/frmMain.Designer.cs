@@ -32,6 +32,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.lstMain = new System.Windows.Forms.ListBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtIdFolder = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tstsPrg = new System.Windows.Forms.ToolStripProgressBar();
             this.tsslblMain = new System.Windows.Forms.ToolStripStatusLabel();
@@ -44,6 +47,7 @@
             this.btnConnect = new System.Windows.Forms.Button();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnPosizione = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblSecondi = new System.Windows.Forms.Label();
             this.btnConferma = new System.Windows.Forms.Button();
@@ -59,6 +63,9 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tmrSecondiRegistrazione = new System.Windows.Forms.Timer(this.components);
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -71,6 +78,7 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lstMain
@@ -91,6 +99,9 @@
             // 
             this.splitContainer1.Panel1.AutoScroll = true;
             this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.splitContainer1.Panel1.Controls.Add(this.label1);
+            this.splitContainer1.Panel1.Controls.Add(this.txtIdFolder);
+            this.splitContainer1.Panel1.Controls.Add(this.button2);
             this.splitContainer1.Panel1.Controls.Add(this.statusStrip1);
             this.splitContainer1.Panel1.Controls.Add(this.lblMain);
             this.splitContainer1.Panel1.Controls.Add(this.txtUserName);
@@ -107,6 +118,37 @@
             this.splitContainer1.SplitterDistance = 535;
             this.splitContainer1.TabIndex = 11;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(8, 157);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(132, 21);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Id Interlocutore";
+            // 
+            // txtIdFolder
+            // 
+            this.txtIdFolder.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdFolder.Location = new System.Drawing.Point(146, 131);
+            this.txtIdFolder.Multiline = true;
+            this.txtIdFolder.Name = "txtIdFolder";
+            this.txtIdFolder.Size = new System.Drawing.Size(346, 47);
+            this.txtIdFolder.TabIndex = 16;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button2.Location = new System.Drawing.Point(146, 183);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(148, 29);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "Unisci";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.BackColor = System.Drawing.Color.White;
@@ -115,7 +157,7 @@
             this.tsslblMain,
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel2});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 102);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 212);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(518, 22);
             this.statusStrip1.TabIndex = 14;
@@ -147,7 +189,7 @@
             // 
             this.lblMain.AutoSize = true;
             this.lblMain.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMain.Location = new System.Drawing.Point(8, 74);
+            this.lblMain.Location = new System.Drawing.Point(8, 101);
             this.lblMain.Name = "lblMain";
             this.lblMain.Size = new System.Drawing.Size(89, 21);
             this.lblMain.TabIndex = 13;
@@ -156,7 +198,7 @@
             // txtUserName
             // 
             this.txtUserName.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserName.Location = new System.Drawing.Point(103, 70);
+            this.txtUserName.Location = new System.Drawing.Point(146, 93);
             this.txtUserName.Multiline = true;
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(192, 32);
@@ -166,7 +208,7 @@
             // propertyGrid1
             // 
             this.propertyGrid1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.propertyGrid1.Location = new System.Drawing.Point(0, 124);
+            this.propertyGrid1.Location = new System.Drawing.Point(0, 234);
             this.propertyGrid1.Name = "propertyGrid1";
             this.propertyGrid1.SelectedObject = this.conversationCtrl1;
             this.propertyGrid1.Size = new System.Drawing.Size(518, 1111);
@@ -207,7 +249,7 @@
             // 
             this.btnConnect.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnConnect.Image = global::WhatsApp_One.Properties.Resources.CCC;
-            this.btnConnect.Location = new System.Drawing.Point(323, 70);
+            this.btnConnect.Location = new System.Drawing.Point(344, 93);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(148, 32);
             this.btnConnect.TabIndex = 2;
@@ -235,6 +277,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnPosizione);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.lblSecondi);
             this.panel1.Controls.Add(this.btnConferma);
@@ -249,6 +292,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1068, 183);
             this.panel1.TabIndex = 10;
+            // 
+            // btnPosizione
+            // 
+            this.btnPosizione.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnPosizione.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPosizione.Image = global::WhatsApp_One.Properties.Resources.ic_send_Message;
+            this.btnPosizione.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPosizione.Location = new System.Drawing.Point(0, 125);
+            this.btnPosizione.Name = "btnPosizione";
+            this.btnPosizione.Size = new System.Drawing.Size(46, 47);
+            this.btnPosizione.TabIndex = 19;
+            this.btnPosizione.UseVisualStyleBackColor = true;
+            this.btnPosizione.Click += new System.EventHandler(this.btnPosizione_Click);
             // 
             // pictureBox1
             // 
@@ -372,7 +428,7 @@
             this.toolStrip1.BackColor = System.Drawing.Color.Black;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1607, 58);
             this.toolStrip1.TabIndex = 12;
@@ -403,15 +459,41 @@
             this.tmrSecondiRegistrazione.Interval = 1000;
             this.tmrSecondiRegistrazione.Tick += new System.EventHandler(this.tmrSecondiRegistrazione_Tick);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1607, 24);
+            this.menuStrip1.TabIndex = 13;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(76, 20);
+            this.toolStripMenuItem1.Text = "&Command";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
+            this.exitToolStripMenuItem.Text = "&Exit";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1607, 1045);
             this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.lstMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMain";
             this.Opacity = 0.95D;
             this.Text = "tate-a-tate ( Chat Apps ).";
@@ -434,6 +516,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -469,6 +553,13 @@
         private System.Windows.Forms.Button btnAnnulla;
         private System.Windows.Forms.Timer tmrSecondiRegistrazione;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnPosizione;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtIdFolder;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }
 }
 

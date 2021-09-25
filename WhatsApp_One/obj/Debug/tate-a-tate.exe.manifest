@@ -163,14 +163,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="tate-a-tate.exe" size="887808">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="tate-a-tate.exe" size="897536">
       <assemblyIdentity name="tate-a-tate" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>yCxzuEwUo3gOk9Uzc37ccJsZUaKpfgBPq4+l0mmQO4w=</dsig:DigestValue>
+        <dsig:DigestValue>UiG9VolKaBQLge0/btuBaUoWiSd5Y7Vh3hgd3Kxw/Nc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -182,7 +182,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>vm+D8KRkOtYDH3qyGVsa0o1LrPVgm1LBpt1xaL2PN7Y=</dsig:DigestValue>
+        <dsig:DigestValue>1Hx9cqu/rq486NT3fsKdxcB1asXcKxszmVyWjzq0HmM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
