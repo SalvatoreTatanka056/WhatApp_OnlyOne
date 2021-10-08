@@ -36,3 +36,4 @@ C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\ob
 C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\obj\Debug\tate-a-tate.exe
 C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\obj\Debug\tate-a-tate.pdb
 C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\obj\Debug\tate-a-tate.csprojAssemblyReference.cache
+C:\Users\salvatore.romano\OneDrive\Documenti\src\c#\WhatsApp_One\WhatsApp_One\bin\Debug\Warecast.ControlsSuite.pdb

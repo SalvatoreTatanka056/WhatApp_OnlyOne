@@ -983,11 +983,10 @@ namespace WhatsApp_One
             HostName = Dns.GetHostName();
             service = AuthenticateOauth(@"credentials.json", "dueinchat");
 
-            FolderConnectId= CreateFolder("CONNECT_CHAR", service);
-            FolderId = CreateFolder("CHAT", service);
+            FolderConnectId= CreateFolder(string.Format("CONNECT_CHAT_{0}_",DateTime.Now.ToString()), service);
+            FolderId = CreateFolder(string.Format("CHAT_{0}_", DateTime.Now.ToString()), service);
 
-
-            txtIdFolder.Text = FolderConnectId + " " + FolderId;  
+            txtIdFolder.Text = "connect "+ FolderConnectId + " " + FolderId;  
             //btnConnect.Enabled = true;
 
             // creare la stanza per comunicare con un amico
@@ -1026,8 +1025,8 @@ namespace WhatsApp_One
         {
             string[] IdFolders = txtIdFolder.Text.Split(' ');
 
-            FolderConnectId = IdFolders[0];
-            FolderId = IdFolders[1]; ;
+            FolderConnectId = IdFolders[1];
+            FolderId = IdFolders[2]; ;
 
             btnConnect.Enabled = true;
             
